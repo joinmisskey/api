@@ -9,7 +9,7 @@ const { createHash } = require("crypto")
 const mkdirp = require('mkdirp')
 const Queue = require('promise-queue');
 
-const queue = new Queue(1)
+const queue = new Queue(32)
 
 const getInstancesInfos = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
@@ -51,20 +51,22 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	}
 
 	glog(`Getting new image: ${url}`)
-	return fetch(url, { encoding: null }).then(request => queue.add(async () => {
+	return queue.add(() => fetch(url, { encoding: null }).then(async request => {
 		if (!request.ok) {
 			glog.error(url, await request.text())
 			return false
 		}
 
-		const data = request.buffer()
-		let { ext } = await fileType.fromBuffer(data)
+		const data = await request.buffer()
+		if (!data) return;
+		let { ext, mime } = await fileType.fromBuffer(data)
+		if (!mime.startsWith('image')) return false;
 		await writeFile(`${tempDir}${name}.${ext}`, data)
 		return { name, ext, status: "created" }
-	})).catch(reason => {
+	}).catch(reason => {
 		glog(`Cannot get the image: ${name}`, reason)
 		return false
-	})
+	}))
 }
 
 getInstancesInfos()
@@ -89,7 +91,7 @@ getInstancesInfos()
 
 		await Promise.all(
 			results.filter(v => v && v.status !== "unchanged")
-				.map(async v => {
+				.map(queue.add(async v => {
 					const base = await (async () => {
 						try {
 							return await sharp(`./temp/instance-banners/${v.name}.${v.ext}`)
@@ -101,14 +103,14 @@ getInstancesInfos()
 							glog.error(e)
 							return;
 						}
-					})
+					})()
 					if (!base) return;
 					await base.jpeg({ quality: 80, progressive: true })
 						.toFile(`./dist/instance-banners/${v.name}.jpeg`)
 					await base.webp({ quality: 75 })
 						.toFile(`./dist/instance-banners/${v.name}.webp`)
 					return;
-				})
+				}))
 		)
 
 		console.log('FINISHED!')
