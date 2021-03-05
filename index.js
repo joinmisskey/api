@@ -7,6 +7,9 @@ const glog = require("fancy-log")
 const sharp = require("sharp")
 const { createHash } = require("crypto")
 const mkdirp = require('mkdirp')
+const Queue = require('promise-queue');
+
+const queue = new Queue(1)
 
 const getInstancesInfos = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
@@ -48,7 +51,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	}
 
 	glog(`Getting new image: ${url}`)
-	return fetch(url, { encoding: null }).then(async request => {
+	return fetch(url, { encoding: null }).then(request => queue.add(async () => {
 		if (!request.ok) {
 			glog.error(url, await request.text())
 			return false
@@ -58,7 +61,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		let { ext } = await fileType.fromBuffer(data)
 		await writeFile(`${tempDir}${name}.${ext}`, data)
 		return { name, ext, status: "created" }
-	}).catch(reason => {
+	})).catch(reason => {
 		glog(`Cannot get the image: ${name}`, reason)
 		return false
 	})
