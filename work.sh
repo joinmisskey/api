@@ -1,4 +1,4 @@
 git pull
 npx yarn install
-mkdir dist
+mkdir -p dist
 node index
