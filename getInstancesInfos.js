@@ -40,13 +40,13 @@ async function postJson(url, json) {
 			"Content-Type": "application/json",
 			"User-Agent": "LuckyBeast"
 		},
-		redirect: "error" 
+		redirect: "error"
 	} : {
 			headers: {
 				"Content-Type": "application/json",
 				"User-Agent": "LuckyBeast"
 			},
-			redirect: "error" 
+			redirect: "error"
 		}))
 		.then(res => (!res ? false : res.json()))
 		.catch(e => {

@@ -58,5 +58,5 @@ module.exports = async () => {
 		!mylist.some(x => x.url === e.host)
 	))
 
-    return notIncluded
+	return notIncluded
 }
