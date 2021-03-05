@@ -66,7 +66,17 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 
 getInstancesInfos()
 	.then(async instancesInfos => {
-		fs.writeFile('./dist/instances.json', JSON.stringify(instancesInfos), () => { })
+		const stats = instancesInfos.reduce((prev, v) => {
+			if (!v.isAlive) return prev
+		
+			return {
+			  notesCount: v.stats.originalNotesCount + prev.notesCount,
+			  usersCount: v.stats.originalUsersCount + prev.usersCount,
+			  instancesCount: 1 + prev.instancesCount
+			}
+		  }, { notesCount: 0, usersCount: 0, instancesCount: 0 })
+
+		fs.writeFile('./dist/instances.json', JSON.stringify({ stats, instancesInfos }), () => { })
 
 		const results = await Promise.all(instancesInfos
 			.filter(instance => instance.isAlive && instance.meta.bannerUrl)

@@ -153,7 +153,7 @@ module.exports = async function getInstancesInfos(keys) {
 			// (基準値に影響があるかないか程度に色々な値を考慮する)
 			if (AUChart) {
 				// 2.
-				const arr = AUChart.local.count.filter(e => e !== 0)
+				const arr = AUChart.local.count.filter(e => e !== 0).slice(-3)
 				// eslint-disable-next-line no-mixed-operators
 				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 10
 			}

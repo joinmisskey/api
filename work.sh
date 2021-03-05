@@ -1,4 +1,4 @@
 git pull
-npx yarn gulp
+npx yarn install
 mkdir dist
 node index
