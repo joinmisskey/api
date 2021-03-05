@@ -81,7 +81,11 @@ getInstancesInfos()
 			}
 		  }, { notesCount: 0, usersCount: 0, instancesCount: 0 })
 
-		fs.writeFile('./dist/instances.json', JSON.stringify({ stats, instancesInfos }), () => { })
+		fs.writeFile('./dist/instances.json', JSON.stringify({
+			date: new Date(),
+			stats,
+			instancesInfos
+		}), () => { })
 
 		const results = await Promise.all(instancesInfos
 			.filter(instance => instance.isAlive && instance.meta.bannerUrl)
