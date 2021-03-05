@@ -91,7 +91,7 @@ getInstancesInfos()
 
 		await Promise.all(
 			results.filter(v => v && v.status !== "unchanged")
-				.map(queue.add(async v => {
+				.map(v => queue.add(async () => {
 					const base = await (async () => {
 						try {
 							return await sharp(`./temp/instance-banners/${v.name}.${v.ext}`)
