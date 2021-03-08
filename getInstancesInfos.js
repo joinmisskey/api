@@ -9,31 +9,18 @@ const Queue = require('promise-queue');
 
 const instances = loadyaml("./data/instances.yml")
 
-const pqueue = new Queue(16)
-
-const execarr = [];
+const pqueue = new Queue(64)
 
 function safePost(url, options) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
-		() => {
-			execarr.push([null, url])
-			controller.abort()
-		},
+		() => { controller.abort() },
 		80000
 	)
-	const start = new Date()
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
 		res => {
 			// glog("POST finish", url)
-			if (res && res.status === 200) {
-				const end = new Date() - start
-				if (end >= 1000) {
-					console.info(`${end}ms ${url}`,)
-					execarr.push([end, url])
-				}
-			}
 			if (res && res.status === 200) return res
 			return false
 		},
@@ -185,8 +172,6 @@ module.exports = async function getInstancesInfos(keys) {
 	  }*/
 	}
 	glog("Got Instances' Infos")
-
-	fs.writeFile('exectime.json', JSON.stringify(execarr), () => {})
 
 	return instancesInfos.sort((a, b) => {
 		if (!a.isAlive && b.isAlive) return 1
