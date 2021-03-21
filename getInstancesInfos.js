@@ -21,7 +21,7 @@ function safePost(url, options) {
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
 		res => {
 			// glog("POST finish", url)
-			if (res && res.status === 200) return res
+			if (res.ok && res) return res
 			return false
 		},
 		e => {
@@ -141,7 +141,7 @@ module.exports = async function getInstancesInfos(keys) {
 		const meta = metas[i] || false
 		const stat = stats[i] || false
 		const AUChart = AUCharts[i] || false
-		if (meta && stat && AUChart) {
+		if (meta && stat && AUChart && Array.isArray(AUChart)) {
 			delete meta.emojis
 
 			/*   インスタンスバリューの算出   */
