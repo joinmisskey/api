@@ -141,6 +141,7 @@ module.exports = async function getInstancesInfos(keys) {
 		const meta = metas[i] || false
 		const stat = stats[i] || false
 		const AUChart = AUCharts[i] || false
+		if(instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com', meta, stat, AUChart);
 		if (meta && stat && AUChart && Array.isArray(AUChart.local?.count)) {
 			delete meta.emojis
 
