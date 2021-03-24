@@ -122,7 +122,7 @@ getInstancesInfos()
 	})
 	.then(async () => {
 		const notIncluded = await instanceq()
-		if (!notIncluded.length === 0) return;
+		if (notIncluded.length === 0) return;
 		return fetch("https://c2.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
