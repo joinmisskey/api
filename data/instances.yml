@@ -409,6 +409,24 @@
   langs: ['ja']
 - url: sushi.ski
   langs: ['ja']
+- url: mi.potofu.moe
+  langs: ['ja']
+- url: misskey.fig.lt
+  langs: ['ja']
+- url: usokkey.club
+  langs: ['ja']
+- url: misskey.ryuchan.dev
+  langs: ['ja']
+- url: misskey.spartanserver.org
+  langs: ['ja']
+- url: missing.coord-e.dev
+  langs: ['ja']
+- url: ms.osanhost.mydns.jp
+  langs: ['ja']
+- url: msk.seppuku.club
+  langs: ['ja']
+- url: mk.toyoko.in
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -606,6 +624,12 @@
   langs: ['en']
 - url: gitmo.life
   langs: ['en']
+- url: misskey.lol
+  langs: ['en']
+- url: bungle.online
+  langs: ['en']
+- url: degenerates.fail
+  langs: ['en']
 #
 ##
 #########################################
@@ -696,6 +720,20 @@
   langs: ['zh', 'en']
 - url: misskey.addesp.com
   langs: ['zh', 'en']
+- url: atolla.xyz
+  langs: ['zh', 'en']
+- url: misskey.fun
+  langs: ['zh', 'en']
+- url: fet.bar
+  langs: ['zh', 'en']
+- url: neko.ci
+  langs: ['zh', 'en']
+- url: misskey.im
+  langs: ['zh', 'en']
+- url: sn.koi.moe
+  langs: ['zh', 'en']
+- url: koi.moe
+  langs: ['zh', 'en']
 #
 ##
 #########################################
@@ -718,6 +756,10 @@
   langs: ['ru', 'en']
 - url: lagemeet.duckdns.org
   langs: ['ru', 'en']
+- url: misskey.kasma.cyou
+  langs: ['ru', 'en']
+- url: misskey.cats-home.net
+  langs: ['ru', 'en']
 #
 ##
 #########################################
@@ -732,6 +774,8 @@
 - url: fabis.cafe
   langs: ['de', 'en']
 - url: misskey.bocc.de
+  langs: ['de', 'en']
+- url: social.timmorgner.de
   langs: ['de', 'en']
 #
 ##
