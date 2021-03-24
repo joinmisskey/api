@@ -141,7 +141,7 @@ module.exports = async function getInstancesInfos(keys) {
 		const meta = metas[i] || false
 		const stat = stats[i] || false
 		const AUChart = AUCharts[i] || false
-		if (meta && stat && AUChart) {
+		if (meta && stat && AUChart && Array.isArray(AUChart.local?.count)) {
 			delete meta.emojis
 
 			/*   インスタンスバリューの算出   */
