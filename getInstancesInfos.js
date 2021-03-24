@@ -9,7 +9,7 @@ const Queue = require('promise-queue');
 
 const instances = loadyaml("./data/instances.yml")
 
-const pqueue = new Queue(64)
+const pqueue = new Queue(32)
 
 function safePost(url, options) {
 	const controller = new AbortController()
