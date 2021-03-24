@@ -141,9 +141,11 @@ module.exports = async function getInstancesInfos(keys) {
 		const meta = metas[i] || false
 		const stat = stats[i] || false
 		const AUChart = AUCharts[i] || false
-		if(instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com', meta, stat, AUChart);
+		if (instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com', meta, stat, AUChart);
 		if (meta && stat && AUChart && Array.isArray(AUChart.local?.count)) {
-			delete meta.emojis
+			if (instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com ok')
+			delete meta.emojis;
+			delete meta.announcements;
 
 			/*   インスタンスバリューの算出   */
 			let value = 0
@@ -158,8 +160,6 @@ module.exports = async function getInstancesInfos(keys) {
 				// eslint-disable-next-line no-mixed-operators
 				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 10
 			}
-
-			delete meta.announcements;
 
 			instancesInfos.push(extend(true, instance, {
 				value,
