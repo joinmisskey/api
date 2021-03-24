@@ -107,7 +107,7 @@ module.exports = async function getInstancesInfos(keys) {
 
 	const metasPromises = []
 	const statsPromises = []
-	const AUChartsPromises = []
+	const NoteChartsPromises = []
 	const instancesInfos = []
 
 	const versions = await getVersions(keys)
@@ -117,7 +117,7 @@ module.exports = async function getInstancesInfos(keys) {
 		const instance = instances[t]
 		metasPromises.push(postJson(`https://${instance.url}/api/meta`))
 		statsPromises.push(postJson(`https://${instance.url}/api/stats`))
-		AUChartsPromises.push(postJson(`https://${instance.url}/api/charts/active-users`, { span: "day" }))
+		NoteChartsPromises.push(postJson(`https://${instance.url}/api/charts/notes`, { span: "day" }))
 	}
 
 	const interval = setInterval(() => {
@@ -127,11 +127,11 @@ module.exports = async function getInstancesInfos(keys) {
 	const [
 		metas,
 		stats,
-		AUCharts
+		NoteCharts,
 	] = await Promise.all([
 		Promise.all(metasPromises),
 		Promise.all(statsPromises),
-		Promise.all(AUChartsPromises)
+		Promise.all(NoteChartsPromises)
 	])
 
 	clearInterval(interval)
@@ -140,10 +140,8 @@ module.exports = async function getInstancesInfos(keys) {
 		const instance = instances[i]
 		const meta = metas[i] || false
 		const stat = stats[i] || false
-		const AUChart = AUCharts[i] || false
-		if (instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com', AUChart, AUChart.local, AUChart.local.count, Array.isArray(AUChart.local?.count));
-		if (meta && stat && AUChart && Array.isArray(AUChart.local?.count)) {
-			if (instance.url === 'misskey.xn--krsgw--n73t.com') console.log('misskey.xn--krsgw--n73t.com ok')
+		const NoteChart = NoteCharts[i] || false
+		if (meta && stat && NoteChart) {
 			delete meta.emojis;
 			delete meta.announcements;
 
@@ -154,11 +152,11 @@ module.exports = async function getInstancesInfos(keys) {
 			value += 100000 - v * 7200
 
 			// (基準値に影響があるかないか程度に色々な値を考慮する)
-			if (AUChart) {
+			if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
 				// 2.
-				const arr = AUChart.local.count.filter(e => e !== 0).slice(-3)
+				const arr = NoteChart.local?.inc.filter(e => e !== 0).slice(-3)
 				// eslint-disable-next-line no-mixed-operators
-				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 10
+				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 100
 			}
 
 			instancesInfos.push(extend(true, instance, {
