@@ -215,6 +215,14 @@
   langs: ['ja']
 - url: milkey.homes
   langs: ['ja']
+- url: social.namachan10777.dev
+  langs: ['ja']
+- url: sunisky.club
+  langs: ['ja']
+- url: fumisskey.com
+  langs: ['ja']
+- url: misskey.estwald.icu
+  langs: ['ja']
 #
 ##
 #########################################
@@ -273,6 +281,12 @@
 - url: bungle.online
   langs: ['en']
 - url: degenerates.fail
+  langs: ['en']
+- url: www.bigguys.club
+  langs: ['en']
+- url: mkiii.amplifie.red
+  langs: ['en']
+- url: misskey.blossoming.dev
   langs: ['en']
 #
 ##
