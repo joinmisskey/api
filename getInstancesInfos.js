@@ -56,15 +56,19 @@ async function postJson(url, json) {
 	)
 }
 
+const ghRepos = ["mei23/misskey", "syuilo/misskey"];
+
+module.exports.ghRepos = ghRepos;
+
 async function getVersions() {
 	glog("Getting Misskey Versions")
-	const ghRepos = ["mei23/misskey", "Groundpolis/Groundpolis", "346design/twista.283.cloud", "syuilo/misskey"]
-	const maxRegExp = /<https:\/\/.*?>; rel="next", <https:\/\/.*?\?page=(\d+)>; rel="last"/
-	const versions = {}
+	const maxRegExp = /<https:\/\/.*?>; rel="next", <https:\/\/.*?\?page=(\d+)>; rel="last"/;
+	const versions = new Map();
+	const versionOutput = {};
 	const headers = {
 		"User-Agent": "LuckyBeast",
 		Authorization: `bearer ${process.env.LB_TOKEN}`
-	}
+	};
 
 	const vqueue = new Queue(3)
 
@@ -78,6 +82,7 @@ async function getVersions() {
 			: Array(max - 1).fill()
 				.map((v, i) => `https://api.github.com/repos/${repo}/releases?page=${i + 2}`)
 				.map(url => vqueue.add(() => fetch(url, { headers }))))]
+
 			.map((resa, i) => resa.then(
 				res => res.json(),
 				e => {
@@ -87,30 +92,37 @@ async function getVersions() {
 			).then(
 				json => json.map((release, j) => {
 					// glog("Misskey Version", release.tag_name)
-					versions[semver.clean(release.tag_name, { loose: true })] = (i - 1) * 30 + j
+					versions.set(semver.clean(release.tag_name, { loose: true }), {
+						repo,
+						count: (i - 1) * 30 + j,
+					})
 					return release.tag_name
 				}),
 				e => {
 					glog(repo, "Error(json)", e)
 					Promise.resolve([])
 				}
-			).catch(e => { throw Error(e) })))).flat(1)
+			).catch(e => { throw Error(e) })
+			
+			))).flat(1)
+
+		versionOutput[repo] = resp;
 		glog(repo, "Finish", resp.length)
 	}
 
 	glog("Got Misskey Versions")
-	return versions
+	return { versions, versionOutput }
 }
 
-module.exports = async function getInstancesInfos(keys) {
+module.exports.getInstancesInfos = async function() {
 	glog("Getting Instances' Infos")
 
 	const metasPromises = []
 	const statsPromises = []
 	const NoteChartsPromises = []
-	const instancesInfos = []
+	const alives = [], deads = []
 
-	const versions = await getVersions(keys)
+	const { versions, versionOutput } = await getVersions()
 
 	// eslint-disable-next-line no-restricted-syntax
 	for (let t = 0; t < instances.length; t += 1) {
@@ -145,10 +157,12 @@ module.exports = async function getInstancesInfos(keys) {
 			delete meta.emojis;
 			delete meta.announcements;
 
+			const versionInfo = versions.get(semver.clean(meta.version, { loose: true })) || versions.get(semver.valid(semver.coerce(meta.version)));
+
 			/*   インスタンスバリューの算出   */
 			let value = 0
 			// 1. バージョンのリリース順をもとに並び替え
-			const v = versions[semver.clean(meta.version, { loose: true })] || versions[semver.valid(semver.coerce(meta.version))] || 999
+			const v = versionInfo ? versionInfo.count : 999
 			value += 100000 - v * 7200
 
 			// (基準値に影響があるかないか程度に色々な値を考慮する)
@@ -159,23 +173,24 @@ module.exports = async function getInstancesInfos(keys) {
 				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 100
 			}
 
-			instancesInfos.push(extend(true, instance, {
+			alives.push(extend(true, instance, {
 				value,
 				meta,
 				stats: stat,
 				description: meta.description ? meta.description : (instance.description || null),
-				isAlive: true
+				isAlive: true,
+				repo: versionInfo?.repo
 			}))
-		}/* else {
-		instancesInfos.push(extend(true, { isAlive: false, value: 0 }, instance))
-	  }*/
+		} else {
+		deads.push(extend(true, { isAlive: false, value: 0 }, instance))
+	  }
 	}
 	glog("Got Instances' Infos")
 
-	return instancesInfos.sort((a, b) => {
-		if (!a.isAlive && b.isAlive) return 1
-		if (a.isAlive && !b.isAlive) return -1
-		if (a.isAlive && b.isAlive) return (b.value || 0) - (a.value || 0)
-		return (b.url > a.url ? -1 : 1)
-	})
+	return {
+		alives: alives.sort((a, b) => (b.value || 0) - (a.value || 0)),
+		deads,
+		versions,
+		versionOutput,
+	}
 }

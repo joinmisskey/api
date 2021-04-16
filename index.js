@@ -11,7 +11,7 @@ const Queue = require('promise-queue');
 
 const queue = new Queue(32)
 
-const getInstancesInfos = require('./getInstancesInfos')
+const { getInstancesInfos, ghRepos } = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
 
 const readFile = promisify(fs.readFile)
@@ -70,25 +70,27 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 }
 
 getInstancesInfos()
-	.then(async instancesInfos => {
-		const stats = instancesInfos.reduce((prev, v) => {
-			if (!v.isAlive) return prev
-		
-			return {
+	.then(async ({alives, deads, versions, versionOutput}) => {
+
+		fs.writeFile('./dist/versions.json', JSON.stringify(versionOutput), () => { })
+
+		const stats = alives.reduce((prev, v) => ({
 			  notesCount: v.stats.originalNotesCount + prev.notesCount,
 			  usersCount: v.stats.originalUsersCount + prev.usersCount,
 			  instancesCount: 1 + prev.instancesCount
-			}
-		  }, { notesCount: 0, usersCount: 0, instancesCount: 0 })
+		  }), { notesCount: 0, usersCount: 0, instancesCount: 0 })
 
 		fs.writeFile('./dist/instances.json', JSON.stringify({
 			date: new Date(),
 			stats,
-			instancesInfos
+			instancesInfos: alives
 		}), () => { })
 
-		const results = await Promise.all(instancesInfos
-			.filter(instance => instance.isAlive && instance.meta.bannerUrl)
+		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
+		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
+
+		const results = await Promise.all(alives
+			.filter(instance => instance.meta.bannerUrl)
 			.map(instance => downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)))
 
 		await mkdirp('./dist/instance-banners')
@@ -120,14 +122,25 @@ getInstancesInfos()
 		console.log('FINISHED!')
 		return;
 	})
+
 	.then(async () => {
 		const notIncluded = await instanceq()
-		if (notIncluded.length === 0) return;
+		if (notIncluded.length === 0) return fetch("https://c2.a9z.dev/api/notes/create", {
+			method: "POST",
+			body: JSON.stringify({
+				i: process.env.MK_TOKEN,
+				text: `JoinMisskey instance api is now updated and no unlisted instances are found.\nhttps://join.misskey.page/\n#bot`
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		});
+
 		return fetch("https://c2.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `@aqz UNLISTED INSTANCE(S) FOUND!\n\n${notIncluded.map(e => e.host).join('\n')}`
+				text: `JoinMisskey instance api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.map(e => e.host).join('\n')}\n#bot`
 			}),
 			headers: {
 				"Content-Type": "application/json"
