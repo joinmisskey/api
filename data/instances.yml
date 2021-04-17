@@ -223,6 +223,8 @@
   langs: ['ja']
 - url: misskey.estwald.icu
   langs: ['ja']
+- url: co.misskey.io
+  langs: ['ja']
 #
 ##
 #########################################
