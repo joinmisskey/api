@@ -225,6 +225,12 @@
   langs: ['ja']
 - url: co.misskey.io
   langs: ['ja']
+- url: tanoshii.site
+  langs: ['ja']
+- url: onsen-musume.fun
+  langs: ['ja']
+- url: miss-myhouse-key.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -289,6 +295,14 @@
 - url: mkiii.amplifie.red
   langs: ['en']
 - url: misskey.blossoming.dev
+  langs: ['en']
+- url: mulmeyun.church
+  langs: ['en']
+- url: mk.himbeer.me
+  langs: ['en']
+- url: mk.roobre.es
+  langs: ['en']
+- url: schizo.online
   langs: ['en']
 #
 ##
@@ -392,4 +406,6 @@
 ##
 #
 - url: nya.fai.su
-  langs: ['es', en]
+  langs: ['es', 'en']
+- url: mk.roobre.es
+  langs: ['es', 'en']
