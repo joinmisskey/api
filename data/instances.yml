@@ -231,6 +231,10 @@
   langs: ['ja']
 - url: miss-myhouse-key.net
   langs: ['ja']
+- url: misskey.cybernetworks.tk
+  langs: ['ja']
+- url: noize.guru
+  langs: ['ja']
 #
 ##
 #########################################
@@ -304,6 +308,10 @@
   langs: ['en']
 - url: schizo.online
   langs: ['en']
+- url: egirls.gay
+  langs: ['en']
+- url: birb.space
+  langs: ['en']
 #
 ##
 #########################################
@@ -318,6 +326,8 @@
 - url: misskey.fr
   langs: ['fr']
 - url: microblog.richard-dern.fr
+  langs: ['fr']
+- url: misskey.travelpandas.eu
   langs: ['fr']
 #
 ##
