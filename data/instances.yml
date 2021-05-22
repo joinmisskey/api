@@ -235,6 +235,12 @@
   langs: ['ja']
 - url: noize.guru
   langs: ['ja']
+- url: misskey.magokorobin.com
+  langs: ['ja']
+- url: m.kirishima.cloud
+  langs: ['ja']
+- url: umaskey.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -312,6 +318,8 @@
   langs: ['en']
 - url: birb.space
   langs: ['en']
+- url: misskey.amoonrabbit.reisen
+  langs: ['en']
 #
 ##
 #########################################
@@ -328,6 +336,8 @@
 - url: microblog.richard-dern.fr
   langs: ['fr']
 - url: misskey.travelpandas.eu
+  langs: ['fr']
+- url: misskey.nicolastissot.fr
   langs: ['fr']
 #
 ##
