@@ -8,6 +8,7 @@ const sharp = require("sharp")
 const { createHash } = require("crypto")
 const mkdirp = require('mkdirp')
 const Queue = require('promise-queue');
+const AbortController = require("abort-controller").default
 
 const queue = new Queue(32)
 
@@ -28,7 +29,13 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	const files = glob.sync(`${tempDir}${name}.*`)
 	if (files.length > 0) {
 		// glog("Getting image: " + url)
-		const request = await fetch(url, { encoding: null }).catch(() => false)
+		const controller = new AbortController()
+		const timeout = setTimeout(
+			() => { controller.abort() },
+			80000
+		)
+		const request = await fetch(url, { encoding: null, signal: controller.signal }).catch(() => false)
+		clearTimeout(timeout)
 		if (!request) {
 			console.error(url, 'request fail!')
 			return false
@@ -51,7 +58,13 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	}
 
 	glog(`Getting new image: ${url}`)
-	return queue.add(() => fetch(url, { encoding: null }).then(async request => {
+	const controller = new AbortController()
+	const timeout = setTimeout(
+		() => { controller.abort() },
+		80000
+	)
+	return queue.add(() => fetch(url, { encoding: null, signal: controller.signal }).then(async request => {
+		clearTimeout(timeout)
 		if (!request.ok) {
 			glog.error(url, await request.text())
 			return false
@@ -64,6 +77,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		await writeFile(`${tempDir}${name}.${ext}`, data)
 		return { name, ext, status: "created" }
 	}).catch(reason => {
+		clearTimeout(timeout)
 		glog(`Cannot get the image: ${name}`, reason)
 		return false
 	}))
