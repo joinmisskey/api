@@ -1,6 +1,12 @@
 # api
 joinmisskey instances' information api
 
+## Environment
+2つの環境変数を設定してください。
+
+- `LB_TOKEN`: GitHubのトークン（GitHub情報取得用）
+- `MK_TOKEN`: Misskeyのトークン（Misskey投稿用）
+
 ## Endpoints
 ### /instances.json
 インスタンス情報一覧のjsonです。
