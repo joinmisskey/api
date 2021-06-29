@@ -92,6 +92,7 @@ getInstancesInfos()
 		const results = await Promise.all(alives
 			.filter(instance => instance.meta.bannerUrl)
 			.map(instance => downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)))
+			.catch(() => console.log('fail'))
 
 		await mkdirp('./dist/instance-banners')
 

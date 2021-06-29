@@ -36,3 +36,12 @@ joinmisskey instances' information api
 
 ### /instance-banners/instance.host.{jpeg|webp}
 軽量化されたインスタンスのバナーが格納されています。
+
+### /alives.txt
+疎通できたインスタンスのホストのリスト（\n区切り）
+
+### /alives.txt
+疎通不能だったインスタンスのホストのリスト（\n区切り）
+
+### versions.json
+GitHubから取得した各リポジトリのバージョンリスト
