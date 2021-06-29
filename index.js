@@ -126,7 +126,7 @@ getInstancesInfos()
 
 	.then(async () => {
 		const notIncluded = await instanceq()
-		if (notIncluded.length === 0) return fetch("https://c2.a9z.dev/api/notes/create", {
+		if (notIncluded.length === 0) return fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
@@ -137,7 +137,7 @@ getInstancesInfos()
 			}
 		});
 
-		return fetch("https://c2.a9z.dev/api/notes/create", {
+		return fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
