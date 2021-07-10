@@ -243,6 +243,18 @@
   langs: ['ja']
 - url: misskey.ruste.red
   langs: ['ja']
+- url: the-box.work
+  langs: ['ja']
+- url: mineskey.ml
+  langs: ['ja']
+- url: ar.akarinext.org
+  langs: ['ja']
+- url: armisskey.nemonet.xyz
+  langs: ['ja']
+- url: p1.a9z.dev
+  langs: ['ja']
+- url: mky.aqualitore-lily.com
+  langs: ['ja']  
 #
 ##
 #########################################
@@ -320,6 +332,16 @@
   langs: ['en']
 - url: misskey.amoonrabbit.reisen
   langs: ['en']
+- url: social.jsts.xyz
+  langs: ['en']
+- url: hallsofamenti.io
+  langs: ['en']
+- url: ns.auction
+  langs: ['en']
+- url: misskey.design
+  langs: ['en']
+- url: moe.foxarmy.ml
+  langs: ['en']
 #
 ##
 #########################################
@@ -377,6 +399,8 @@
 - url: neko.ci
   langs: ['zh', 'en']
 - url: sn.koi.moe
+  langs: ['zh', 'en']
+- url: misskey.seediqbale.xyz
   langs: ['zh', 'en']
 #
 ##
