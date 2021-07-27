@@ -255,6 +255,12 @@
   langs: ['ja']
 - url: mky.aqualitore-lily.com
   langs: ['ja']  
+- url: misskey.tebukuro.xyz
+  langs: ['ja']
+- url: msk.minetaro12.com
+  langs: ['ja']
+- url: honi.club
+  langs: ['ja']
 #
 ##
 #########################################
@@ -341,6 +347,14 @@
 - url: misskey.design
   langs: ['en']
 - url: moe.foxarmy.ml
+  langs: ['en']
+- url: nerd.town
+  langs: ['en']
+- url: wrongthink.me
+  langs: ['en']
+- url: intersocial.io
+  langs: ['en']
+- url: silkhe.art
   langs: ['en']
 #
 ##
