@@ -261,6 +261,10 @@
   langs: ['ja']
 - url: honi.club
   langs: ['ja']
+- url: mk.shc.kanagawa.jp
+  langs: ['ja']
+- url: uma.milkey.homes
+  langs: ['ja']
 #
 ##
 #########################################
@@ -356,6 +360,40 @@
   langs: ['en']
 - url: silkhe.art
   langs: ['en']
+- url: isometry.black
+  langs: ['en']
+- url: beep.jae.fi
+  langs: ['en']
+- url: uhhhhhh.ahhhhhh.social
+  langs: ['en']
+- url: tbh.ihatebeinga.live
+  langs: ['en']
+- url: friendface.fail
+  langs: ['en']
+- url: not.acu.lt
+  langs: ['en']
+- url: estrogen.network
+  langs: ['en']
+- url: mk.catgirlsfor.science
+  langs: ['en']
+- url: mk.striker.net.eu.org
+  langs: ['en']
+- url: movsw.0x0.st
+  langs: ['en']
+- url: mk.fedi.tech
+  langs: ['en']
+- url: mk.nixnet.social
+  langs: ['en']
+- url: pl.7ka.org
+  langs: ['en']
+- url: misskey.kokkoro.moe
+  langs: ['en']
+- url: misskey.biribiri.dev
+  langs: ['en']
+- url: mk.toast.cafe
+  langs: ['en']
+- url: mk.absturztau.be
+  langs: ['en']
 #
 ##
 #########################################
@@ -450,6 +488,8 @@
 - url: misskey.bocc.de
   langs: ['de', 'en']
 - url: social.timmorgner.de
+  langs: ['de', 'en']
+- url: genau.qwertqwefsday.eu
   langs: ['de', 'en']
 #
 ##
