@@ -151,8 +151,6 @@
   langs: ['ja']
 - url: drdr.club
   langs: ['ja']
-- url: norimono.moe
-  langs: ['ja']
 - url: ms.kvche.ch
   langs: ['ja']
 - url: friendsyu.me
@@ -264,6 +262,14 @@
 - url: mk.shc.kanagawa.jp
   langs: ['ja']
 - url: uma.milkey.homes
+  langs: ['ja']
+- url: uso.misskey.io
+  langs: ['ja']
+- url: mk.wataame.cafe
+  langs: ['ja']
+- url: mk.yuru.studio
+  langs: ['ja']
+- url: misskey.sc3.fun
   langs: ['ja']
 #
 ##
@@ -394,6 +400,24 @@
   langs: ['en']
 - url: mk.absturztau.be
   langs: ['en']
+- url: misskey.koyu.space
+  langs: ['en']
+- url: mk.comfysnug.space
+  langs: ['en']
+- url: handholding.gay
+  langs: ['en']
+- url: mk.vibbe.xyz
+  langs: ['en']
+- url: social.cybre.city
+  langs: ['en']
+- url: blue.skye.cx
+  langs: ['en']
+- url: jigglypuff.club
+  langs: ['en']
+- url: mk.paritybit.ca
+  langs: ['en']
+- url: mk.vulpes.one
+  langs: ['en']
 #
 ##
 #########################################
@@ -475,6 +499,8 @@
 - url: lagemeet.duckdns.org
   langs: ['ru', 'en']
 - url: misskey.cats-home.net
+  langs: ['ru', 'en']
+- url: misskey.weebcouncil.online
   langs: ['ru', 'en']
 #
 ##
