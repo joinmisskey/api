@@ -22,7 +22,7 @@ joinmisskey instances' information api
     instancesInfos: [        // インスタンス一覧（※稼働中のみ）
         {
             url: String,     //  ホスト名 e.g. misskey.io
-            langs: String[], //  インスタンスリストでaqzが登録した言語 e.g. ["zh", "en"]
+            langs: String[], //  インスタンスリストでaqzが登録した言語 e.g. ["ja"], ["zh"]
             "description": String | Null,  // meta.description、なければaqzが設定した説明が入るかもしれない
             "isAlive": true, //  稼働中のみ掲載なので、つねにtrue
             value: Number,   //  バージョン等から算定したインスタンスバリュー
