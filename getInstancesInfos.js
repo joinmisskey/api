@@ -9,13 +9,13 @@ const Queue = require('promise-queue');
 
 const instances = loadyaml("./data/instances.yml")
 
-const pqueue = new Queue(128)
+const pqueue = new Queue(32)
 
 function safePost(url, options) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
-		80000
+		30000
 	)
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
