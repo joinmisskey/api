@@ -11,11 +11,8 @@
 # name: インスタンス名を上書きします。通常は指定しません。
 #
 - url: misskey.io
-  langs: ['ja']
 - url: misskey.dev
-  langs: ['ja', 'en', 'fr', 'ko', 'zh', 'de']
 - url: yuzulia.xyz
-  langs: ['en', 'ja']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -443,93 +440,93 @@
 ##
 #
 - url: misskey.gothloli.club
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: ygo.pub
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: social.qaq.wiki
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: nya.one
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: m.dogcraft.top
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: m.dogcraft.cn
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: rosehip.moe
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: misskey.xiling.site
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: f.jymuoyu.com
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: nyan.live
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: x61.uk
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: smp.chaoswork.cn
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: atolla.xyz
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: misskey.fun
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: fet.bar
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: neko.ci
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: sn.koi.moe
-  langs: ['zh', 'en']
+  langs: ['zh']
 - url: misskey.seediqbale.xyz
-  langs: ['zh', 'en']
+  langs: ['zh']
 #
 ##
 #########################################
 ##
 #
 - url: madost.one
-  langs: ['ko', 'en']
+  langs: ['ko']
 - url: k.lapy.link
-  langs: ['ko', 'en']
+  langs: ['ko']
 - url: kokonect.link
-  langs: ['ko', 'en']
+  langs: ['ko']
 #
 ##
 #########################################
 ##
 #
 - url: nyan.nekoea.red
-  langs: ['ru', 'en']
+  langs: ['ru']
 - url: lagemeet.duckdns.org
-  langs: ['ru', 'en']
+  langs: ['ru']
 - url: misskey.cats-home.net
-  langs: ['ru', 'en']
+  langs: ['ru']
 - url: misskey.weebcouncil.online
-  langs: ['ru', 'en']
+  langs: ['ru']
 #
 ##
 #########################################
 ##
 #
 - url: misskey.luciferi.st
-  langs: ['de', 'en']
+  langs: ['de']
 - url: misskey.de
-  langs: ['de', 'en']
+  langs: ['de']
 - url: misskey.bocc.de
-  langs: ['de', 'en']
+  langs: ['de']
 - url: social.timmorgner.de
-  langs: ['de', 'en']
+  langs: ['de']
 - url: genau.qwertqwefsday.eu
-  langs: ['de', 'en']
+  langs: ['de']
 #
 ##
 #########################################
 ##
 #
 - url: ketr.am
-  langs: ['th', 'en']
+  langs: ['th']
 #
 ##
 #########################################
 ##
 #
 - url: nya.fai.su
-  langs: ['es', 'en']
+  langs: ['es']
 - url: mk.roobre.es
-  langs: ['es', 'en']
+  langs: ['es']

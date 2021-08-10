@@ -177,7 +177,8 @@ module.exports.getInstancesInfos = async function() {
 				value,
 				meta,
 				stats: stat,
-				description: meta.description ? meta.description : (instance.description || null),
+				description: meta.description || (instance.description || null),
+				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'de', 'th', 'es'],
 				isAlive: true,
 				repo: versionInfo?.repo
 			}))
