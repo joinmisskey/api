@@ -1,4 +1,6 @@
 # instanceqで発見されはするものの無視したいホストを列挙します
+- ns.auction
+#
 - misskey.ca.gy
 - misskey.slum.cloud
 - ap.kitty.systems
