@@ -28,6 +28,8 @@ joinmisskey instances' information api
             value: Number,   //  バージョン等から算定したインスタンスバリュー
             meta: Object,    //  api/metaの結果 ※announcementsは削除されています
             stats: Object,   //  api/statsの結果
+            banner: Bool,    //  バナーが存在するかどうか
+            background: Bool,//  バックグラウンドイメージがあるかどうか
         }, ...
     ]
 
