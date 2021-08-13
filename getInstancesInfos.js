@@ -87,7 +87,7 @@ async function getVersions() {
 				res => res.json(),
 				e => {
 					glog(repo, "Error(fetch)", e)
-					Promise.resolve([])
+					return Promise.resolve([])
 				}
 			).then(
 				json => json.map((release, j) => {
@@ -100,7 +100,7 @@ async function getVersions() {
 				}),
 				e => {
 					glog(repo, "Error(json)", e)
-					Promise.resolve([])
+					return Promise.resolve([])
 				}
 			).catch(e => { throw Error(e) })
 			
@@ -157,13 +157,27 @@ module.exports.getInstancesInfos = async function() {
 			delete meta.emojis;
 			delete meta.announcements;
 
-			const versionInfo = versions.get(semver.clean(meta.version, { loose: true })) || versions.get(semver.valid(semver.coerce(meta.version)));
+			const versionInfo = (() => {
+				const sem1 = semver.clean(meta.version, { loose: true })
+				if (versions.has(sem1)) return versions.get(sem1);
+				const sem2 = semver.valid(semver.coerce(meta.version))
+				let current = { repo: 'syuilo/misskey', count: 1500 };
+				for (const [key, value] of versions.entries()) {
+					if (sem1.startsWith(key)) {
+						if (value.count === 0) return value;
+						else if (current.count >= value.count ) current = value;
+					} else if (sem2.startsWith(key)) {
+						if (value.count === 0) return value;
+						else if (current.count >= value.count ) current = value;
+					}
+				}
+				return current
+			})()
 
 			/*   インスタンスバリューの算出   */
 			let value = 0
 			// 1. バージョンのリリース順をもとに並び替え
-			const v = versionInfo ? versionInfo.count : 999
-			value += 100000 - v * 7200
+			value += 100000 - versionInfo.count * 7200
 
 			// (基準値に影響があるかないか程度に色々な値を考慮する)
 			if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
@@ -178,7 +192,7 @@ module.exports.getInstancesInfos = async function() {
 				meta,
 				stats: stat,
 				description: meta.description || (instance.description || null),
-				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'de', 'th', 'es'],
+				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
 				isAlive: true,
 				repo: versionInfo?.repo
 			}))
