@@ -88,6 +88,9 @@ getInstancesInfos()
 		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
 
+		await mkdirp('./dist/instance-banners')
+		await mkdirp('./dist/instance-backgrounds')
+
 		const instancesInfos = await Promise.all(alives.map(instance => Promise.all([
 			async () => {
 				if (instance.meta.bannerUrl) {
@@ -147,23 +150,7 @@ getInstancesInfos()
 					return
 				}
 			}
-		])
-			
-		}))
-		
-		for (const instance of instancesInfos) {
-			if (inst)
-		}
-
-		await mkdirp('./dist/instance-banners')
-		await mkdirp('./dist/instance-backgrounds')
-
-		await Promise.all(
-			results.filter(v => v && v.status !== "unchanged")
-				.map(v => queue.add(async () => {
-					return;
-				}))
-		)
+		])))
 
 		fs.writeFile('./dist/instances.json', JSON.stringify({
 			date: new Date(),
