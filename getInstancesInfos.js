@@ -100,7 +100,7 @@ async function getVersions() {
 				}),
 				e => {
 					glog(repo, "Error(json)", e)
-					Promise.resolve([])
+					return Promise.resolve([])
 				}
 			).catch(e => { throw Error(e) })
 			
@@ -192,7 +192,7 @@ module.exports.getInstancesInfos = async function() {
 				meta,
 				stats: stat,
 				description: meta.description || (instance.description || null),
-				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'de', 'th', 'es'],
+				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
 				isAlive: true,
 				repo: versionInfo?.repo
 			}))
