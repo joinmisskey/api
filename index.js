@@ -28,36 +28,57 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	const files = glob.sync(`${tempDir}${name}.*`)
 
 	function clean() {
-		if (files.length > 0) {
-			fs.unlink(`${tempDir}${name}.${ext}`, () => null)
-			return false
-		}
+		files.map(file => fs.unlink(file, () => null))
+		return false
 	}
 
-	mkdirp.sync(tempDir)
-	const controller = new AbortController()
-	const timeout = setTimeout(
-		() => { controller.abort() },
-		80000
-	)
-	const request = await queue.add(() => fetch(url, { encoding: null, signal: controller.signal }))
-		.then(() => clearTimeout(timeout))
-		.catch(() => false)
+	const request = await queue.add(() => {
+		mkdirp.sync(tempDir)
+		const controller = new AbortController()
+		const timeout = setTimeout(
+			() => { controller.abort() },
+			10000
+		)
+		return fetch(url, {
+			encoding: null,
+			signal: controller.signal,
+			headers: {
+				"User-Agent": "LuckyBeast"
+			}
+		}).then(res => {
+			clearTimeout(timeout)
+			return res
+		}, () => {
+			clearTimeout(timeout)
+			return false
+		})
+	})
 
 	if (!request) {
 		console.error(url, 'request fail!')
 		return clean()
 	}
 	if (!request.ok) {
-		console.error(url, 'request ng!', await request.text())
+		console.error(url, 'request ng!')
 		return clean()
 	}
 	const buffer = await request.buffer()
 	if (!buffer) {
-		console.error(url, 'buffer is null or empty!', await request.text())
+		console.error(url, 'buffer is null or empty!')
 		return clean()
-	};
-	let { ext, mime } = await fileType.fromBuffer(buffer)
+	}
+
+	const ft = await fileType.fromBuffer(buffer)
+	if (!ft) {
+		console.error(url, 'failed to detect file type!')
+		return clean()
+	}
+
+	let { ext, mime } = ft;
+	if (!mime.startsWith('image')) {
+		console.error(url, 'it is not image!')
+		return clean()
+	}
 
 	if (files.length > 0) {
 		const local = await readFile(`${tempDir}${name}.${ext}`).catch(() => false)
@@ -70,7 +91,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		return false
 	}
 
-	if (!mime.startsWith('image')) return false;
 	await writeFile(`${tempDir}${name}.${ext}`, buffer)
 	return { name, ext, status: "created" }
 }
@@ -91,71 +111,72 @@ getInstancesInfos()
 		await mkdirp('./dist/instance-banners')
 		await mkdirp('./dist/instance-backgrounds')
 
-		const instancesInfos = await Promise.all(alives.map(instance => Promise.all([
-			async () => {
+		const instancesInfosPromises = [];
+
+		for (const instance of alives) {
+			instancesInfosPromises.push((async () => {
 				if (instance.meta.bannerUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					if (res && res.status !== "unchanged") {
-						await queue.add(async () => {
-							const base = await sharp(`./temp/instance-banners/${v.name}.${v.ext}`)
+						console.log("ou")
+						return queue.add(async () => {
+							const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
 								.resize({
 									width: 1024,
 									withoutEnlargement: true,
-								}).catch(e => {
-									glog.error(e)
-									return;
 								})
 							if (!base) {
 								instance.banner = false
-								return;
-							};
+								return
+							}
 							await base.jpeg({ quality: 80, progressive: true })
-								.toFile(`./dist/instance-banners/${v.name}.jpeg`)
+								.toFile(`./dist/instance-banners/${res.name}.jpeg`)
 							await base.webp({ quality: 75 })
-								.toFile(`./dist/instance-banners/${v.name}.webp`)
+								.toFile(`./dist/instance-banners/${res.name}.webp`)
+							return
 						})
 					}
 				} else {
 					instance.banner = false
 					return
 				}
-			},
-			async () => {
+			})())
+			instancesInfosPromises.push((async () => {
 				if (instance.meta.backgroundImageUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.backgroundImageUrl, `https://${instance.url}`)).toString(), `./temp/instance-backgrounds/`, true)
 					if (res) instance.background = true
 					if (res && res.status !== "unchanged") {
-						await queue.add(async () => {
-							const base = await sharp(`./temp/instance-backgrounds/${v.name}.${v.ext}`)
+						return queue.add(async () => {
+							const base = sharp(`./temp/instance-backgrounds/${res.name}.${res.ext}`)
 								.resize({
 									width: 1024,
 									withoutEnlargement: true,
-								}).catch(e => {
-									glog.error(e)
-									return;
 								})
 							if (!base) {
-								instance.banner = false
-								return;
-							};
+								instance.background = false
+								return
+							}
 							await base.jpeg({ quality: 80, progressive: true })
-								.toFile(`./dist/instance-backgrounds/${v.name}.jpeg`)
+								.toFile(`./dist/instance-backgrounds/${res.name}.jpeg`)
 							await base.webp({ quality: 75 })
-								.toFile(`./dist/instance-backgrounds/${v.name}.webp`)
+								.toFile(`./dist/instance-backgrounds/${res.name}.webp`)
+							return
 						})
 					}
 				} else {
-					instance.banner = false
+					instance.background = false
 					return
 				}
-			}
-		])))
+			})())
+		}
+
+		await Promise.all(instancesInfosPromises)
 
 		fs.writeFile('./dist/instances.json', JSON.stringify({
 			date: new Date(),
 			stats,
-			instancesInfos
+			instancesInfos: alives
 		}), () => { })
 
 		console.log('FINISHED!')
