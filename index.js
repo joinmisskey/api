@@ -118,6 +118,7 @@ getInstancesInfos()
 				if (instance.meta.bannerUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
+					else instance.banner = false
 					if (res && res.status !== "unchanged") {
 						return queue.add(async () => {
 							const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
@@ -145,6 +146,7 @@ getInstancesInfos()
 				if (instance.meta.backgroundImageUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.backgroundImageUrl, `https://${instance.url}`)).toString(), `./temp/instance-backgrounds/`, true)
 					if (res) instance.background = true
+					else instance.background = false
 					if (res && res.status !== "unchanged") {
 						return queue.add(async () => {
 							const base = sharp(`./temp/instance-backgrounds/${res.name}.${res.ext}`)
