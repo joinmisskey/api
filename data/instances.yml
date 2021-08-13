@@ -215,6 +215,8 @@
   langs: ['ja']
 - url: oran.ski
   langs: ['ja']
+- url: misskey.tech
+  langs: ['ja']
 #
 ##
 #########################################
@@ -277,8 +279,6 @@
 - url: social.jsts.xyz
   langs: ['en']
 - url: hallsofamenti.io
-  langs: ['en']
-- url: ns.auction
   langs: ['en']
 - url: misskey.design
   langs: ['en']
@@ -344,6 +344,14 @@
   langs: ['en']
 - url: misskey.bubbletea.dev
   langs: ['en']
+- url: mk.samtherapy.xyz
+  langs: ['en']
+- url: mk.luna.vg
+  langs: ['en']
+- url: mk.danksquad.xyz
+  langs: ['en']
+- url: theroom.social
+  langs: ['en']
 #
 ##
 #########################################
@@ -383,6 +391,8 @@
 - url: neko.ci
   langs: ['zh']
 - url: misskey.seediqbale.xyz
+  langs: ['zh']
+- url: xice.org
   langs: ['zh']
 #
 ##
