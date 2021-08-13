@@ -119,7 +119,6 @@ getInstancesInfos()
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					if (res && res.status !== "unchanged") {
-						console.log("ou")
 						return queue.add(async () => {
 							const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
 								.resize({
