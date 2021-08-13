@@ -352,6 +352,8 @@
   langs: ['en']
 - url: theroom.social
   langs: ['en']
+- url: pretest.misskey.id
+  langs: ['en']
 #
 ##
 #########################################
