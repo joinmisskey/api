@@ -37,6 +37,9 @@ joinmisskey instances' information api
 ### /instance-banners/instance.host.{jpeg|webp}
 軽量化されたインスタンスのバナーが格納されています。
 
+### /instance-backgrounds/instance.host.{jpeg|webp}
+軽量化されたインスタンスのバックグラウンドイメージ（ウェルカムページに表示される画像）が格納されています。
+
 ### /alives.txt
 疎通できたインスタンスのホストのリスト（\n区切り）
 
