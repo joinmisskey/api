@@ -217,6 +217,10 @@
   langs: ['ja']
 - url: misskey.tech
   langs: ['ja']
+- url: candypolis.app
+  langs: ['ja']
+- url: misskey.yude.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -353,6 +357,10 @@
 - url: theroom.social
   langs: ['en']
 - url: pretest.misskey.id
+  langs: ['en']
+- url: mk.outerheaven.club
+  langs: ['en']
+- url: pub.sectorinf.com
   langs: ['en']
 #
 ##
