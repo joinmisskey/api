@@ -163,10 +163,10 @@ module.exports.getInstancesInfos = async function() {
 				const sem2 = semver.valid(semver.coerce(meta.version))
 				let current = { repo: 'syuilo/misskey', count: 1500 };
 				for (const [key, value] of versions.entries()) {
-					if (sem1.startsWith(key)) {
+					if (sem1 && sem1.startsWith(key)) {
 						if (value.count === 0) return value;
 						else if (current.count >= value.count ) current = value;
-					} else if (sem2.startsWith(key)) {
+					} else if (sem2 && sem2.startsWith(key)) {
 						if (value.count === 0) return value;
 						else if (current.count >= value.count ) current = value;
 					}
