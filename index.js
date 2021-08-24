@@ -10,7 +10,7 @@ const mkdirp = require('mkdirp')
 const Queue = require('promise-queue');
 const AbortController = require("abort-controller").default
 
-const queue = new Queue(16)
+const queue = new Queue(3)
 
 const { getInstancesInfos, ghRepos } = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
