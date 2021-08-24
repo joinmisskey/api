@@ -221,6 +221,8 @@
   langs: ['ja']
 - url: misskey.yude.jp
   langs: ['ja']
+- url: misskey.naiw.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -366,6 +368,10 @@
   langs: ['en']
 - url: mk.muy.moe
   langs: ['en']
+- url: beg.plead.help
+  langs: ['en']
+- url: bunne.garden
+  langs: ['en']
 #
 ##
 #########################################
@@ -407,6 +413,8 @@
 - url: misskey.seediqbale.xyz
   langs: ['zh']
 - url: xice.org
+  langs: ['zh']
+- url: sns.infsea.com
   langs: ['zh']
 #
 ##
