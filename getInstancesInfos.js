@@ -15,7 +15,7 @@ function safePost(url, options) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
-		30000
+		60000
 	)
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
