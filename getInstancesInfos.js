@@ -164,7 +164,7 @@ module.exports.getInstancesInfos = async function() {
 				semver.satisfies(version, '< 12.51.0') ||
 				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
 			) {
-				break
+				continue
 			}
 			//#endregion
 
