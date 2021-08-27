@@ -223,6 +223,8 @@
   langs: ['ja']
 - url: misskey.naiw.jp
   langs: ['ja']
+- url: msky.naiw.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -371,6 +373,8 @@
 - url: beg.plead.help
   langs: ['en']
 - url: bunne.garden
+  langs: ['en']
+- url: mk.pusang-ina-mo.ooo
   langs: ['en']
 #
 ##
