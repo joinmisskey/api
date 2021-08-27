@@ -157,7 +157,18 @@ module.exports.getInstancesInfos = async function() {
 			delete meta.emojis;
 			delete meta.announcements;
 
-			const versionInfo = versions.get(semver.clean(meta.version, { loose: true })) || versions.get(semver.valid(semver.coerce(meta.version)));
+			const version = semver.clean(meta.version, { loose: true })
+
+			//#region security
+			if (
+				semver.satisfies(version, '< 12.51.0') ||
+				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
+			) {
+				break
+			}
+			//#endregion
+
+			const versionInfo = versions.get(version) || versions.get(semver.valid(semver.coerce(meta.version)));
 
 			/*   インスタンスバリューの算出   */
 			let value = 0
@@ -183,8 +194,8 @@ module.exports.getInstancesInfos = async function() {
 				repo: versionInfo?.repo
 			}))
 		} else {
-		deads.push(extend(true, { isAlive: false, value: 0 }, instance))
-	  }
+			deads.push(extend(true, { isAlive: false, value: 0 }, instance))
+		}
 	}
 	glog("Got Instances' Infos")
 
