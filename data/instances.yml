@@ -215,6 +215,14 @@
   langs: ['ja']
 - url: oran.ski
   langs: ['ja']
+- url: misskey.tech
+  langs: ['ja']
+- url: candypolis.app
+  langs: ['ja']
+- url: misskey.yude.jp
+  langs: ['ja']
+- url: misskey.naiw.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -277,8 +285,6 @@
 - url: social.jsts.xyz
   langs: ['en']
 - url: hallsofamenti.io
-  langs: ['en']
-- url: ns.auction
   langs: ['en']
 - url: misskey.design
   langs: ['en']
@@ -344,6 +350,28 @@
   langs: ['en']
 - url: misskey.bubbletea.dev
   langs: ['en']
+- url: mk.samtherapy.xyz
+  langs: ['en']
+- url: mk.luna.vg
+  langs: ['en']
+- url: mk.danksquad.xyz
+  langs: ['en']
+- url: theroom.social
+  langs: ['en']
+- url: pretest.misskey.id
+  langs: ['en']
+- url: mk.outerheaven.club
+  langs: ['en']
+- url: pub.sectorinf.com
+  langs: ['en']
+- url: z0ne.social
+  langs: ['en']
+- url: mk.muy.moe
+  langs: ['en']
+- url: beg.plead.help
+  langs: ['en']
+- url: bunne.garden
+  langs: ['en']
 #
 ##
 #########################################
@@ -383,6 +411,10 @@
 - url: neko.ci
   langs: ['zh']
 - url: misskey.seediqbale.xyz
+  langs: ['zh']
+- url: xice.org
+  langs: ['zh']
+- url: sns.infsea.com
   langs: ['zh']
 #
 ##

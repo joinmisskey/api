@@ -28,6 +28,8 @@ joinmisskey instances' information api
             value: Number,   //  バージョン等から算定したインスタンスバリュー
             meta: Object,    //  api/metaの結果 ※announcementsは削除されています
             stats: Object,   //  api/statsの結果
+            banner: Bool,    //  バナーが存在するかどうか
+            background: Bool,//  バックグラウンドイメージがあるかどうか
         }, ...
     ]
 
@@ -36,6 +38,9 @@ joinmisskey instances' information api
 
 ### /instance-banners/instance.host.{jpeg|webp}
 軽量化されたインスタンスのバナーが格納されています。
+
+### /instance-backgrounds/instance.host.{jpeg|webp}
+軽量化されたインスタンスのバックグラウンドイメージ（ウェルカムページに表示される画像）が格納されています。
 
 ### /alives.txt
 疎通できたインスタンスのホストのリスト（\n区切り）
