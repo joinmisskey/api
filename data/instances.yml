@@ -376,6 +376,14 @@
   langs: ['en']
 - url: mk.pusang-ina-mo.ooo
   langs: ['en']
+- url: fedi.kittenme.ws
+  langs: ['en']
+- url: then.therewas.art
+  langs: ['en']
+- url: booba.bar
+  langs: ['en']
+- url: ente.fun
+  langs: ['en']
 #
 ##
 #########################################
@@ -419,6 +427,8 @@
 - url: xice.org
   langs: ['zh']
 - url: sns.infsea.com
+  langs: ['zh']
+- url: mi.monado.ren
   langs: ['zh']
 #
 ##
