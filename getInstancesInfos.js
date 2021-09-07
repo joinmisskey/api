@@ -56,7 +56,7 @@ async function postJson(url, json) {
 	)
 }
 
-const ghRepos = ["mei23/misskey", "syuilo/misskey", "TeamBlackCrystal/misskey"];
+const ghRepos = ["mei23/misskey", "syuilo/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey"];
 
 module.exports.ghRepos = ghRepos;
 
@@ -161,9 +161,16 @@ module.exports.getInstancesInfos = async function() {
 
 			//#region security
 			if (
+				// syuilo
 				semver.satisfies(version, '< 12.90.0') ||
 				semver.satisfies(version, '< 12.51.0') ||
-				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
+				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2') ||
+				// mei23
+				semver.satisfies(version, '< 10.102.338-m544') ||
+				// mei23-v11
+				semver.satisfies(version, '< 11.37.1-20210825162615') ||
+				// TeamBlackCrystal
+				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1')
 			) {
 				continue
 			}
