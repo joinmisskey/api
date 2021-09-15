@@ -56,7 +56,7 @@ async function postJson(url, json) {
 	)
 }
 
-const ghRepos = ["mei23/misskey", "syuilo/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey"];
+const ghRepos = ["mei23/misskey", "syuilo/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey", "Groundpolis/Groundpolis", "kokonect-link/cherrypick"];
 
 module.exports.ghRepos = ghRepos;
 
