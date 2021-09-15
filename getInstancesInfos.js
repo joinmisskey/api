@@ -170,7 +170,8 @@ module.exports.getInstancesInfos = async function() {
 				// mei23-v11
 				semver.satisfies(version, '< 11.37.1-20210825162615') ||
 				// TeamBlackCrystal
-				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1')
+				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1') ||
+				semver.satisfies(version, '< 11.37.1-rei0784-5.16.0')
 			) {
 				continue
 			}
