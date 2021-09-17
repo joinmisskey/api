@@ -123,7 +123,7 @@ async function getVersions() {
 					versions.set(version, {
 						repo,
 						count: (i - 1) * 30 + j,
-						hasVulnerability: hasVulnerability(version),
+						hasVulnerability: hasVulnerability(repo, version),
 					})
 					return release.tag_name
 				}),
