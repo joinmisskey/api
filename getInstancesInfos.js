@@ -56,7 +56,7 @@ async function postJson(url, json) {
 	)
 }
 
-const ghRepos = ["mei23/misskey", "syuilo/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey", "Groundpolis/Groundpolis", "kokonect-link/cherrypick"];
+const ghRepos = ["mei23/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey", "Groundpolis/Groundpolis", "kokonect-link/cherrypick", "syuilo/misskey"];
 
 module.exports.ghRepos = ghRepos;
 
@@ -76,7 +76,7 @@ async function getVersions() {
 		glog(repo, "Start")
 		const res1 = await fetch(`https://api.github.com/repos/${repo}/releases`, { headers })
 		const link = res1.headers.get("link")
-		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "syuilo/misskey" ? 99999 : 3)
+		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "syuilo/misskey" ? 99999 : 10)
 
 		const resp = (await Promise.all([Promise.resolve(res1), ...(!link ? []
 			: Array(max - 1).fill()
@@ -185,10 +185,10 @@ module.exports.getInstancesInfos = async function() {
 				for (const [key, value] of versions.entries()) {
 					if (sem1 && sem1.startsWith(key)) {
 						if (value.count === 0) return value;
-						else if (current.count >= value.count ) current = value;
-					} else if (sem2 && sem2.startsWith(key)) {
+						else if (current.count >= value.count) current = value;
+					} else if (sem2 && value.repo == 'syuilo/misskey' && sem2.startsWith(key)) {
 						if (value.count === 0) return value;
-						else if (current.count >= value.count ) current = value;
+						else if (current.count >= value.count) current = value;
 					}
 				}
 				return current

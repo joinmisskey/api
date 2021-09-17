@@ -1,13 +1,19 @@
 # api
 joinmisskey instances' information api
 
-## Environment
+https://instanceapp.misskey.page/instances.json
+
+## Build Environment
 2つの環境変数を設定してください。
 
 - `LB_TOKEN`: GitHubのトークン（GitHub情報取得用）
 - `MK_TOKEN`: Misskeyのトークン（Misskey投稿用）
 
 ## Endpoints
+nginxおよびCloudflareで静的ファイルを配信しているだけですので、アクセス制限は設けていません。
+
+https://instanceapp.misskey.page 下で以下の情報を取得できます。
+
 ### /instances.json
 インスタンス情報一覧のjsonです。
 
@@ -45,7 +51,7 @@ joinmisskey instances' information api
 ### /alives.txt
 疎通できたインスタンスのホストのリスト（\n区切り）
 
-### /alives.txt
+### /deads.txt
 疎通不能だったインスタンスのホストのリスト（\n区切り）
 
 ### versions.json
