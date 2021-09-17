@@ -61,6 +61,32 @@ const ghRepos = ["mei23/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey
 
 module.exports.ghRepos = ghRepos;
 
+async function hasVulnerability(repo, version) {
+	switch(repo) {
+		case 'syuilo/misskey':
+			return (
+				semver.satisfies(version, '< 12.90.0') ||
+				semver.satisfies(version, '< 12.51.0') ||
+				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
+			);
+		case 'mei23/misskey':
+			return (
+				semver.satisfies(version, '< 10.102.338-m544')
+			);
+		case 'mei23/misskey-v11':
+			return (
+				semver.satisfies(version, '< 11.37.1-20210825162615')
+			);
+		case 'TeamBlackCrystal/misskey':
+			return (
+				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1') ||
+				semver.satisfies(version, '< 11.37.1-rei0784-5.16.0')
+			);
+		default:
+			return false;
+	}
+}
+
 async function getVersions() {
 	glog("Getting Misskey Versions")
 	const maxRegExp = /<https:\/\/.*?>; rel="next", <https:\/\/.*?\?page=(\d+)>; rel="last"/;
@@ -93,9 +119,11 @@ async function getVersions() {
 			).then(
 				json => json.map((release, j) => {
 					// glog("Misskey Version", release.tag_name)
-					versions.set(semver.clean(release.tag_name, { loose: true }), {
+					const version = semver.clean(release.tag_name, { loose: true });
+					versions.set(version, {
 						repo,
 						count: (i - 1) * 30 + j,
+						hasVulnerability: hasVulnerability(version),
 					})
 					return release.tag_name
 				}),
@@ -158,42 +186,24 @@ module.exports.getInstancesInfos = async function() {
 			delete meta.emojis;
 			delete meta.announcements;
 
-			const version = semver.clean(meta.version, { loose: true })
-
-			//#region security
-			if (
-				// syuilo
-				semver.satisfies(version, '< 12.90.0') ||
-				semver.satisfies(version, '< 12.51.0') ||
-				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2') ||
-				// mei23
-				semver.satisfies(version, '< 10.102.338-m544') ||
-				// mei23-v11
-				semver.satisfies(version, '< 11.37.1-20210825162615') ||
-				// TeamBlackCrystal
-				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1') ||
-				semver.satisfies(version, '< 11.37.1-rei0784-5.16.0')
-			) {
-				continue
-			}
-			//#endregion
-
 			const versionInfo = (() => {
 				const sem1 = semver.clean(meta.version, { loose: true })
-				if (versions.has(sem1)) return versions.get(sem1);
+				if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
 				const sem2 = semver.valid(semver.coerce(meta.version))
 				let current = { repo: 'syuilo/misskey', count: 1500 };
 				for (const [key, value] of versions.entries()) {
 					if (sem1 && sem1.startsWith(key)) {
-						if (value.count === 0) return value;
-						else if (current.count >= value.count) current = value;
+						if (value.count === 0) return { just: false, ...value };
+						else if (current.count >= value.count) current = { just: false, ...value };
 					} else if (sem2 && value.repo == 'syuilo/misskey' && sem2.startsWith(key)) {
-						if (value.count === 0) return value;
-						else if (current.count >= value.count) current = value;
+						if (value.count === 0) return { just: false, ...value };
+						else if (current.count >= value.count) current = { just: false, ...value };
 					}
 				}
 				return current
 			})()
+
+			if (versionInfo.just && versionInfo.hasVulnerability) continue;
 
 			/*   インスタンスバリューの算出   */
 			let value = 0
