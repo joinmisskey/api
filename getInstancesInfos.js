@@ -61,7 +61,7 @@ const ghRepos = ["mei23/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey
 
 module.exports.ghRepos = ghRepos;
 
-async function hasVulnerability(repo, version) {
+function hasVulnerability(repo, version) {
 	switch(repo) {
 		case 'syuilo/misskey':
 			return (
