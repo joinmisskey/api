@@ -56,6 +56,7 @@ async function postJson(url, json) {
 	)
 }
 
+// syuilo/misskeyを最後に持っていくべし
 const ghRepos = ["mei23/misskey", "mei23/misskey-v11", "TeamBlackCrystal/misskey", "Groundpolis/Groundpolis", "kokonect-link/cherrypick", "syuilo/misskey"];
 
 module.exports.ghRepos = ghRepos;
