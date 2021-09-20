@@ -227,6 +227,12 @@
   langs: ['ja']
 - url: nojob.jp
   langs: ['ja']
+- url: v10.minetaro12.com
+  langs: ['ja']
+- url: mi.tkw.fm
+  langs: ['ja']
+- url: yumehaki.club
+  langs: ['ja']
 #
 ##
 #########################################
@@ -387,6 +393,14 @@
 - url: ente.fun
   langs: ['en']
 - url: mss.cgnat.net
+  langs: ['en']
+- url: sugary.fashion
+  langs: ['en']
+- url: minidisc.tokyo
+  langs: ['en']
+- url: furrylife.online
+  langs: ['en']
+- url: misskey.id
   langs: ['en']
 #
 ##
