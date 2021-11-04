@@ -434,6 +434,16 @@
   langs: ['en']
 - url: niscii.xyz
   langs: ['en']
+- url: f.raitisoja.cloud
+  langs: ['en']
+- url: misskey.to
+  langs: ['en']
+- url: pixelart.moe
+  langs: ['en']
+- url: pixellife.app
+  langs: ['en']
+- url: m.chars.jp
+  langs: ['en']
 #
 ##
 #########################################
@@ -483,6 +493,12 @@
 - url: m.moec.top
   langs: ['zh']
 - url: wxw.cat
+  langs: ['zh']
+- url: buta.moe
+  langs: ['zh']
+- url: social.boiledscript.com
+  langs: ['zh']
+- url: 0wo.ooo
   langs: ['zh']
 #
 ##
