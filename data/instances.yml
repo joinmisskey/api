@@ -251,6 +251,8 @@
   lagns: ['ja']
 - url: misskey.m86.work
   langs: ['ja']
+- url: misk.hoshisaki-h.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -444,6 +446,14 @@
   langs: ['en']
 - url: m.chars.jp
   langs: ['en']
+- url: misskey.ai
+  langs: ['en']
+- url: misskey.belligerence.club
+  langs: ['en']
+- url: mk.cybre.ninja
+  langs: ['en']
+- url: niscii.xyz
+  langs: ['en']
 #
 ##
 #########################################
@@ -540,6 +550,8 @@
 - url: social.timmorgner.de
   langs: ['de']
 - url: genau.qwertqwefsday.eu
+  langs: ['de']
+- url: platt.social
   langs: ['de']
 #
 ##
