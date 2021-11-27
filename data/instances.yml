@@ -253,6 +253,10 @@
   langs: ['ja']
 - url: misk.hoshisaki-h.com
   langs: ['ja']
+- url: ski.na2na.website
+  langs: ['ja']
+- url: rn.akarinext.org
+  langs: ['ja']
 #
 ##
 #########################################
@@ -451,6 +455,12 @@
 - url: misskey.belligerence.club
   langs: ['en']
 - url: mk.cybre.ninja
+  langs: ['en']
+- url: snug.moe
+  langs: ['en']
+- url: mk.longyap.social
+  langs: ['en']
+- url: waha.desupost.soy
   langs: ['en']
 #
 ##
