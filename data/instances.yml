@@ -257,6 +257,14 @@
   langs: ['ja']
 - url: rn.akarinext.org
   langs: ['ja']
+- url: mis.syusyu.cloudns.nz
+  langs: ['ja']
+- url: m.hoshisaki-h.com
+  langs: ['ja']
+- url: nca.aqualitore-lily.com
+  langs: ['ja']
+- url: girak.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -461,6 +469,12 @@
 - url: mk.longyap.social
   langs: ['en']
 - url: waha.desupost.soy
+  langs: ['en']
+- url: evil.social
+  langs: ['en']
+- url: freewahaextremist.wtf
+  langs: ['en']
+- url: mk.outoftou.ch
   langs: ['en']
 #
 ##
