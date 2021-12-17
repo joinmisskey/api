@@ -273,6 +273,14 @@
   langs: ['ja']
 - url: msk.hoshisaki-h.com
   langs: ['ja']
+- url: nombi.link
+  langs: ['ja']
+- url: pico.misskey.moe
+  langs: ['ja']
+- url: misskey.shinaaamo.com
+  langs: ['ja']
+- url: honiskey.kmlg.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -484,6 +492,10 @@
   langs: ['en']
 - url: mk.outoftou.ch
   langs: ['en']
+- url: catgirl.misskey.lol
+  langs: ['en']
+- url: mk.fabis.cafe
+  langs: ['en']
 #
 ##
 #########################################
@@ -539,6 +551,8 @@
 - url: social.boiledscript.com
   langs: ['zh']
 - url: 0wo.ooo
+  langs: ['zh']
+- url: mk.outv.im
   langs: ['zh']
 #
 ##
