@@ -281,6 +281,10 @@
   langs: ['ja']
 - url: honiskey.kmlg.jp
   langs: ['ja']
+- url: dostoevsskey.com
+  langs: ['ja']
+- url: nca10.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -496,6 +500,10 @@
   langs: ['en']
 - url: mk.fabis.cafe
   langs: ['en']
+- url: pasta.ga
+  langs: ['en']
+- url: miruku.cafe
+  langs: ['en']
 #
 ##
 #########################################
@@ -554,6 +562,8 @@
   langs: ['zh']
 - url: mk.outv.im
   langs: ['zh']
+- url: mk.wah.gg
+  langs: ['zh']
 #
 ##
 #########################################
@@ -597,6 +607,8 @@
   langs: ['de']
 - url: platt.social
   langs: ['de']
+- url: mk.autonomy.earth
+  langs: ['de']
 #
 ##
 #########################################
@@ -610,4 +622,6 @@
 ##
 #
 - url: mk.roobre.es
+  langs: ['es']
+- url: novoa.nagoya
   langs: ['es']
