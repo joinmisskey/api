@@ -285,6 +285,22 @@
   langs: ['ja']
 - url: nca10.net
   langs: ['ja']
+- url: misskey.dokodare.ovh
+  langs: ['ja']
+- url: misskey.cf
+  langs: ['ja']
+- url: z.kvche.ch
+  langs: ['ja']
+- url: mk.nombi.link
+  langs: ['ja']
+- url: mk.xiupos.net
+  langs: ['ja']
+- url: nursing-home.334.ovh
+  langs: ['ja']
+- url: ip.omorashi.cc
+  langs: ['ja']
+- url: social.pseudo-whiskey.bar
+  langs: ['ja']
 #
 ##
 #########################################
@@ -504,6 +520,14 @@
   langs: ['en']
 - url: miruku.cafe
   langs: ['en']
+- url: shrine.moe
+  langs: ['en']
+- url: chars.moe
+  langs: ['en']
+- url: kafka.icu
+  langs: ['en']
+- url: social.ahlo.club
+  langs: ['en']
 #
 ##
 #########################################
@@ -563,6 +587,8 @@
 - url: mk.outv.im
   langs: ['zh']
 - url: mk.wah.gg
+  langs: ['zh']
+- url: fbk.moe
   langs: ['zh']
 #
 ##
