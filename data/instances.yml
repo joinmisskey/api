@@ -398,6 +398,8 @@
   langs: ['en']
 - url: mk.nixnet.social
   langs: ['en']
+- url: stop.voring.me
+  langs: ['en']
 - url: misskey.kokkoro.moe
   langs: ['en']
 - url: misskey.biribiri.dev
