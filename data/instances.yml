@@ -301,6 +301,26 @@
   langs: ['ja']
 - url: social.pseudo-whiskey.bar
   langs: ['ja']
+- url: mi.8mitsu.net
+  langs: ['ja']
+- url: dev.xiupos.net
+  langs: ['ja']
+- url: m.zuiho.moe
+  langs: ['ja']
+- url: misskey.azuki.cf
+  langs: ['ja']
+- url: msky.hmpf.club
+  langs: ['ja']
+- url: misskey.choco14t.net
+  langs: ['ja']
+- url: mk2.toyoko.in
+  langs: ['ja']
+- url: misskey.na2na.dev
+  langs: ['ja']
+- url: misskey.nauzome.com
+  langs: ['ja']
+- url: metaskey.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -530,6 +550,32 @@
   langs: ['en']
 - url: social.ahlo.club
   langs: ['en']
+- url: rage.lol
+  langs: ['en']
+- url: mk.voring.me
+  langs: ['en']
+- url: yuustan.space
+  langs: ['en']
+- url: mk.cirnoisthe.best
+  langs: ['en']
+- url: bub.waifuism.life
+  langs: ['en']
+- url: frennet.xyz
+  langs: ['en']
+- url: misskey.lilith.im
+  langs: ['en']
+- url: mk.longyap.name.my
+  langs: ['en']
+- url: mk.froth.zone
+  langs: ['en']
+- url: milk.transmom.love
+  langs: ['en']
+- url: mk.n0id.space
+  langs: ['en']
+- url: cybre.club
+  langs: ['en']
+- url: port.mk
+  langs: ['en']
 #
 ##
 #########################################
@@ -591,6 +637,10 @@
 - url: mk.wah.gg
   langs: ['zh']
 - url: fbk.moe
+  langs: ['zh']
+- url: key.erica.moe
+  langs: ['zh']
+- url: misskey.chn.moe
   langs: ['zh']
 #
 ##
