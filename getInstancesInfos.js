@@ -25,7 +25,7 @@ function safePost(url, options) {
 			return false
 		},
 		e => {
-			// glog("POST failed", url, e.errno, e.type)
+			glog("POST failed", url, e.errno, e.type)
 			return false
 		}
 	).finally(() => {
