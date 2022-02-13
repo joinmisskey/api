@@ -321,6 +321,8 @@
   langs: ['ja']
 - url: metaskey.net
   langs: ['ja']
+- url: misskey.usuyuki.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -648,6 +650,10 @@
   langs: ['zh']
 - url: misskey.chn.moe
   langs: ['zh']
+- url: misskey.fenda.win
+  langs: ['zh']
+- url: m.isle.moe
+  langs: ['zh']
 #
 ##
 #########################################
@@ -675,6 +681,8 @@
 - url: shitpost.poridge.club
   langs: ['ru']
 - url: mk.arumoon.ru
+  langs: ['ru']
+- url: my.lono.space
   langs: ['ru']
 #
 ##
