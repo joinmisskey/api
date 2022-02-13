@@ -20,7 +20,7 @@ function safePost(url, options) {
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
 		res => {
-			// glog("POST finish", url)
+			glog("POST finish", url, res.status, res.ok)
 			if (res && res.ok) return res
 			return false
 		},
