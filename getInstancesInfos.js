@@ -68,6 +68,7 @@ async function postJson(url, json) {
 		})
 
 		if (res !== null) return res;
+		glog('will retry', url, retryCount)
 		retryCount += 1;
 	}
 	return false;
