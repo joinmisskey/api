@@ -27,7 +27,7 @@ module.exports = async () => {
 			offset
 		}
 
-		console.log(body)
+		const hrstart = process.hrtime()
 
 		const l = await fetch("https://misskey.io/api/federation/instances", {
 			method: 'POST',
@@ -36,6 +36,9 @@ module.exports = async () => {
 				'Content-Type': 'application/json'
 			}
 		}).then(async res => {
+			const hrend = process.hrtime(hrstart)
+			console.log(body, 'Execution time (hr): %ds %dms', hrend[0], hrend[1] / 1000000)
+
 			const text = await res.text()
 			if (!text.startsWith("{") && !text.startsWith("[")) {
 				throw Error(text)
@@ -45,6 +48,8 @@ module.exports = async () => {
 		})
 
 		next = l.length === apinum + 1
+
+		console.log(body)
 
 		if (next) l.pop();
 		for (const e of l) {
@@ -61,5 +66,5 @@ module.exports = async () => {
 		offset += apinum
 	}
 
-	return notIncluded
+	return Array.from(notIncluded)
 }
