@@ -38,13 +38,13 @@ async function postJson(url, json) {
 		body: JSON.stringify(json),
 		headers: {
 			"Content-Type": "application/json",
-			"User-Agent": "LuckyBeast"
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
 		},
 		redirect: "error"
 	} : {
 			headers: {
 				"Content-Type": "application/json",
-				"User-Agent": "LuckyBeast"
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
 			},
 			redirect: "error"
 		}))
@@ -93,7 +93,7 @@ async function getVersions() {
 	const versions = new Map();
 	const versionOutput = {};
 	const headers = {
-		"User-Agent": "LuckyBeast",
+		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0",
 		Authorization: `bearer ${process.env.LB_TOKEN}`
 	};
 
