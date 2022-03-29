@@ -53,6 +53,7 @@ async function postJson(url, json) {
 	let retryCount = 0;
 
 	while (retryCount < 3) {
+		if (retryCount > 0) glog('retry', url, retryCount)
 		const sleep = new Promise(resolve => setTimeout(resolve, 10000));
 		const res = await pqueue.add(async () => {
 			await sleep;
@@ -69,7 +70,6 @@ async function postJson(url, json) {
 		})
 
 		if (res !== null) return res;
-		glog('will retry', url, retryCount)
 		retryCount += 1;
 	}
 	return false;
