@@ -111,65 +111,64 @@ getInstancesInfos()
 		await mkdirp('./dist/instance-banners')
 		await mkdirp('./dist/instance-backgrounds')
 
+		const infoQueue = new Queue(3)
 		const instancesInfosPromises = [];
 
 		for (const instance of alives) {
-			instancesInfosPromises.push((async () => {
+			instancesInfosPromises.push(infoQueue.add(async () => {
 				if (instance.meta.bannerUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					else instance.banner = false
 					if (res && res.status !== "unchanged") {
-						return queue.add(async () => {
-							const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
-								.resize({
-									width: 1024,
-									withoutEnlargement: true,
-								})
-							if (!base) {
-								instance.banner = false
-								return
-							}
-							await base.jpeg({ quality: 80, progressive: true })
-								.toFile(`./dist/instance-banners/${res.name}.jpeg`)
-							await base.webp({ quality: 75 })
-								.toFile(`./dist/instance-banners/${res.name}.webp`)
+						glog(`downloading banner for ${instance.url}`)
+						const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
+							.resize({
+								width: 1024,
+								withoutEnlargement: true,
+							})
+						if (!base) {
+							instance.banner = false
 							return
-						})
+						}
+						await base.jpeg({ quality: 80, progressive: true })
+							.toFile(`./dist/instance-banners/${res.name}.jpeg`)
+						await base.webp({ quality: 75 })
+							.toFile(`./dist/instance-banners/${res.name}.webp`)
+						return
 					}
 				} else {
 					instance.banner = false
 					return
 				}
-			})())
-			instancesInfosPromises.push((async () => {
+			}))
+			instancesInfosPromises.push(infoQueue.add(async () => {
 				if (instance.meta.backgroundImageUrl) {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.backgroundImageUrl, `https://${instance.url}`)).toString(), `./temp/instance-backgrounds/`, true)
 					if (res) instance.background = true
 					else instance.background = false
 					if (res && res.status !== "unchanged") {
-						return queue.add(async () => {
-							const base = sharp(`./temp/instance-backgrounds/${res.name}.${res.ext}`)
-								.resize({
-									width: 1024,
-									withoutEnlargement: true,
-								})
-							if (!base) {
-								instance.background = false
-								return
-							}
-							await base.jpeg({ quality: 80, progressive: true })
-								.toFile(`./dist/instance-backgrounds/${res.name}.jpeg`)
-							await base.webp({ quality: 75 })
-								.toFile(`./dist/instance-backgrounds/${res.name}.webp`)
+						glog(`downloading background image for ${instance.url}`)
+						const base = sharp(`./temp/instance-backgrounds/${res.name}.${res.ext}`)
+							.resize({
+								width: 1024,
+								withoutEnlargement: true,
+							})
+						if (!base) {
+							instance.background = false
 							return
-						})
+						}
+						await base.jpeg({ quality: 80, progressive: true })
+							.toFile(`./dist/instance-backgrounds/${res.name}.jpeg`)
+						await base.webp({ quality: 75 })
+							.toFile(`./dist/instance-backgrounds/${res.name}.webp`)
+						return
 					}
 				} else {
 					instance.background = false
 					return
 				}
-			})())
+			}))
 		}
 
 		await Promise.all(instancesInfosPromises)
