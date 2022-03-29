@@ -11,7 +11,7 @@ const instances = loadyaml("./data/instances.yml")
 
 const pqueue = new Queue(32)
 
-function safePost(url, options) {
+function safePost(url, options, retryCount = 0) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
@@ -22,11 +22,11 @@ function safePost(url, options) {
 		res => {
 			if (res && res.ok) return res
 			glog("POST finish", url, res.status, res.ok)
-			return false
+			return null
 		},
-		e => {
-			glog("POST failed", url, e.errno, e.type)
-			return false
+		async e => {
+			glog("POST failed...", url, e.errno, e.type)
+			return null
 		}
 	).finally(() => {
 		clearTimeout(timeout)
@@ -34,7 +34,7 @@ function safePost(url, options) {
 }
 
 async function postJson(url, json) {
-	return pqueue.add(() => safePost(url, (json ? {
+	const option = json ? {
 		body: JSON.stringify(json),
 		headers: {
 			"Content-Type": "application/json",
@@ -42,18 +42,34 @@ async function postJson(url, json) {
 		},
 		redirect: "error"
 	} : {
-			headers: {
-				"Content-Type": "application/json",
-				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
-			},
-			redirect: "error"
-		}))
-		.then(res => (!res ? false : res.json()))
-		.catch(e => {
-			glog.error(url, e)
-			return false
+		headers: {
+			"Content-Type": "application/json",
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
+		},
+		redirect: "error"
+	};
+
+	let retryCount = 0;
+
+	while (retryCount < 3) {
+		const sleep = new Promise(resolve => setTimeout(resolve, 10000));
+		const res = await pqueue.add(() => {
+			await sleep;
+			return safePost(url, option)
+				.then(res => {
+					if (res === null) return null;
+					if (!res) return false;
+					return res.json();
+				})
+				.catch(e => {
+					glog.error(url, e)
+					return false
+				})
 		})
-	)
+
+		if (res !== null) return res;
+	}
+	return false;
 }
 
 // syuilo/misskeyを最後に持っていくべし
