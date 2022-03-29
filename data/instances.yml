@@ -323,6 +323,18 @@
   langs: ['ja']
 - url: misskey.usuyuki.net
   langs: ['ja']
+- url: m.motisn.net
+  langs: ['ja']
+- url: test1.syuilo.dev
+  langs: ['ja']
+- url: msk.kessai-otaku.club
+  langs: ['ja']
+- url: misskey.tlfoxhuman.net
+  langs: ['ja']
+- url: memesskey.com
+  langs: ['ja']
+- url: ypolis.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -584,6 +596,22 @@
   langs: ['en']
 - url: kitty.social
   langs: ['en']
+- url: m.blackpaws.me
+  langs: ['en']
+- url: misskey.hw2k.com
+  langs: ['en']
+- url: misskey.cafkafk.com
+  langs: ['en']
+- url: f.dyne.link
+  langs: ['en']
+- url: toot.tools
+  langs: ['en']
+- url: mk.yuka.dev
+  langs: ['en']
+- url: council.azure.icu
+  langs: ['en']
+- url: succubi.services
+  langs: ['en']
 #
 ##
 #########################################
@@ -596,6 +624,8 @@
 - url: misskey.fr
   langs: ['fr']
 - url: misskey.nicolastissot.fr
+  langs: ['fr']
+- url: pouet.fede.re
   langs: ['fr']
 #
 ##
@@ -684,6 +714,8 @@
   langs: ['ru']
 - url: my.lono.space
   langs: ['ru']
+- url: nobl.ink
+  langs: ['ru']
 #
 ##
 #########################################
@@ -700,6 +732,8 @@
 - url: platt.social
   langs: ['de']
 - url: mk.autonomy.earth
+  langs: ['de']
+- url: misskey.tillbosselmann.de
   langs: ['de']
 #
 ##
