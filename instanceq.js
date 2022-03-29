@@ -14,7 +14,7 @@ else console.log("Duplicated:\n  There is no duplicated instance!\n");
 module.exports = async () => {
 	console.log(`Get Instances from misskey.io`);
 
-	let nodes = []
+	const notIncluded = new Set();
 	const apinum = 60
 	let next = true
 	let offset = 0
@@ -27,7 +27,7 @@ module.exports = async () => {
 			offset
 		}
 
-		console.log(body)
+		const hrstart = process.hrtime()
 
 		const l = await fetch("https://misskey.io/api/federation/instances", {
 			method: 'POST',
@@ -36,6 +36,9 @@ module.exports = async () => {
 				'Content-Type': 'application/json'
 			}
 		}).then(async res => {
+			const hrend = process.hrtime(hrstart)
+			console.log(body, hrend[0], hrend[1] / 1000000)
+
 			const text = await res.text()
 			if (!text.startsWith("{") && !text.startsWith("[")) {
 				throw Error(text)
@@ -47,16 +50,19 @@ module.exports = async () => {
 		next = l.length === apinum + 1
 
 		if (next) l.pop();
-		nodes = l.concat(nodes)
+		for (const e of l) {
+			if (
+				!ignorehosts.some(x => x === e.host) &&
+				e.softwareName === 'misskey' &&
+				(e.latestStatus === null || e.isNotResponding === false) &&
+				!mylist.some(x => x.url === e.host)
+			) {
+				notIncluded.add(e.host);
+			}
+		}
+
 		offset += apinum
 	}
 
-	const notIncluded = nodes.filter((e, i, arr) => (
-		!ignorehosts.some(x => x === e.host) &&
-		e.softwareName === 'misskey' &&
-		(e.latestStatus === null || (e.latestStatus >= 200 && e.latestStatus < 300)) &&
-		!mylist.some(x => x.url === e.host)
-	))
-
-	return notIncluded
+	return Array.from(notIncluded)
 }
