@@ -201,7 +201,7 @@ getInstancesInfos()
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `JoinMisskey instance api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.map(e => e.host).join('\n')}\n#bot`
+				text: `JoinMisskey instance api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.join('\n')}\n#bot`
 			}),
 			headers: {
 				"Content-Type": "application/json"
