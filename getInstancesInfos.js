@@ -53,7 +53,7 @@ async function postJson(url, json) {
 
 	while (retryCount < 3) {
 		const sleep = new Promise(resolve => setTimeout(resolve, 10000));
-		const res = await pqueue.add(() => {
+		const res = await pqueue.add(async () => {
 			await sleep;
 			return safePost(url, option)
 				.then(res => {
