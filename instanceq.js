@@ -54,7 +54,7 @@ module.exports = async () => {
 			if (
 				!ignorehosts.some(x => x === e.host) &&
 				e.softwareName === 'misskey' &&
-				(e.latestStatus === null || e.isNotResponding !== false &&
+				(e.latestStatus === null || e.isNotResponding !== false) &&
 				!mylist.some(x => x.url === e.host)
 			) {
 				notIncluded.add(e.host);
