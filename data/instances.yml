@@ -612,8 +612,6 @@
   langs: ['en']
 - url: succubi.services
   langs: ['en']
-- url: bessonnica.org
-  langs: ['en']
 #
 ##
 #########################################
@@ -717,6 +715,8 @@
 - url: my.lono.space
   langs: ['ru']
 - url: nobl.ink
+  langs: ['ru']
+- url: bessonnica.org
   langs: ['ru']
 #
 ##
