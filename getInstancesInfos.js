@@ -22,11 +22,12 @@ function safePost(url, options, retryCount = 0) {
 		res => {
 			if (res && res.ok) return res
 			glog("POST finish", url, res.status, res.ok)
-			return null
+			if (res.status >= 500 && res.status < 600) return null;
 		},
 		async e => {
 			glog("POST failed...", url, e.errno, e.type)
-			return null
+			if (e.errno.toLowerCase().includes('timeout')) return null;
+			return false;
 		}
 	).finally(() => {
 		clearTimeout(timeout)
