@@ -1,6 +1,6 @@
 const { promisify } = require("util")
 const fs = require("fs")
-const fetch = require("node-fetch")
+const fetch = require("node-fetch-with-proxy")
 const fileType = require("file-type")
 const glob = require("glob")
 const glog = require("fancy-log")

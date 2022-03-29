@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+const fetch = require("node-fetch-with-proxy")
 
 const loadyaml = require("./loadyaml")
 

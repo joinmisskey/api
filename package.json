@@ -13,7 +13,7 @@
     "glob": "^7.1.6",
     "js-yaml": "^4.0.0",
     "mkdirp": "^1.0.4",
-    "node-fetch": "^2.6.1",
+    "node-fetch-with-proxy": "^0.1.6",
     "promise-queue": "^2.2.5",
     "semver": "^7.3.4",
     "sharp": "^0.27.2"
