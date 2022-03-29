@@ -11,7 +11,7 @@ const instances = loadyaml("./data/instances.yml")
 
 const pqueue = new Queue(32)
 
-function safePost(url, options, retryCount = 0) {
+function safePost(url, options) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
@@ -54,7 +54,7 @@ async function postJson(url, json) {
 
 	while (retryCount < 3) {
 		if (retryCount > 0) glog('retry', url, retryCount)
-		const sleep = new Promise(resolve => setTimeout(resolve, 10000));
+		const sleep = new Promise(resolve => setTimeout(resolve, 60000));
 		const res = await pqueue.add(async () => {
 			await sleep;
 			return safePost(url, option)
