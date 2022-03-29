@@ -68,6 +68,7 @@ async function postJson(url, json) {
 		})
 
 		if (res !== null) return res;
+		retryCount += 1;
 	}
 	return false;
 }
