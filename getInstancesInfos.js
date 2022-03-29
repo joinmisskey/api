@@ -26,7 +26,7 @@ function safePost(url, options, retryCount = 0) {
 		},
 		async e => {
 			glog("POST failed...", url, e.errno, e.type)
-			if (e.errno.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
+			if (e.errno?.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
 			return false;
 		}
 	).finally(() => {
