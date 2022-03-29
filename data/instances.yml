@@ -335,6 +335,12 @@
   langs: ['ja']
 - url: ypolis.net
   langs: ['ja']
+- url: misskey.sss-fc.com
+  langs: ['ja']
+- url: necko.plala.jp
+  langs: ['ja']
+- url: arena.seraimu.me
+  langs: ['ja']
 #
 ##
 #########################################
@@ -612,6 +618,10 @@
   langs: ['en']
 - url: succubi.services
   langs: ['en']
+- url: nakadashi.rocks
+  langs: ['en']
+- url: social.metamuffin.org
+  langs: ['en']
 #
 ##
 #########################################
@@ -736,6 +746,8 @@
 - url: mk.autonomy.earth
   langs: ['de']
 - url: misskey.tillbosselmann.de
+  langs: ['de']
+- url: mk.igwigg.space
   langs: ['de']
 #
 ##
