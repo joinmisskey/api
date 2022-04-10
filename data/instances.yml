@@ -12,6 +12,8 @@
 #
 - url: misskey.io
 - url: misskey.dev
+- url: seediqbale.xyz
+  langs: ['en', 'zh']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -341,6 +343,10 @@
   langs: ['ja']
 - url: arena.seraimu.me
   langs: ['ja']
+- url: louis-c-novel.com
+  langs: ['ja']
+- url: misskey.one
+  langs: ['ja']
 #
 ##
 #########################################
@@ -619,6 +625,10 @@
 - url: nakadashi.rocks
   langs: ['en']
 - url: social.metamuffin.org
+  langs: ['en']
+- url: www.loganjohndarylgraham.xyz
+  langs: ['en']
+- url: chungus.cc
   langs: ['en']
 #
 ##
