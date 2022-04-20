@@ -345,6 +345,8 @@
   langs: ['ja']
 - url: fediversekey.com
   langs: ['ja']
+- url: www.fediversekey.com
+  langs: ['ja']
 - url: misskey.one
   langs: ['ja']
 #
@@ -629,6 +631,16 @@
 - url: www.loganjohndarylgraham.xyz
   langs: ['en']
 - url: chungus.cc
+  langs: ['en']
+- url: mk.godspeed.moe
+  langs: ['en']
+- url: miss.mouse.services
+  langs: ['en']
+- url: ubiqueros.com
+  langs: ['en']
+- url: misskey.silverkey.me
+  langs: ['en']
+- url: mk.outsidermanga.com
   langs: ['en']
 #
 ##
