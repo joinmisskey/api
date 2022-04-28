@@ -652,6 +652,12 @@
   langs: ['en']
 - url: satania.social
   langs: ['en']
+- url: society.burger.rodeo
+  langs: ['en']
+- url: sns.tsubasaori.be
+  langs: ['en']
+- url: fediland.nl
+  langs: ['en']
 #
 ##
 #########################################
@@ -724,6 +730,8 @@
   langs: ['zh']
 - url: m.isle.moe
   langs: ['zh']
+- url: hashi.icu
+  langs: ['zh']
 #
 ##
 #########################################
@@ -758,6 +766,8 @@
   langs: ['ru']
 - url: bessonnica.org
   langs: ['ru']
+- url: weeb.su
+  langs: ['ru']
 #
 ##
 #########################################
@@ -778,6 +788,18 @@
 - url: misskey.tillbosselmann.de
   langs: ['de']
 - url: mk.igwigg.space
+  langs: ['de']
+- url: fedi.debiantippse.de
+  langs: ['de']
+- url: misskey.sagt.xyz
+  langs: ['de']
+- url: misskey.wimmer-edv.de
+  langs: ['de']
+- url: taurus.hallertau.social
+  langs: ['de']
+- url: social.calut.fr
+  langs: ['de']
+- url: pnyhf.eu
   langs: ['de']
 #
 ##
