@@ -365,6 +365,8 @@
   langs: ['ja']
 - url: misskey.u0conveni.club
   langs: ['ja']
+- url: misskey.probmkr.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -685,6 +687,8 @@
 - url: mizzkey.netzone.cc
   langs: ['en']
 - url: mk.aetheri.ca
+  langs: ['en']
+- url: goodman-wilson.com
   langs: ['en']
 #
 ##
