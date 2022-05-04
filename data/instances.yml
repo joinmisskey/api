@@ -357,6 +357,14 @@
   langs: ['ja']
 - url: nr.akarinext.org
   langs: ['ja']
+- url: misskey.potp.ro
+  langs: ['ja']
+- url: makimaki.jp
+  langs: ['ja']
+- url: misskey.chiffon-sepxipl.com
+  langs: ['ja']
+- url: misskey.u0conveni.club
+  langs: ['ja']
 #
 ##
 #########################################
@@ -658,6 +666,26 @@
   langs: ['en']
 - url: fediland.nl
   langs: ['en']
+- url: misskey.dyselon.com
+  langs: ['en']
+- url: fedi.tyil.nl
+  langs: ['en']
+- url: mk.gaycookie.dev
+  langs: ['en']
+- url: fediverse.projectftm.com
+  langs: ['en']
+- url: privacyhub.xyz
+  langs: ['en']
+- url: stoner.town
+  langs: ['en']
+- url: transient.garden
+  langs: ['en']
+- url: fediverse.dotnet00.dev
+  langs: ['en']
+- url: mizzkey.netzone.cc
+  langs: ['en']
+- url: mk.aetheri.ca
+  langs: ['en']
 #
 ##
 #########################################
@@ -732,6 +760,10 @@
   langs: ['zh']
 - url: hashi.icu
   langs: ['zh']
+- url: sn.nekojita.moe
+  langs: ['zh']
+- url: b.koa.im
+  langs: ['zh']
 #
 ##
 #########################################
@@ -800,6 +832,8 @@
 - url: social.calut.fr
   langs: ['de']
 - url: pnyhf.eu
+  langs: ['de']
+- url: misskey.mymte.de
   langs: ['de']
 #
 ##
