@@ -367,6 +367,16 @@
   langs: ['ja']
 - url: misskey.probmkr.com
   langs: ['ja']
+- url: misskey.zerozaski.tech
+  langs: ['ja']
+- url: mkey.nanasi-apps.xyz
+  langs: ['ja']
+- url: sns.iwata.love
+  langs: ['ja']
+- url: misskey.handon.club
+  langs: ['ja']
+- url: misskey.yukineko.me
+  langs: ['ja']
 #
 ##
 #########################################
@@ -690,6 +700,10 @@
   langs: ['en']
 - url: goodman-wilson.com
   langs: ['en']
+- url: m.filmfreedom.net
+  langs: ['en']
+- url: social.swagg.net
+  langs: ['en']
 #
 ##
 #########################################
@@ -770,6 +784,8 @@
   langs: ['zh']
 - url: social.kyaru.xyz
   langs: ['zh']
+- url: bilibili.org
+  langs: ['zh']
 #
 ##
 #########################################
@@ -841,6 +857,8 @@
   langs: ['de']
 - url: misskey.mymte.de
   langs: ['de']
+- url: cocaineninja.de
+  langs: ['de']
 #
 ##
 #########################################
@@ -857,3 +875,10 @@
   langs: ['es']
 - url: novoa.nagoya
   langs: ['es']
+#
+##
+#########################################
+##
+#
+- url: space.jeroenvd.nl
+  langs: ['nl']
