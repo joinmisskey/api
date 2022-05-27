@@ -365,6 +365,16 @@
   langs: ['ja']
 - url: misskey.u0conveni.club
   langs: ['ja']
+- url: submarin.online
+  langs: ['ja']
+- url: ark.misskey.online
+  langs: ['ja']
+- url: romca.tk
+  langs: ['ja']
+- url: rumia.tk
+  langs: ['ja']
+- url: tyazzkey.work
+  langs: ['ja']
 #
 ##
 #########################################
@@ -686,6 +696,18 @@
   langs: ['en']
 - url: mk.aetheri.ca
   langs: ['en']
+- url: mk.asie.pl
+  langs: ['en']
+- url: arcane.town
+  langs: ['en']
+- url: fedi2.0x7f.one
+  langs: ['en']
+- url: lgbt.pm
+  langs: ['en']
+- url: bbs.keinpfusch.net
+  langs: ['en']
+- url: aaa.awoo.fun
+  langs: ['en']
 #
 ##
 #########################################
@@ -775,6 +797,8 @@
   langs: ['ko']
 - url: kokonect.link
   langs: ['ko']
+- url: stella.ocellaris.dev
+  langs: ['ko']
 #
 ##
 #########################################
@@ -834,6 +858,8 @@
 - url: pnyhf.eu
   langs: ['de']
 - url: misskey.mymte.de
+  langs: ['de']
+- url: microblog.social
   langs: ['de']
 #
 ##
