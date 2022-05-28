@@ -198,7 +198,7 @@ getInstancesInfos()
 			}
 		}
 
-		await Promise.all(instancesInfosPromises)
+		await Promise.allSettled(instancesInfosPromises)
 
 		fs.writeFile('./dist/instances.json', JSON.stringify({
 			date: new Date(),
