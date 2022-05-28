@@ -37,13 +37,7 @@
   langs: ['ja']
 - url: misskey.noellabo.jp
   langs: ['ja']
-- url: misk.thinaticsystem.com
-  langs: ['ja']
 - url: nekomimi.yokohama
-  langs: ['ja']
-- url: miss.oikura.site
-  langs: ['ja']
-- url: sisskey.cordx.net
   langs: ['ja']
 - url: misskey.boon.chat
   langs: ['ja']
@@ -53,8 +47,6 @@
   langs: ['ja']
 - url: nijimiss.moe
   langs: ['ja']
-- url: xe.akirin.xyz
-  langs: ['ja']
 - url: ridixy.com
   langs: ['ja']
 - url: mk12.juggler.jp
@@ -62,8 +54,6 @@
 - url: meisskey.one
   langs: ['ja']
 - url: misskey.xianon.net
-  langs: ['ja']
-- url: sakura-jk.tokyo
   langs: ['ja']
 - url: dev.mis.b-shock.org
   langs: ['ja']
@@ -73,23 +63,11 @@
   langs: ['ja']
 - url: miwkey.miwpayou0808.info
   langs: ['ja']
-- url: i.misskey.love
-  langs: ['ja']
-- url: meisskey.blue
-  langs: ['ja']
 - url: misskey.omhnc.net
-  langs: ['ja']
-- url: meisskey.nokotaro.com
   langs: ['ja']
 - url: newskey.cc
   langs: ['ja']
-- url: tanukey.work
-  langs: ['ja']
 - url: misskey.endaaman.me
-  langs: ['ja']
-- url: m1.cryo.jp
-  langs: ['ja']
-- url: m.anirloli.dev
   langs: ['ja']
 - url: misskey.osyakasyama.me
   langs: ['ja']
@@ -109,17 +87,11 @@
   langs: ['ja']
 - url: wndp.cloud
   langs: ['ja']
-- url: ne.akarinext.org
-  langs: ['ja']
 - url: mi.maikaze.moe
   langs: ['ja']
 - url: drdr.club
   langs: ['ja']
-- url: ms.kvche.ch
-  langs: ['ja']
 - url: friendsyu.me
-  langs: ['ja']
-- url: virtual-kaf.fun
   langs: ['ja']
 - url: cocoronavi.com
   langs: ['ja']
@@ -131,8 +103,6 @@
   langs: ['ja']
 - url: mk.mozcmozc.club
   langs: ['ja']
-- url: kr.akirin.xyz
-  langs: ['ja']
 - url: mi.les-requin.net
   langs: ['ja']
 - url: misskey.levome-dol.com
@@ -140,10 +110,6 @@
 - url: mk.aqr.af
   langs: ['ja']
 - url: misky.rikunagiweb.jp
-  langs: ['ja']
-- url: waruikoto.sima.su
-  langs: ['ja']
-- url: misskey.alpinehut.xyz
   langs: ['ja']
 - url: www.i-kaohsiung.com
   langs: ['ja']
@@ -153,27 +119,13 @@
   langs: ['ja']
 - url: mi.potofu.moe
   langs: ['ja']
-- url: misskey.spartanserver.org
-  langs: ['ja']
-- url: missing.coord-e.dev
-  langs: ['ja']
 - url: msk.seppuku.club
   langs: ['ja']
-- url: mk.toyoko.in
-  langs: ['ja']
-- url: social.namachan10777.dev
-  langs: ['ja']
 - url: sunisky.club
-  langs: ['ja']
-- url: fumisskey.com
   langs: ['ja']
 - url: co.misskey.io
   langs: ['ja']
 - url: onsen-musume.fun
-  langs: ['ja']
-- url: miss-myhouse-key.net
-  langs: ['ja']
-- url: noize.guru
   langs: ['ja']
 - url: misskey.magokorobin.com
   langs: ['ja']
@@ -185,12 +137,8 @@
   langs: ['ja']
 - url: the-box.work
   langs: ['ja']
-- url: ar.akarinext.org
-  langs: ['ja']
 - url: p1.a9z.dev
   langs: ['ja']
-- url: mky.aqualitore-lily.com
-  langs: ['ja']  
 - url: misskey.tebukuro.xyz
   langs: ['ja']
 - url: msk.minetaro12.com
@@ -201,17 +149,11 @@
   langs: ['ja']
 - url: uma.milkey.homes
   langs: ['ja']
-- url: uso.misskey.io
-  langs: ['ja']
 - url: mk.wataame.cafe
   langs: ['ja']
 - url: mk.yuru.studio
   langs: ['ja']
 - url: misskey.sc3.fun
-  langs: ['ja']
-- url: mi.7ka.org
-  langs: ['ja']
-- url: misskey.korako.me
   langs: ['ja']
 - url: misskey.assaultli.ly
   langs: ['ja']
@@ -219,21 +161,9 @@
   langs: ['ja']
 - url: misskey.tech
   langs: ['ja']
-- url: candypolis.app
-  langs: ['ja']
 - url: misskey.yude.jp
   langs: ['ja']
-- url: misskey.naiw.jp
-  langs: ['ja']
-- url: msky.naiw.jp
-  langs: ['ja']
-- url: nojob.jp
-  langs: ['ja']
-- url: v10.minetaro12.com
-  langs: ['ja']
 - url: mi.tkw.fm
-  langs: ['ja']
-- url: yumehaki.club
   langs: ['ja']
 - url: 49six.club
   langs: ['ja']
@@ -241,59 +171,23 @@
   langs: ['ja']
 - url: misskey.t-asa2000.net
   langs: ['ja']
-- url: v6sskey.com
-  langs: ['ja']
-- url: yumisskey.net
-  langs: ['ja']
-- url: picosize.misskey.moe
-  langs: ['ja']
 - url: misskey-exp.cyberrex.jp
   langs: ['ja']
-- url: 0cat.net
-  lagns: ['ja']
 - url: misskey.m86.work
   langs: ['ja']
-- url: misk.hoshisaki-h.com
-  langs: ['ja']
-- url: ski.na2na.website
-  langs: ['ja']
-- url: rn.akarinext.org
-  langs: ['ja']
-- url: mis.syusyu.cloudns.nz
-  langs: ['ja']
-- url: m.hoshisaki-h.com
-  langs: ['ja']
 - url: nca.aqualitore-lily.com
-  langs: ['ja']
-- url: girak.net
-  langs: ['ja']
-- url: mk.yasi2.com
-  langs: ['ja']
-- url: mi.shino.one
   langs: ['ja']
 - url: mk.f72u.net
   langs: ['ja']
 - url: msk.hoshisaki-h.com
   langs: ['ja']
-- url: nombi.link
-  langs: ['ja']
-- url: pico.misskey.moe
-  langs: ['ja']
 - url: misskey.shinaaamo.com
   langs: ['ja']
-- url: honiskey.kmlg.jp
-  langs: ['ja']
-- url: dostoevsskey.com
-  langs: ['ja']
 - url: nca10.net
-  langs: ['ja']
-- url: misskey.dokodare.ovh
   langs: ['ja']
 - url: misskey.cf
   langs: ['ja']
 - url: z.kvche.ch
-  langs: ['ja']
-- url: mk.nombi.link
   langs: ['ja']
 - url: mk.xiupos.net
   langs: ['ja']
@@ -305,15 +199,9 @@
   langs: ['ja']
 - url: mi.8mitsu.net
   langs: ['ja']
-- url: dev.xiupos.net
-  langs: ['ja']
 - url: m.zuiho.moe
   langs: ['ja']
 - url: misskey.azuki.cf
-  langs: ['ja']
-- url: msky.hmpf.club
-  langs: ['ja']
-- url: misskey.choco14t.net
   langs: ['ja']
 - url: mk2.toyoko.in
   langs: ['ja']
@@ -329,8 +217,6 @@
   langs: ['ja']
 - url: test1.syuilo.dev
   langs: ['ja']
-- url: msk.kessai-otaku.club
-  langs: ['ja']
 - url: misskey.tlfoxhuman.net
   langs: ['ja']
 - url: memesskey.com
@@ -341,13 +227,9 @@
   langs: ['ja']
 - url: necko.plala.jp
   langs: ['ja']
-- url: arena.seraimu.me
-  langs: ['ja']
 - url: fediversekey.com
   langs: ['ja']
 - url: www.fediversekey.com
-  langs: ['ja']
-- url: misskey.one
   langs: ['ja']
 - url: mi.shi-jk.com
   langs: ['ja']
@@ -396,13 +278,7 @@
   langs: ['en']
 - url: nya.social
   langs: ['en']
-- url: social.coolmathgames.tech
-  langs: ['en']
 - url: gensoukyou.jp.net
-  langs: ['en']
-- url: ms.neko.bar
-  langs: ['en']
-- url: cuteposting.institute
   langs: ['en']
 - url: misskey.kusoneko.moe
   langs: ['en']
@@ -412,17 +288,9 @@
   langs: ['en']
 - url: slippy.xyz
   langs: ['en']
-- url: snootbooping.date
-  langs: ['en']
-- url: deck.slippy.xyz
-  langs: ['en']
-- url: gorf.space
-  langs: ['en']
 - url: quietplace.xyz
   langs: ['en']
 - url: seaside.cafe
-  langs: ['en']
-- url: fedi.mint.lgbt
   langs: ['en']
 - url: jumanji.co
   langs: ['en']
@@ -430,13 +298,7 @@
   langs: ['en']
 - url: bungle.online
   langs: ['en']
-- url: www.bigguys.club
-  langs: ['en']
 - url: mkiii.amplifie.red
-  langs: ['en']
-- url: misskey.blossoming.dev
-  langs: ['en']
-- url: mulmeyun.church
   langs: ['en']
 - url: mk.himbeer.me
   langs: ['en']
@@ -444,31 +306,13 @@
   langs: ['en']
 - url: birb.space
   langs: ['en']
-- url: misskey.amoonrabbit.reisen
-  langs: ['en']
 - url: social.jsts.xyz
   langs: ['en']
 - url: hallsofamenti.io
   langs: ['en']
-- url: misskey.design
-  langs: ['en']
 - url: moe.foxarmy.ml
   langs: ['en']
-- url: nerd.town
-  langs: ['en']
-- url: wrongthink.me
-  langs: ['en']
 - url: silkhe.art
-  langs: ['en']
-- url: isometry.black
-  langs: ['en']
-- url: beep.jae.fi
-  langs: ['en']
-- url: uhhhhhh.ahhhhhh.social
-  langs: ['en']
-- url: tbh.ihatebeinga.live
-  langs: ['en']
-- url: friendface.fail
   langs: ['en']
 - url: not.acu.lt
   langs: ['en']
@@ -476,17 +320,11 @@
   langs: ['en']
 - url: mk.catgirlsfor.science
   langs: ['en']
-- url: mk.striker.net.eu.org
-  langs: ['en']
 - url: movsw.0x0.st
-  langs: ['en']
-- url: mk.fedi.tech
   langs: ['en']
 - url: mk.nixnet.social
   langs: ['en']
 - url: stop.voring.me
-  langs: ['en']
-- url: misskey.kokkoro.moe
   langs: ['en']
 - url: misskey.biribiri.dev
   langs: ['en']
@@ -494,15 +332,7 @@
   langs: ['en']
 - url: mk.absturztau.be
   langs: ['en']
-- url: misskey.koyu.space
-  langs: ['en']
-- url: mk.comfysnug.space
-  langs: ['en']
-- url: handholding.gay
-  langs: ['en']
 - url: mk.vibbe.xyz
-  langs: ['en']
-- url: social.cybre.city
   langs: ['en']
 - url: blue.skye.cx
   langs: ['en']
@@ -516,45 +346,19 @@
   langs: ['en']
 - url: misskey.bubbletea.dev
   langs: ['en']
-- url: mk.samtherapy.xyz
-  langs: ['en']
-- url: mk.luna.vg
-  langs: ['en']
 - url: mk.danksquad.xyz
-  langs: ['en']
-- url: theroom.social
-  langs: ['en']
-- url: pretest.misskey.id
   langs: ['en']
 - url: mk.outerheaven.club
   langs: ['en']
-- url: pub.sectorinf.com
-  langs: ['en']
 - url: z0ne.social
   langs: ['en']
-- url: mk.muy.moe
-  langs: ['en']
 - url: beg.plead.help
-  langs: ['en']
-- url: bunne.garden
-  langs: ['en']
-- url: mk.pusang-ina-mo.ooo
-  langs: ['en']
-- url: fedi.kittenme.ws
-  langs: ['en']
-- url: then.therewas.art
-  langs: ['en']
-- url: booba.bar
   langs: ['en']
 - url: ente.fun
   langs: ['en']
 - url: mss.cgnat.net
   langs: ['en']
-- url: sugary.fashion
-  langs: ['en']
 - url: minidisc.tokyo
-  langs: ['en']
-- url: furrylife.online
   langs: ['en']
 - url: misskey.id
   langs: ['en']
@@ -562,19 +366,11 @@
   langs: ['en']
 - url: mk.udongein.reisen
   langs: ['en']
-- url: bumpto.space
-  langs: ['en']
 - url: mk.xn--ponek-1sa8t.eu
-  langs: ['en']
-- url: hatesli.me
   langs: ['en']
 - url: nyaaa.jeder.pl
   langs: ['en']
 - url: niscii.xyz
-  langs: ['en']
-- url: f.raitisoja.cloud
-  langs: ['en']
-- url: misskey.to
   langs: ['en']
 - url: pixelart.moe
   langs: ['en']
@@ -584,45 +380,23 @@
   langs: ['en']
 - url: misskey.ai
   langs: ['en']
-- url: misskey.belligerence.club
-  langs: ['en']
 - url: mk.cybre.ninja
   langs: ['en']
 - url: snug.moe
   langs: ['en']
-- url: mk.longyap.social
-  langs: ['en']
-- url: waha.desupost.soy
-  langs: ['en']
 - url: evil.social
   langs: ['en']
-- url: freewahaextremist.wtf
-  langs: ['en']
-- url: mk.outoftou.ch
-  langs: ['en']
 - url: catgirl.misskey.lol
-  langs: ['en']
-- url: mk.fabis.cafe
   langs: ['en']
 - url: pasta.ga
   langs: ['en']
 - url: miruku.cafe
   langs: ['en']
-- url: shrine.moe
-  langs: ['en']
 - url: chars.moe
   langs: ['en']
 - url: kafka.icu
   langs: ['en']
-- url: social.ahlo.club
-  langs: ['en']
-- url: mk.voring.me
-  langs: ['en']
 - url: yuustan.space
-  langs: ['en']
-- url: mk.cirnoisthe.best
-  langs: ['en']
-- url: bub.waifuism.life
   langs: ['en']
 - url: frennet.xyz
   langs: ['en']
@@ -654,19 +428,11 @@
   langs: ['en']
 - url: f.dyne.link
   langs: ['en']
-- url: toot.tools
-  langs: ['en']
-- url: mk.yuka.dev
-  langs: ['en']
 - url: council.azure.icu
   langs: ['en']
 - url: succubi.services
   langs: ['en']
-- url: nakadashi.rocks
-  langs: ['en']
 - url: social.metamuffin.org
-  langs: ['en']
-- url: www.loganjohndarylgraham.xyz
   langs: ['en']
 - url: chungus.cc
   langs: ['en']
@@ -675,8 +441,6 @@
 - url: miss.mouse.services
   langs: ['en']
 - url: ubiqueros.com
-  langs: ['en']
-- url: misskey.silverkey.me
   langs: ['en']
 - url: mk.outsidermanga.com
   langs: ['en']
@@ -691,8 +455,6 @@
 - url: misskey.dyselon.com
   langs: ['en']
 - url: fedi.tyil.nl
-  langs: ['en']
-- url: mk.gaycookie.dev
   langs: ['en']
 - url: fediverse.projectftm.com
   langs: ['en']
@@ -724,8 +486,6 @@
   langs: ['en']
 - url: m.filmfreedom.net
   langs: ['en']
-- url: social.swagg.net
-  langs: ['en']
 #
 ##
 #########################################
@@ -733,11 +493,7 @@
 #
 - url: meow.zarchbox.fr
   langs: ['fr']
-- url: social.darks.fr
-  langs: ['fr']
 - url: misskey.fr
-  langs: ['fr']
-- url: misskey.nicolastissot.fr
   langs: ['fr']
 - url: pouet.fede.re
   langs: ['fr']
@@ -754,10 +510,6 @@
   langs: ['zh']
 - url: m.dogcraft.cn
   langs: ['zh']
-- url: rosehip.moe
-  langs: ['zh']
-- url: misskey.xiling.site
-  langs: ['zh']
 - url: f.jymuoyu.com
   langs: ['zh']
 - url: nyan.live
@@ -765,12 +517,6 @@
 - url: fet.bar
   langs: ['zh']
 - url: neko.ci
-  langs: ['zh']
-- url: misskey.seediqbale.xyz
-  langs: ['zh']
-- url: xice.org
-  langs: ['zh']
-- url: sns.infsea.com
   langs: ['zh']
 - url: mi.monado.ren
   langs: ['zh']
@@ -786,15 +532,11 @@
   langs: ['zh']
 - url: mk.outv.im
   langs: ['zh']
-- url: mk.wah.gg
-  langs: ['zh']
 - url: fbk.moe
   langs: ['zh']
 - url: key.erica.moe
   langs: ['zh']
 - url: misskey.chn.moe
-  langs: ['zh']
-- url: misskey.fenda.win
   langs: ['zh']
 - url: m.isle.moe
   langs: ['zh']
@@ -828,17 +570,11 @@
 #
 - url: nyan.nekoea.red
   langs: ['ru']
-- url: lagemeet.duckdns.org
-  langs: ['ru']
 - url: misskey.cats-home.net
   langs: ['ru']
 - url: misskey.weebcouncil.online
   langs: ['ru']
 - url: shitpost.poridge.club
-  langs: ['ru']
-- url: mk.arumoon.ru
-  langs: ['ru']
-- url: my.lono.space
   langs: ['ru']
 - url: nobl.ink
   langs: ['ru']
@@ -855,19 +591,11 @@
   langs: ['de']
 - url: misskey.de
   langs: ['de']
-- url: social.timmorgner.de
-  langs: ['de']
 - url: genau.qwertqwefsday.eu
-  langs: ['de']
-- url: platt.social
   langs: ['de']
 - url: mk.autonomy.earth
   langs: ['de']
-- url: misskey.tillbosselmann.de
-  langs: ['de']
 - url: mk.igwigg.space
-  langs: ['de']
-- url: fedi.debiantippse.de
   langs: ['de']
 - url: misskey.sagt.xyz
   langs: ['de']
@@ -890,8 +618,7 @@
 #########################################
 ##
 #
-- url: ketr.am
-  langs: ['th']
+# th
 #
 ##
 #########################################
@@ -906,5 +633,4 @@
 #########################################
 ##
 #
-- url: space.jeroenvd.nl
-  langs: ['nl']
+# nl
