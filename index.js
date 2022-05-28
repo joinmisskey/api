@@ -74,25 +74,19 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		return clean()
 	}
 
-	let { ext, mime } = ft;
-	if (!mime.startsWith('image')) {
-		console.error(url, 'it is not image!')
-		return clean()
-	}
-
 	if (files.length > 0) {
-		const local = await readFile(`${tempDir}${name}.${ext}`).catch(() => false)
+		const local = await readFile(`${tempDir}${name}`).catch(() => false)
 		if (!local) return false
 		if (getHash(buffer, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			await writeFile(`${tempDir}${name}.${ext}`, buffer)
-			return { name, ext, status: "renewed" }
+			await writeFile(`${tempDir}${name}`, buffer)
+			return { name, status: "renewed" }
 		}
-		if (alwaysReturn) return { name, ext, status: "unchanged" }
+		if (alwaysReturn) return { name, status: "unchanged" }
 		return false
 	}
 
-	await writeFile(`${tempDir}${name}.${ext}`, buffer)
-	return { name, ext, status: "created" }
+	await writeFile(`${tempDir}${name}`, buffer)
+	return { name, status: "created" }
 }
 
 getInstancesInfos()
@@ -123,7 +117,7 @@ getInstancesInfos()
 					else instance.banner = false
 					if (res && res.status !== "unchanged") {
 						glog(`downloading banner for ${instance.url}`)
-						const base = sharp(`./temp/instance-banners/${res.name}.${res.ext}`)
+						const base = sharp(`./temp/instance-banners/${res.name}`)
 							.resize({
 								width: 1024,
 								withoutEnlargement: true,
@@ -150,7 +144,7 @@ getInstancesInfos()
 					else instance.background = false
 					if (res && res.status !== "unchanged") {
 						glog(`downloading background image for ${instance.url}`)
-						const base = sharp(`./temp/instance-backgrounds/${res.name}.${res.ext}`)
+						const base = sharp(`./temp/instance-backgrounds/${res.name}`)
 							.resize({
 								width: 1024,
 								withoutEnlargement: true,
@@ -177,9 +171,9 @@ getInstancesInfos()
 					else instance.icon = false
 					if (res && res.status !== "unchanged") {
 						glog(`downloading icon image for ${instance.url}`)
-						const base = sharp(`./temp/instance-icons/${res.name}.${res.ext}`)
+						const base = sharp(`./temp/instance-icons/${res.name}`)
 							.resize({
-								width: 1024,
+								height: 200,
 								withoutEnlargement: true,
 							})
 						if (!base) {
