@@ -119,11 +119,15 @@ getInstancesInfos()
 							instance.banner = false
 							return
 						}
-						await base.jpeg({ quality: 80, progressive: true })
-							.toFile(`./dist/instance-banners/${res.name}.jpeg`)
-						await base.webp({ quality: 75 })
-							.toFile(`./dist/instance-banners/${res.name}.webp`)
-						return
+						try {
+							await base.jpeg({ quality: 80, progressive: true })
+								.toFile(`./dist/instance-banners/${instance.url}.jpeg`)
+							await base.webp({ quality: 75 })
+								.toFile(`./dist/instance-banners/${instance.url}.webp`)
+						} catch (e) {
+							glog.error(`error while processing banner for ${instance.url}`, e);
+							instance.banner = false
+						}
 					}
 				}))
 			} else {
@@ -142,15 +146,21 @@ getInstancesInfos()
 								width: 1024,
 								withoutEnlargement: true,
 							})
+
 						if (!base) {
 							instance.background = false
 							return
 						}
-						await base.jpeg({ quality: 80, progressive: true })
-							.toFile(`./dist/instance-backgrounds/${res.name}.jpeg`)
-						await base.webp({ quality: 75 })
-							.toFile(`./dist/instance-backgrounds/${res.name}.webp`)
-						return
+
+						try {
+							await base.jpeg({ quality: 80, progressive: true })
+								.toFile(`./dist/instance-backgrounds/${instance.url}.jpeg`)
+							await base.webp({ quality: 75 })
+								.toFile(`./dist/instance-backgrounds/${instance.url}.webp`)
+						} catch (e) {
+							glog.error(`error while processing background for ${instance.url}`, e);
+							instance.background = false
+						}
 					}
 				}))
 			} else {
@@ -169,15 +179,21 @@ getInstancesInfos()
 								height: 200,
 								withoutEnlargement: true,
 							})
+
 						if (!base) {
 							instance.icon = false
 							return
 						}
-						await base.png()
-							.toFile(`./dist/instance-icons/${res.name}.png`)
-						await base.webp({ quality: 75 })
-							.toFile(`./dist/instance-icons/${res.name}.webp`)
-						return
+
+						try {
+							await base.png()
+								.toFile(`./dist/instance-icons/${instance.url}.png`)
+							await base.webp({ quality: 75 })
+								.toFile(`./dist/instance-icons/${instance.url}.webp`)
+						} catch (e) {
+							glog.error(`error while processing icon for ${instance.url}`, e);
+							instance.icon = false
+						}
 					}
 				}))
 			} else {
