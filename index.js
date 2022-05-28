@@ -1,7 +1,6 @@
 const { promisify } = require("util")
 const fs = require("fs")
 const fetch = require("node-fetch-with-proxy")
-const fileType = require("file-type")
 const glob = require("glob")
 const glog = require("fancy-log")
 const sharp = require("sharp")
@@ -65,12 +64,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	const buffer = await request.buffer()
 	if (!buffer) {
 		console.error(url, 'buffer is null or empty!')
-		return clean()
-	}
-
-	const ft = await fileType.fromBuffer(buffer)
-	if (!ft) {
-		console.error(url, 'failed to detect file type!')
 		return clean()
 	}
 
