@@ -36,6 +36,7 @@ https://instanceapp.misskey.page 下で以下の情報を取得できます。
             stats: Object,   //  api/statsの結果
             banner: Bool,    //  バナーが存在するかどうか
             background: Bool,//  バックグラウンドイメージがあるかどうか
+            icon: Bool,      //  アイコンがあるかどうか
         }, ...
     ]
 
@@ -43,10 +44,16 @@ https://instanceapp.misskey.page 下で以下の情報を取得できます。
 ```
 
 ### /instance-banners/instance.host.{jpeg|webp}
-軽量化されたインスタンスのバナーが格納されています。
+軽量化されたインスタンスのバナーが格納されています。  
+存在するかどうかはinstancesInfosのbannerで確認できます。
 
 ### /instance-backgrounds/instance.host.{jpeg|webp}
-軽量化されたインスタンスのバックグラウンドイメージ（ウェルカムページに表示される画像）が格納されています。
+軽量化されたインスタンスのバックグラウンドイメージ（ウェルカムページに表示される画像）が格納されています。  
+存在するかどうかはinstancesInfosのbackgroundで確認できます。
+
+### /instance-icons/instance.host.{png|webp}
+軽量化されたインスタンスのアイコン（faviconではありません）が格納されています。  
+存在するかどうかはinstancesInfosのiconで確認できます。
 
 ### /alives.txt
 疎通できたインスタンスのホストのリスト（\n区切り）

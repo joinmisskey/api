@@ -110,13 +110,14 @@ getInstancesInfos()
 
 		await mkdirp('./dist/instance-banners')
 		await mkdirp('./dist/instance-backgrounds')
+		await mkdirp('./dist/instance-icons')
 
 		const infoQueue = new Queue(3)
 		const instancesInfosPromises = [];
 
 		for (const instance of alives) {
-			instancesInfosPromises.push(infoQueue.add(async () => {
-				if (instance.meta.bannerUrl) {
+			if (instance.meta.bannerUrl) {
+				instancesInfosPromises.push(infoQueue.add(async () => {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					else instance.banner = false
@@ -137,13 +138,13 @@ getInstancesInfos()
 							.toFile(`./dist/instance-banners/${res.name}.webp`)
 						return
 					}
-				} else {
-					instance.banner = false
-					return
-				}
-			}))
-			instancesInfosPromises.push(infoQueue.add(async () => {
-				if (instance.meta.backgroundImageUrl) {
+				}))
+			} else {
+				instance.banner = false
+			}
+
+			if (instance.meta.backgroundImageUrl) {
+				instancesInfosPromises.push(infoQueue.add(async () => {
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.backgroundImageUrl, `https://${instance.url}`)).toString(), `./temp/instance-backgrounds/`, true)
 					if (res) instance.background = true
 					else instance.background = false
@@ -164,11 +165,37 @@ getInstancesInfos()
 							.toFile(`./dist/instance-backgrounds/${res.name}.webp`)
 						return
 					}
-				} else {
-					instance.background = false
-					return
-				}
-			}))
+				}))
+			} else {
+				instance.background = false
+			}
+
+			if (instance.meta.iconUrl) {
+				instancesInfosPromises.push(infoQueue.add(async () => {
+					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.iconUrl, `https://${instance.url}`)).toString(), `./temp/instance-icons/`, true)
+					if (res) instance.icon = true
+					else instance.icon = false
+					if (res && res.status !== "unchanged") {
+						glog(`downloading icon image for ${instance.url}`)
+						const base = sharp(`./temp/instance-icons/${res.name}.${res.ext}`)
+							.resize({
+								width: 1024,
+								withoutEnlargement: true,
+							})
+						if (!base) {
+							instance.icon = false
+							return
+						}
+						await base.png()
+							.toFile(`./dist/instance-icons/${res.name}.png`)
+						await base.webp({ quality: 75 })
+							.toFile(`./dist/instance-icons/${res.name}.webp`)
+						return
+					}
+				}))
+			} else {
+				instance.icon = false
+			}
 		}
 
 		await Promise.all(instancesInfosPromises)
