@@ -269,6 +269,12 @@
   langs: ['ja']
 - url: misskey.yukineko.me
   langs: ['ja']
+- url: ward2.bouvardia.icu
+  langs: ['ja']
+- url: abandoned.opprimonational.com
+  langs: ['ja']
+- url: n-msk-exp.stesan.dev
+  langs: ['ja']
 #
 ##
 #########################################
@@ -486,6 +492,20 @@
   langs: ['en']
 - url: m.filmfreedom.net
   langs: ['en']
+- url: my.medic.cafe
+  langs: ['en']
+- url: pmth.us
+  langs: ['en']
+- url: mk.poorlifechoices.moe
+  langs: ['en']
+- url: erisly.social
+  langs: ['en']
+- url: borg.social
+  langs: ['en']
+- url: bkgrdclrschm.link
+  langs: ['en']
+- url: plasmatrap.com
+  langs: ['en']
 #
 ##
 #########################################
@@ -550,6 +570,8 @@
   langs: ['zh']
 - url: bilibili.org
   langs: ['zh']
+- url: 3.srl
+  langs: ['zh']
 #
 ##
 #########################################
@@ -612,6 +634,8 @@
 - url: microblog.social
   langs: ['de']
 - url: cocaineninja.de
+  langs: ['de']
+- url: very.tastytea.de
   langs: ['de']
 #
 ##
