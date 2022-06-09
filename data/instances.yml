@@ -14,6 +14,8 @@
 - url: misskey.dev
 - url: seediqbale.xyz
   langs: ['en', 'zh']
+- url: tbh.ihatebeinga.live
+  langs: ['en', 'ja']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -275,6 +277,14 @@
   langs: ['ja']
 - url: n-msk-exp.stesan.dev
   langs: ['ja']
+- url: misskey.pantasystem.com
+  langs: ['ja']
+- url: misskey.7ka.org
+  langs: ['ja']
+- url: misskey.ablaze.one
+  langs: ['ja']
+- url: fukahire.tokyo
+  langs: ['ja']
 #
 ##
 #########################################
@@ -505,6 +515,8 @@
 - url: bkgrdclrschm.link
   langs: ['en']
 - url: plasmatrap.com
+  langs: ['en']
+- url: mk.generallyrubbish.net
   langs: ['en']
 #
 ##
