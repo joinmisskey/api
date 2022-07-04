@@ -307,6 +307,8 @@
   langs: ['ja']
 - url: labo.wovs.tk
   langs: ['ja']
+- url: misskey.painted.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -542,6 +544,12 @@
   langs: ['en']
 - url: m.soopy.moe
   langs: ['en']
+- url: miku-enthusiast.club
+  langs: ['en']
+- url: misskey.pnyhf.eu
+  langs: ['en']
+- url: social.jokiller230.tk
+  langs: ['en']
 #
 ##
 #########################################
@@ -610,6 +618,14 @@
   langs: ['zh']
 - url: ap.gjcloak.top
   langs: ['zh']
+- url: miki.live4you.one
+  langs: ['zh']
+- url: xn--s8w913fdga.chn.moe
+  langs: ['zh']
+- url: awa.im
+  langs: ['zh']
+- url: ym.rookieo.com
+  langs: ['zh']
 #
 ##
 #########################################
@@ -674,6 +690,8 @@
 - url: cocaineninja.de
   langs: ['de']
 - url: very.tastytea.de
+  langs: ['de']
+- url: mk.fedcast.ch
   langs: ['de']
 #
 ##
