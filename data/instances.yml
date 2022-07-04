@@ -16,6 +16,8 @@
   langs: ['en', 'zh']
 - url: tbh.ihatebeinga.live
   langs: ['en', 'ja']
+- url: msk.ilnk.info
+  langs: ['ja', 'kr', 'de', 'en']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -287,6 +289,24 @@
   langs: ['ja']
 - url: mk.yopo.work
   langs: ['ja']
+- url: misskey.sda1.net
+  langs: ['ja']
+- url: fumisskey.com
+  langs: ['ja']
+- url: misskey.cloud
+  langs: ['ja']
+- url: mk.cygis.cf
+  langs: ['ja']
+- url: gp4.nem.one
+  langs: ['ja']
+- url: mitsukey.cf
+  langs: ['ja']
+- url: hina.house
+  langs: ['ja']
+- url: hpive.misskey.online
+  langs: ['ja']
+- url: labo.wovs.tk
+  langs: ['ja']
 #
 ##
 #########################################
@@ -520,6 +540,8 @@
   langs: ['en']
 - url: mk.generallyrubbish.net
   langs: ['en']
+- url: m.soopy.moe
+  langs: ['en']
 #
 ##
 #########################################
@@ -585,6 +607,8 @@
 - url: bilibili.org
   langs: ['zh']
 - url: 3.srl
+  langs: ['zh']
+- url: ap.gjcloak.top
   langs: ['zh']
 #
 ##
@@ -671,4 +695,6 @@
 #########################################
 ##
 #
-# nl
+# bh
+- url: bihlink.com
+  langs: ['en']
