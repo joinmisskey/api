@@ -243,7 +243,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 					(!instance.meta.name || instance.meta.name !== instance.url) ?
 						`${instance.meta.name} (${instance.url})` :
 						instance.url
-				}]()`
+				}](${instance.url})`
 		).join('\n')
 
 		// 1. Japanese
