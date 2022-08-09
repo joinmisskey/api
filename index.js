@@ -232,7 +232,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			headers: {
 				"Content-Type": "application/json"
 			}
-		});
+		}).then(res => res.json());
 
 		// Instances
 		const sorted = INSTANCES_JSON.instancesInfos.sort((a, b) => (b.value - a.value));
@@ -266,7 +266,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			headers: {
 				"Content-Type": "application/json"
 			}
-		});
+		}).then(res => res.json());
 
 		// 2. English
 		const otherInstances = [];
@@ -287,7 +287,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			headers: {
 				"Content-Type": "application/json"
 			}
-		});
+		}).then(res => res.json());
 
 	})
 
