@@ -272,7 +272,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 		const otherInstances = [];
 
 		for (const instance of sorted) {
-			if (japaneseInstances.includes(instance)) continue;
+			if (instance.langs.includes("ja")) continue;
 			otherInstances.push(instance);
 			if (otherInstances.length === 30) break;
 		}
