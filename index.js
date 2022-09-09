@@ -203,28 +203,97 @@ getInstancesInfos()
 
 		await Promise.allSettled(instancesInfosPromises)
 
-		fs.writeFile('./dist/instances.json', JSON.stringify({
+		const INSTANCES_JSON = {
 			date: new Date(),
 			stats,
 			instancesInfos: alives
-		}), () => { })
+		}
+
+		fs.writeFile('./dist/instances.json', JSON.stringify(INSTANCES_JSON), () => { })
 
 		console.log('FINISHED!')
-		return;
+		return INSTANCES_JSON;
 	})
 
-	.then(async () => {
-		const notIncluded = await instanceq()
-		if (notIncluded.length === 0) return fetch("https://p1.a9z.dev/api/notes/create", {
+	.then(async INSTANCES_JSON => {
+		// 0. Statistics
+		let tree = await fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `JoinMisskey instance api is now updated and no unlisted instances are found.\nhttps://join.misskey.page/\n#bot`
+				text: `JoinMisskey instance api is updated at ${INSTANCES_JSON.date.toISOString()}.
+
+Total Notes: ${INSTANCES_JSON.stats.notesCount}
+Total Users: ${INSTANCES_JSON.stats.usersCount}
+Total Instances: ${INSTANCES_JSON.stats.instancesCount}
+
+https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			}),
 			headers: {
 				"Content-Type": "application/json"
 			}
-		});
+		}).then(res => res.json());
+
+		// Instances
+		const sorted = INSTANCES_JSON.instancesInfos.sort((a, b) => (b.value - a.value));
+
+		const getInstancesList = instances => instances.map(
+			(instance, i) =>
+				`${i + 1}. ?[${
+					(!instance.meta.name || instance.meta.name !== instance.url) ?
+						`${instance.meta.name} (${instance.url})` :
+						instance.url
+				}](https://${instance.url})`
+		).join('\n')
+
+		// 1. Japanese
+		const japaneseInstances = [];
+
+		for (const instance of sorted) {
+			if (instance.langs.includes("ja")) {
+				japaneseInstances.push(instance)
+			}
+			if (japaneseInstances.length === 30) break;
+		}
+
+		tree = await fetch("https://p1.a9z.dev/api/notes/create", {
+			method: "POST",
+			body: JSON.stringify({
+				i: process.env.MK_TOKEN,
+				text: `日本語インスタンス (トップ30)\n\n${getInstancesList(japaneseInstances)}`,
+				replyId: tree.createdNote.id,
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		}).then(res => res.json());
+
+		// 2. English
+		const otherInstances = [];
+
+		for (const instance of sorted) {
+			if (instance.langs.includes("ja")) continue;
+			otherInstances.push(instance);
+			if (otherInstances.length === 30) break;
+		}
+
+		tree = await fetch("https://p1.a9z.dev/api/notes/create", {
+			method: "POST",
+			body: JSON.stringify({
+				i: process.env.MK_TOKEN,
+				text: `Top 30 instances (other than Japanese)\n\n${getInstancesList(otherInstances)}`,
+				replyId: tree.createdNote.id,
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		}).then(res => res.json());
+
+	})
+
+	.then(async () => {
+		const notIncluded = await instanceq()
+		if (notIncluded.length === 0) return;
 
 		return fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",

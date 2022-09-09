@@ -1,5 +1,6 @@
 # instanceqで発見されはするものの無視したいホストを列挙します
 - ns.auction
+- newskey.cc
 #
 - misskey.ca.gy
 - misskey.slum.cloud
@@ -443,3 +444,7 @@
 - msk-ios14.stesan.dev
 - itsukey.cf
 - chungus.cc
+- xlun.moe
+- mk.shatteredpalisa.de
+- potp.me
+- bronyfurry.com

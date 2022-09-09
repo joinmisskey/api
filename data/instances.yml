@@ -69,8 +69,6 @@
   langs: ['ja']
 - url: misskey.omhnc.net
   langs: ['ja']
-- url: newskey.cc
-  langs: ['ja']
 - url: misskey.endaaman.me
   langs: ['ja']
 - url: misskey.osyakasyama.me
@@ -308,6 +306,34 @@
 - url: labo.wovs.tk
   langs: ['ja']
 - url: misskey.painted.jp
+  langs: ['ja']
+- url: misskey.nenohi.net
+  langs: ['ja']
+- url: m.x4s.io
+  langs: ['ja']
+- url: mi.cbrx.io
+  langs: ['ja']
+- url: msk.porubu.com
+  langs: ['ja']
+- url: honi.stesan.dev
+  langs: ['ja']
+- url: misskey.honahuku.com
+  langs: ['ja']
+- url: misskey.raisan.co
+  langs: ['ja']
+- url: next.yncrypt.net
+  langs: ['ja']
+- url: misskey.dokodare.ovh
+  langs: ['ja']
+- url: mk.sysk-work.net
+  langs: ['ja']
+- url: rin.pink
+  langs: ['ja']
+- url: mk2.mstdn.life
+  langs: ['ja']
+- url: matchat.trendcreate.net
+  langs: ['ja']
+- url: sns.ymn.info
   langs: ['ja']
 #
 ##
@@ -548,6 +574,24 @@
   langs: ['en']
 - url: social.jokiller230.tk
   langs: ['en']
+- url: mk.possums.xyz
+  langs: ['en']
+- url: odyssey.divineduty.xyz
+  langs: ['en']
+- url: prismst.one
+  langs: ['en']
+- url: volcanocoffee.monster
+  langs: ['en']
+- url: misskey.phoebeivy.dev
+  langs: ['en']
+- url: mis.ski
+  langs: ['en']
+- url: mk.moien.net
+  langs: ['en']
+- url: morale.ch
+  langs: ['en']
+- url: misskey.ipv6-only.site
+  langs: ['en']
 #
 ##
 #########################################
@@ -558,6 +602,8 @@
 - url: misskey.fr
   langs: ['fr']
 - url: pouet.fede.re
+  langs: ['fr']
+- url: trebo.chat
   langs: ['fr']
 #
 ##
@@ -623,6 +669,12 @@
 - url: awa.im
   langs: ['zh']
 - url: ym.rookieo.com
+  langs: ['zh']
+- url: m.mashiro.top
+  langs: ['zh']
+- url: xn--qbtm095lrg0bfka60z.chn.moe
+  langs: ['zh']
+- url: meta.x61.uk
   langs: ['zh']
 #
 ##
@@ -706,6 +758,10 @@
   langs: ['es']
 - url: novoa.nagoya
   langs: ['es']
+- url: mk.chocoflan.net
+  langs: ['es']
+- url: misskey.unraids.ml
+  langs: ['es']
 #
 ##
 #########################################
@@ -713,4 +769,12 @@
 #
 # bh
 - url: bihlink.com
-  langs: ['en']
+  langs: ['en', 'bh']
+#
+##
+#########################################
+##
+#
+# sv
+- url: xn--rtta-qoa.nu
+  langs: ['en', 'sv']
