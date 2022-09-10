@@ -335,6 +335,20 @@
   langs: ['ja']
 - url: sns.ymn.info
   langs: ['ja']
+- url: mk.kirota.net
+  langs: ['ja']
+- url: priv.menac.at
+  langs: ['ja']
+- url: msnis.radiate038.com
+  langs: ['ja']
+- url: gaku-tab-kill.com
+  langs: ['ja']
+- url: mei10.nem.one
+  langs: ['ja']
+- url: mk.mozc-plasma.tech
+  langs: ['ja']
+- url: mk.shiro.ink
+  langs: ['ja']
 #
 ##
 #########################################
@@ -594,6 +608,25 @@
   langs: ['en']
 - url: misskey.ipv6-only.site
   langs: ['en']
+- url: comfy.social
+  langs: ['en']
+- url: mk.eliko.ga
+  langs: ['en']
+- url: miss.voided.ee
+  langs: ['en']
+- url: mk.szkod.ovh
+  langs: ['en']
+- url: mk.starnix.network
+  langs: ['en']
+- url: pooper.social
+  langs: ['en']
+#
+##
+#########################################
+##
+#
+- url: www.foxyhole.io
+  langs: ['it', 'en']
 #
 ##
 #########################################
@@ -678,6 +711,16 @@
   langs: ['zh']
 - url: meta.x61.uk
   langs: ['zh']
+- url: springbo.cc
+  langs: ['zh']
+- url: fedi.intkos.link
+  langs: ['zh']
+- url: vivi.moe
+  langs: ['zh']
+- url: beta.zezefans.com
+  langs: ['zh']
+- url: sns.tantalum.life
+  langs: ['zh']
 #
 ##
 #########################################
@@ -744,6 +787,8 @@
 - url: very.tastytea.de
   langs: ['de']
 - url: mk.fedcast.ch
+  langs: ['de']
+- url: blog.fulda.social
   langs: ['de']
 #
 ##
