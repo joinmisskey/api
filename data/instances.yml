@@ -624,7 +624,7 @@
 ##
 #
 - url: www.foxyhole.io
-  langs: ['it', 'en']
+  langs: ['it']
 #
 ##
 #########################################
@@ -814,7 +814,7 @@
 #
 # bh
 - url: bihlink.com
-  langs: ['en', 'bh']
+  langs: ['bh']
 #
 ##
 #########################################
@@ -822,4 +822,4 @@
 #
 # sv
 - url: xn--rtta-qoa.nu
-  langs: ['en', 'sv']
+  langs: ['sv']
