@@ -349,6 +349,24 @@
   langs: ['ja']
 - url: mk.shiro.ink
   langs: ['ja']
+- url: mk.shrimpia.network
+  langs: ['ja']
+- url: kokt.club
+  langs: ['ja']
+- url: mi.growthers.dev
+  langs: ['ja']
+- url: cover.pm
+  langs: ['ja']
+- url: pisskey.io
+  langs: ['ja']
+- url: epitaph.noize.guru
+  langs: ['ja']
+- url: mk.peg.osaka
+  langs: ['ja']
+- url: nmnm.na2na.dev
+  langs: ['ja']
+- url: dev1.simkey.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -618,12 +636,32 @@
   langs: ['en']
 - url: pooper.social
   langs: ['en']
+- url: breezy.my.to
+  langs: ['en']
+- url: beef.moe
+  langs: ['en']
+- url: fwedivewse.vfpmedia.com
+  langs: ['en']
+- url: msk.pedrocx486.club
+  langs: ['en']
+- url: cyb3r.moe
+  langs: ['en']
+- url: misskey.sharivegas.com
+  langs: ['en']
+- url: never.bid
+  langs: ['en']
+- url: soc.jae.fi
+  langs: ['en']
+- url: raccoon.place
+  langs: ['en']
 #
 ##
 #########################################
 ##
 #
 - url: www.foxyhole.io
+  langs: ['it']
+- url: fedi.vituperio.xyz
   langs: ['it']
 #
 ##
@@ -719,6 +757,8 @@
   langs: ['zh']
 - url: sns.tantalum.life
   langs: ['zh']
+- url: webxb.com
+  langs: ['zh']  
 #
 ##
 #########################################
@@ -750,6 +790,8 @@
 - url: bessonnica.org
   langs: ['ru']
 - url: weeb.su
+  langs: ['ru']
+- url: mk.phreedom.club
   langs: ['ru']
 #
 ##
@@ -788,6 +830,8 @@
   langs: ['de']
 - url: blog.fulda.social
   langs: ['de']
+- url: misskey.xy-space.de
+  langs: ['ja', 'de']
 #
 ##
 #########################################
@@ -823,3 +867,11 @@
 # sv
 - url: xn--rtta-qoa.nu
   langs: ['sv']
+#
+##
+#########################################
+##
+#
+# cs
+- url: chatsubo.cbrpnk.dev
+  langs: ['cs', 'en']
