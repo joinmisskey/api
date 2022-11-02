@@ -367,6 +367,20 @@
   langs: ['ja']
 - url: dev1.simkey.net
   langs: ['ja']
+- url: gaku-tab-love.com
+  langs: ['ja']
+- url: m5y.usuyuki.net
+  langs: ['ja']
+- url: relict.one
+  langs: ['ja']
+- url: kuinya.net
+  langs: ['ja']
+- url: 1042.info
+  langs: ['ja']
+- url: misskey.mydns.jp
+  langs: ['ja']
+- url: prison.suomomo.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -654,6 +668,10 @@
   langs: ['en']
 - url: raccoon.place
   langs: ['en']
+- url: misc.brainsoap.net
+  langs: ['en']
+- url: feed.vance.land
+  langs: ['en']
 #
 ##
 #########################################
@@ -675,6 +693,8 @@
 - url: pouet.fede.re
   langs: ['fr']
 - url: trebo.chat
+  langs: ['fr']
+- url: social.marud.fr
   langs: ['fr']
 #
 ##
@@ -758,7 +778,13 @@
 - url: sns.tantalum.life
   langs: ['zh']
 - url: webxb.com
-  langs: ['zh']  
+  langs: ['zh']
+- url: nekos.one
+  langs: ['zh']
+- url: foralltime.icu
+  langs: ['zh']
+- url: sager.wang
+  langs: ['zh']
 #
 ##
 #########################################
@@ -851,6 +877,8 @@
   langs: ['es']
 - url: misskey.unraids.ml
   langs: ['es']
+- url: mk.mistli.net
+  langs: ['es']
 #
 ##
 #########################################
@@ -874,4 +902,12 @@
 #
 # cs
 - url: chatsubo.cbrpnk.dev
-  langs: ['cs', 'en']
+  langs: ['cs']
+#
+##
+#########################################
+##
+#
+# id
+- url: bots.reinhart1010.id
+  langs: ['id']
