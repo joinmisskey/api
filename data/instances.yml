@@ -381,6 +381,18 @@
   langs: ['ja']
 - url: prison.suomomo.com
   langs: ['ja']
+- url: beta.romne.co
+  langs: ['ja']
+- url: misskey.vcborn.com
+  langs: ['ja']
+- url: misskey.soda-net.com
+  langs: ['ja']
+- url: misskey.nurs.or.jp
+  langs: ['ja']
+- url: misskeyjp.com
+  langs: ['ja']
+- url: mi.ablaze.one
+  langs: ['ja']
 #
 ##
 #########################################
@@ -672,6 +684,40 @@
   langs: ['en']
 - url: feed.vance.land
   langs: ['en']
+- url: social.metrix.network
+  langs: ['en']
+- url: mk.codingneko.com
+  langs: ['en']
+- url: fxmech.com
+  langs: ['en']
+- url: social.arunmozhi.in
+  langs: ['en']
+- url: mk.gabe.rocks
+  langs: ['en']
+- url: social.ljcu.cc
+  langs: ['en']
+- url: my.lono.ml
+  langs: ['en']
+- url: wao.wtf
+  langs: ['en']
+- url: sauce.nussnougate.net
+  langs: ['en']
+- url: hell.social
+  langs: ['en']
+- url: ninjagroup.moe
+  langs: ['en']
+- url: social.vtopia.live
+  langs: ['en']
+- url: social.bcicorporate.com
+  langs: ['en']
+- url: caa.rip
+  langs: ['en']
+- url: misskey.binaryfeline.com
+  langs: ['en']
+- url: mk.yeahnet.dev
+  langs: ['en']
+- url: m.k0r.in
+  langs: ['en']
 #
 ##
 #########################################
@@ -785,6 +831,10 @@
   langs: ['zh']
 - url: sager.wang
   langs: ['zh']
+- url: e4le.me
+  langs: ['zh']
+- url: m.sanwe.xyz
+  langs: ['zh']
 #
 ##
 #########################################
@@ -797,6 +847,14 @@
 - url: kokonect.link
   langs: ['ko']
 - url: stella.ocellaris.dev
+  langs: ['ko']
+- url: stationzero.me
+  langs: ['ko']
+- url: k.yumeka.xyz
+  langs: ['ko']
+- url: 1979.cloud
+  langs: ['ko']
+- url: twt.rs
   langs: ['ko']
 #
 ##
@@ -858,6 +916,8 @@
   langs: ['de']
 - url: misskey.xy-space.de
   langs: ['ja', 'de']
+- url: sup.lelehier.de
+  langs: ['de']
 #
 ##
 #########################################
@@ -878,6 +938,8 @@
 - url: misskey.unraids.ml
   langs: ['es']
 - url: mk.mistli.net
+  langs: ['es']
+- url: mk.catala.digital
   langs: ['es']
 #
 ##
