@@ -393,6 +393,42 @@
   langs: ['ja']
 - url: mi.ablaze.one
   langs: ['ja']
+- url: zadankai.club
+  langs: ['ja']
+- url: fle.studio
+  langs: ['ja']
+- url: mi.rhyme.ml
+  langs: ['ja']
+- url: mi.takuann.net
+  langs: ['ja']
+- url: romne.co
+  langs: ['ja']
+- url: mk.taiy.me
+  langs: ['ja']
+- url: yam.menac.at
+  langs: ['ja']
+- url: misskey.niri.la
+  langs: ['ja']
+- url: krnk.work
+  langs: ['ja']
+- url: jpb.opprimonational.com
+  langs: ['ja']
+- url: mk.chitotan.com
+  langs: ['ja']
+- url: otasky.ja-jp.org
+  langs: ['ja']
+- url: usuwotech.page
+  langs: ['ja']
+- url: goodbye.work
+  langs: ['ja']
+- url: misskey.aatame3.net
+  langs: ['ja']
+- url: sns.soda-net.com
+  langs: ['ja']
+- url: muimi.moe
+  langs: ['ja']
+- url: msk.i-red.info
+  langs: ['ja']
 #
 ##
 #########################################
@@ -718,6 +754,10 @@
   langs: ['en']
 - url: m.k0r.in
   langs: ['en']
+- url: misskey.pixelfilm.nz
+  langs: ['en']
+- url: catgirls.technology
+  langs: ['en']
 #
 ##
 #########################################
@@ -726,6 +766,8 @@
 - url: www.foxyhole.io
   langs: ['it']
 - url: fedi.vituperio.xyz
+  langs: ['it']
+- url: miss.octt.eu.org
   langs: ['it']
 #
 ##
@@ -742,6 +784,8 @@
   langs: ['fr']
 - url: social.marud.fr
   langs: ['fr']
+- url: s.basspistol.org
+  langs: ['en', 'fr']
 #
 ##
 #########################################
@@ -835,6 +879,18 @@
   langs: ['zh']
 - url: m.sanwe.xyz
   langs: ['zh']
+- url: i.ivie.cc
+  langs: ['zh']
+- url: m.tsai.it
+  langs: ['zh']
+- url: s.lacko.network
+  langs: ['zh']
+- url: nerv.agency
+  langs: ['zh']
+- url: ponderduck.cc
+  langs: ['zh']
+- url: tw.9tail.net
+  langs: ['zh']
 #
 ##
 #########################################
@@ -855,6 +911,10 @@
 - url: 1979.cloud
   langs: ['ko']
 - url: twt.rs
+  langs: ['ko']
+- url: vocalsynthes.is
+  langs: ['ko']
+- url: pikokr.dev
   langs: ['ko']
 #
 ##
@@ -918,6 +978,10 @@
   langs: ['ja', 'de']
 - url: sup.lelehier.de
   langs: ['de']
+- url: mk.21x9.org
+  langs: ['de']
+- url: socail.lmaa.pm
+  langs: ['de']
 #
 ##
 #########################################
@@ -940,6 +1004,8 @@
 - url: mk.mistli.net
   langs: ['es']
 - url: mk.catala.digital
+  langs: ['es']
+- url: social.chocoflan.net
   langs: ['es']
 #
 ##
