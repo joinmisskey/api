@@ -16,5 +16,6 @@
     "promise-queue": "^2.2.5",
     "semver": "^7.3.4",
     "sharp": "^0.30.5"
-  }
+  },
+  "packageManager": "yarn@3.3.0"
 }
