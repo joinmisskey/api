@@ -1,3 +1,3 @@
-npx -y yarn install
+yarn install --immutable
 mkdir -p dist
 node index
