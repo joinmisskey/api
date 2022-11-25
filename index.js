@@ -120,8 +120,10 @@ getInstancesInfos()
 							return
 						}
 						try {
+							console.log(`./dist/instance-banners/${instance.url}.jpeg`)
 							await base.jpeg({ quality: 80, progressive: true })
 								.toFile(`./dist/instance-banners/${instance.url}.jpeg`)
+							console.log(`./dist/instance-banners/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-banners/${instance.url}.webp`)
 						} catch (e) {
@@ -153,8 +155,10 @@ getInstancesInfos()
 						}
 
 						try {
+							console.log(`./dist/instance-backgrounds/${instance.url}.jpeg`)
 							await base.jpeg({ quality: 80, progressive: true })
 								.toFile(`./dist/instance-backgrounds/${instance.url}.jpeg`)
+							console.log(`./dist/instance-backgrounds/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-backgrounds/${instance.url}.webp`)
 						} catch (e) {
@@ -186,8 +190,10 @@ getInstancesInfos()
 						}
 
 						try {
+							console.log(`./dist/instance-icons/${instance.url}.jpeg`)
 							await base.png()
 								.toFile(`./dist/instance-icons/${instance.url}.png`)
+							console.log(`./dist/instance-icons/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-icons/${instance.url}.webp`)
 						} catch (e) {
