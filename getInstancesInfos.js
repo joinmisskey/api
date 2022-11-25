@@ -75,21 +75,21 @@ async function postJson(url, json) {
 	return false;
 }
 
-// syuilo/misskeyを最後に持っていくべし
+// misskey-dev/misskeyを最後に持っていくべし
 const ghRepos = [
 	"mei23/misskey",
 	"mei23/misskey-v11",
 	"TeamBlackCrystal/misskey",
 	"Groundpolis/Groundpolis",
 	"kokonect-link/cherrypick",
-	"syuilo/misskey"
+	"misskey-dev/misskey"
 ];
 
 module.exports.ghRepos = ghRepos;
 
 function hasVulnerability(repo, version) {
 	switch(repo) {
-		case 'syuilo/misskey':
+		case 'misskey-dev/misskey':
 			return (
 				semver.satisfies(version, '< 12.90.0') ||
 				semver.satisfies(version, '< 12.51.0') ||
@@ -129,7 +129,7 @@ async function getVersions() {
 		glog(repo, "Start")
 		const res1 = await fetch(`https://api.github.com/repos/${repo}/releases`, { headers })
 		const link = res1.headers.get("link")
-		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "syuilo/misskey" ? 99999 : 10)
+		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "misskey-dev/misskey" ? 99999 : 10)
 
 		const resp = (await Promise.all([Promise.resolve(res1), ...(!link ? []
 			: Array(max - 1).fill()
@@ -216,12 +216,12 @@ module.exports.getInstancesInfos = async function() {
 				const sem1 = semver.clean(meta.version, { loose: true })
 				if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
 				const sem2 = semver.valid(semver.coerce(meta.version))
-				let current = { repo: 'syuilo/misskey', count: 1500 };
+				let current = { repo: 'misskey-dev/misskey', count: 1500 };
 				for (const [key, value] of versions.entries()) {
 					if (sem1 && sem1.startsWith(key)) {
 						if (value.count === 0) return { just: false, ...value };
 						else if (current.count >= value.count) current = { just: false, ...value };
-					} else if (sem2 && value.repo == 'syuilo/misskey' && sem2.startsWith(key)) {
+					} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
 						if (value.count === 0) return { just: false, ...value };
 						else if (current.count >= value.count) current = { just: false, ...value };
 					}
