@@ -145,11 +145,9 @@ async function getVersions() {
 				count: i,
 				hasVulnerability: hasVulnerability(repo, version),
 			});
-			console.log(version, versions.get(version))
 		}
 		versionOutput[repo] = gtVersions.map(tag => tag.name);
 		glog(repo, "Finish", json.length);
-		console.log(versionOutput[repo])
 	}
 
 	const ghHeaders = {
@@ -183,7 +181,6 @@ async function getVersions() {
 						count: i * 30 + j,
 						hasVulnerability: hasVulnerability(repo, version),
 					})
-					console.log(version, versions.get(version))
 					return release.tag_name
 				}),
 				e => {
