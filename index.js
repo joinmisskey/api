@@ -97,7 +97,7 @@ getInstancesInfos()
 		await mkdirp('./dist/instance-backgrounds')
 		await mkdirp('./dist/instance-icons')
 
-		const infoQueue = new Queue(3)
+		const infoQueue = new Queue(1)
 		const instancesInfosPromises = [];
 
 		for (const instance of alives) {
@@ -150,7 +150,7 @@ getInstancesInfos()
 
 						if (!base) {
 							instance.background = false
-							return
+							return;
 						}
 
 						try {
@@ -177,6 +177,7 @@ getInstancesInfos()
 					if (res) instance.icon = true
 					else instance.icon = false
 					if (res && res.status !== "unchanged") {
+						console.log('sharp')
 						const base = sharp(`./temp/instance-icons/${res.name}`)
 							.resize({
 								height: 200,
@@ -185,7 +186,7 @@ getInstancesInfos()
 
 						if (!base) {
 							instance.icon = false
-							return
+							return;
 						}
 
 						try {
