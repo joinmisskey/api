@@ -9,8 +9,6 @@ const mkdirp = require('mkdirp')
 const Queue = require('promise-queue');
 const AbortController = require("abort-controller").default
 
-const queue = new Queue(1)
-
 const { getInstancesInfos, ghRepos } = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
 
@@ -31,7 +29,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		return false
 	}
 
-	const request = await queue.add(() => {
+	const request = await (async () => {
 		mkdirp.sync(tempDir)
 		const controller = new AbortController()
 		const timeout = setTimeout(
@@ -51,7 +49,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 			clearTimeout(timeout)
 			return false
 		})
-	})
+	})();
 
 	if (!request) {
 		console.error(url, 'request fail!')
@@ -108,6 +106,7 @@ getInstancesInfos()
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					else instance.banner = false
+
 					if (res && res.status !== "unchanged") {
 						glog(`downloading banner for ${instance.url}`)
 						const base = sharp(`./temp/instance-banners/${res.name}`)
