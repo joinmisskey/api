@@ -78,11 +78,14 @@ async function postJson(url, json) {
 const ghRepos = [
 	"mei23/misskey",
 	"mei23/misskey-v11",
-	"TeamBlackCrystal/misskey",
-	"Groundpolis/Groundpolis",
-	"kokonect-link/cherrypick",
+	//"kokonect-link/cherrypick",
 	"misskey-dev/misskey"
 ];
+
+const gtRepos = [
+	"codeberg.org/thatonecalculator/calckey",
+	"akkoma.dev/FoundKeyGang/FoundKey",
+]
 
 module.exports.ghRepos = ghRepos;
 
@@ -117,23 +120,53 @@ async function getVersions() {
 	const maxRegExp = /<https:\/\/.*?>; rel="next", <https:\/\/.*?\?page=(\d+)>; rel="last"/;
 	const versions = new Map();
 	const versionOutput = {};
-	const headers = {
-		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0",
-		Authorization: `bearer ${process.env.LB_TOKEN}`
-	};
+	const ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0";
 
 	const vqueue = new Queue(3)
 
-	for (const repo of ghRepos) {
+	for (const repo of gtRepos) {
 		glog(repo, "Start")
-		const res1 = await fetch(`https://api.github.com/repos/${repo}/releases`, { headers })
+		const repoSplit = repo.split('/');
+		const res = await fetch(`https://${repoSplit[0]}/api/v1/repos/${repoSplit[1]}/${repoSplit[2]}/tags`, { "User-Agent": ua, }).catch(() => null);
+		if (!res || !res.ok) {
+			glog.error(`Failed to get tags from ${repo} (response is not ok)`);
+			continue;
+		};
+		const json = await res.json();
+		if (!Array.isArray(json)) {
+			glog.error(`Failed to get tags from ${repo} (body is not array)`);
+			continue;
+		}
+		const gtVersions = json.slice(0, 40);
+		for (let i = 0; i < gtVersions.length; i++) {
+			const version = semver.clean(gtVersions[i].name, { loose: true });
+			versions.set(version, {
+				repo: `${repoSplit[1]}/${repoSplit[2]}`,
+				count: i,
+				hasVulnerability: hasVulnerability(repo, version),
+			});
+			console.log(version, versions.get(version))
+		}
+		versionOutput[repo] = gtVersions.map(tag => tag.name);
+		glog(repo, "Finish", json.length);
+		console.log(versionOutput[repo])
+	}
+
+	const ghHeaders = {
+		"User-Agent": ua,
+		Authorization: `bearer ${process.env.LB_TOKEN}`
+	};
+
+	for (const repo of ghRepos) {
+		glog("GitHub", repo, "Start")
+		const res1 = await fetch(`https://api.github.com/repos/${repo}/releases`, { headers: ghHeaders })
 		const link = res1.headers.get("link")
-		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "misskey-dev/misskey" ? 99999 : 10)
+		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "misskey-dev/misskey" ? 99999 : 4)
 
 		const resp = (await Promise.all([Promise.resolve(res1), ...(!link ? []
 			: Array(max - 1).fill()
 				.map((v, i) => `https://api.github.com/repos/${repo}/releases?page=${i + 2}`)
-				.map(url => vqueue.add(() => fetch(url, { headers }))))]
+				.map(url => vqueue.add(() => fetch(url, { headers: ghHeaders }))))]
 
 			.map((resa, i) => resa.then(
 				res => res.json(),
@@ -147,9 +180,10 @@ async function getVersions() {
 					const version = semver.clean(release.tag_name, { loose: true });
 					versions.set(version, {
 						repo,
-						count: (i - 1) * 30 + j,
+						count: i * 30 + j,
 						hasVulnerability: hasVulnerability(repo, version),
 					})
+					console.log(version, versions.get(version))
 					return release.tag_name
 				}),
 				e => {
@@ -210,7 +244,7 @@ module.exports.getInstancesInfos = async function() {
 				/*   インスタンスバリューの算出   */
 				let value = 0
 				// 1. バージョンのリリース順をもとに並び替え
-				value += 100000 - versionInfo.count * 7200
+				value += 100000 - (versionInfo.count - 30) * 7200
 	
 				// (基準値に影響があるかないか程度に色々な値を考慮する)
 				if (NoteChart && Array.isArray(NoteChart.local?.inc)) {

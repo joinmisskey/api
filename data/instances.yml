@@ -754,8 +754,8 @@
   langs: ['en']
 - url: social.arunmozhi.in
   langs: ['en']
-- url: mk.gabe.rocks
-  langs: ['en']
+#- url: mk.gabe.rocks
+#  langs: ['en']
 - url: social.ljcu.cc
   langs: ['en']
 - url: my.lono.ml
