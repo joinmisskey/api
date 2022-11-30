@@ -48,8 +48,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		})
 	})();
 
-	console.log('downloadTemp', name, url, request && request.status);
-
 	if (typeof request !== 'object') {
 		glog.error(url, 'request fail!')
 		return clean()
@@ -58,7 +56,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		glog.error(url, 'request ng!')
 		return clean()
 	}
-	console.log('ab')
 	const buffer = await Promise.race([
 		request.arrayBuffer(),
 		new Promise(resolve => setTimeout(() => resolve(false), 10000))
@@ -72,7 +69,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		const local = await fsp.readFile(`${tempDir}${name}`).catch(() => false)
 		if (!local) return false
 		if (getHash(buffer, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			console.log('wf')
 			const controller = new AbortController()
 			const timeout = setTimeout(
 				() => { controller.abort() },
@@ -85,7 +81,6 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		if (alwaysReturn) return { name, status: "unchanged" }
 		return false
 	}
-	console.log('wf')
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
@@ -113,7 +108,7 @@ getInstancesInfos()
 		await mkdirp('./dist/instance-backgrounds')
 		await mkdirp('./dist/instance-icons')
 
-		const infoQueue = new Queue(1)
+		const infoQueue = new Queue(3)
 		const instancesInfosPromises = [];
 
 		for (const instance of alives) {
@@ -135,10 +130,8 @@ getInstancesInfos()
 							return;
 						}
 						try {
-							console.log(`./dist/instance-banners/${instance.url}.jpeg`)
 							await base.jpeg({ quality: 80, progressive: true })
 								.toFile(`./dist/instance-banners/${instance.url}.jpeg`)
-							console.log(`./dist/instance-banners/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-banners/${instance.url}.webp`)
 						} catch (e) {
@@ -170,10 +163,8 @@ getInstancesInfos()
 						}
 
 						try {
-							console.log(`./dist/instance-backgrounds/${instance.url}.jpeg`)
 							await base.jpeg({ quality: 80, progressive: true })
 								.toFile(`./dist/instance-backgrounds/${instance.url}.jpeg`)
-							console.log(`./dist/instance-backgrounds/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-backgrounds/${instance.url}.webp`)
 						} catch (e) {
@@ -193,7 +184,6 @@ getInstancesInfos()
 					if (res) instance.icon = true
 					else instance.icon = false
 					if (res && res.status !== "unchanged") {
-						console.log('sharp')
 						const base = sharp(`./temp/instance-icons/${res.name}`)
 							.resize({
 								height: 200,
@@ -206,10 +196,8 @@ getInstancesInfos()
 						}
 
 						try {
-							console.log(`./dist/instance-icons/${instance.url}.jpeg`)
 							await base.png()
 								.toFile(`./dist/instance-icons/${instance.url}.png`)
-							console.log(`./dist/instance-icons/${instance.url}.webp`)
 							await base.webp({ quality: 75 })
 								.toFile(`./dist/instance-icons/${instance.url}.webp`)
 						} catch (e) {
@@ -233,7 +221,7 @@ getInstancesInfos()
 
 		fs.writeFile('./dist/instances.json', JSON.stringify(INSTANCES_JSON), () => { })
 
-		console.log('FINISHED!')
+		glog('FINISHED!')
 		return INSTANCES_JSON;
 	})
 
