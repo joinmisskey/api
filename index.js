@@ -72,7 +72,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 			const controller = new AbortController()
 			const timeout = setTimeout(
 				() => { controller.abort() },
-				10000
+				30000
 			)
 			return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
 				.then(() => ({ name, status: "renewed" }))
@@ -84,7 +84,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
-		10000
+		30000
 	)
 	return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
 		.then(() => ({ name, status: "created" }))
