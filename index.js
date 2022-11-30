@@ -103,12 +103,12 @@ getInstancesInfos()
 		for (const instance of alives) {
 			if (instance.meta.bannerUrl) {
 				instancesInfosPromises.push(infoQueue.add(async () => {
+					glog(`downloading banner for ${instance.url}`)
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.bannerUrl, `https://${instance.url}`)).toString(), `./temp/instance-banners/`, true)
 					if (res) instance.banner = true
 					else instance.banner = false
 
 					if (res && res.status !== "unchanged") {
-						glog(`downloading banner for ${instance.url}`)
 						const base = sharp(`./temp/instance-banners/${res.name}`)
 							.resize({
 								width: 1024,
@@ -116,7 +116,7 @@ getInstancesInfos()
 							})
 						if (!base) {
 							instance.banner = false
-							return
+							return;
 						}
 						try {
 							console.log(`./dist/instance-banners/${instance.url}.jpeg`)
@@ -137,11 +137,11 @@ getInstancesInfos()
 
 			if (instance.meta.backgroundImageUrl) {
 				instancesInfosPromises.push(infoQueue.add(async () => {
+					glog(`downloading background image for ${instance.url}`)
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.backgroundImageUrl, `https://${instance.url}`)).toString(), `./temp/instance-backgrounds/`, true)
 					if (res) instance.background = true
 					else instance.background = false
 					if (res && res.status !== "unchanged") {
-						glog(`downloading background image for ${instance.url}`)
 						const base = sharp(`./temp/instance-backgrounds/${res.name}`)
 							.resize({
 								width: 1024,
@@ -172,11 +172,11 @@ getInstancesInfos()
 
 			if (instance.meta.iconUrl) {
 				instancesInfosPromises.push(infoQueue.add(async () => {
+					glog(`downloading icon image for ${instance.url}`)
 					const res = await downloadTemp(`${instance.url}`, (new URL(instance.meta.iconUrl, `https://${instance.url}`)).toString(), `./temp/instance-icons/`, true)
 					if (res) instance.icon = true
 					else instance.icon = false
 					if (res && res.status !== "unchanged") {
-						glog(`downloading icon image for ${instance.url}`)
 						const base = sharp(`./temp/instance-icons/${res.name}`)
 							.resize({
 								height: 200,
