@@ -1,7 +1,6 @@
 const fs = require("fs")
 const glog = require("fancy-log")
 const semver = require("semver")
-const fetch = require("node-fetch-with-proxy")
 const AbortController = require("abort-controller").default
 const extend = require("extend")
 const loadyaml = require("./loadyaml")

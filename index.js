@@ -1,7 +1,6 @@
 const { promisify } = require("util")
 const fs = require("fs")
 const fsp = require("fs/promises")
-const fetch = require("node-fetch-with-proxy")
 const glob = require("glob")
 const glog = require("fancy-log")
 const sharp = require("sharp")
@@ -15,7 +14,7 @@ const instanceq = require('./instanceq')
 
 function getHash(data, a, b, c) {
 	const hashv = createHash(a)
-	hashv.update(data, b)
+	hashv.update(Buffer.from(data), b)
 	return hashv.digest(c)
 }
 
@@ -51,7 +50,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 
 	console.log('downloadTemp', name, url, request && request.status);
 
-	if (!request) {
+	if (typeof request !== 'object') {
 		glog.error(url, 'request fail!')
 		return clean()
 	}
@@ -59,9 +58,13 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		glog.error(url, 'request ng!')
 		return clean()
 	}
-	const buffer = await request.buffer()
+	console.log('ab')
+	const buffer = await Promise.race([
+		request.arrayBuffer(),
+		new Promise(resolve => setTimeout(() => resolve(false), 10000))
+	])
 	if (!buffer) {
-		glog.error(url, 'buffer is null or empty!')
+		glog.error(url, 'arrayBuffer is null or empty!')
 		return clean()
 	}
 
