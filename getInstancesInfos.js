@@ -7,6 +7,7 @@ const extend = require("extend")
 const loadyaml = require("./loadyaml")
 const Queue = require('promise-queue');
 const { queue } = require("sharp")
+const { performance } = require('perf_hooks');
 
 const instances = loadyaml("./data/instances.yml")
 
@@ -18,12 +19,15 @@ function safePost(url, options)/*: Promise<Response | null | false | undefined>*
 		() => { controller.abort() },
 		30000
 	)
-	console.time(url);
+	const start = performance.now();
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
 		res => {
 			if (res && res.ok) {
-				console.timeEnd(url);
+				const end = performance.now();
+				if (end - start > 1000) {
+					glog.warn("POST slow", url, (end - start) / 1000)
+				}
 				return res;
 			}
 			glog("POST finish", url, res.status, res.ok)
