@@ -16,12 +16,16 @@ function safePost(url, options)/*: Promise<Response | null | false | undefined>*
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
-		5000
+		30000
 	)
+	console.time(url);
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
 		res => {
-			if (res && res.ok) return res
+			if (res && res.ok) {
+				console.timeEnd(url);
+				return res;
+			}
 			glog("POST finish", url, res.status, res.ok)
 			if (res.status >= 500 && res.status < 600) return null;
 		},
