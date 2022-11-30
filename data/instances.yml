@@ -431,6 +431,30 @@
   langs: ['ja']
 - url: mi.kosen.land
   langs: ['ja']
+- url: mi.ghz00.net
+  langs: ['ja']
+- url: misskey.csys64.com
+  langs: ['ja']
+- url: v3.tamx.tk
+  langs: ['ja']
+- url: misskey.kebin.ga
+  langs: ['ja']
+- url: misskey.porubu.com
+  langs: ['ja']
+- url: social.kusoda.net
+  langs: ['ja']
+- url: misskey.mii.codes
+  langs: ['ja']
+- url: misskey.neo0717.com
+  langs: ['ja']
+- url: muffin-uwu.com
+  langs: ['ja']
+- url: misky.syui.cf
+  langs: ['ja']
+- url: phz.jp
+  langs: ['ja']
+- url: liyuu.icu
+  langs: ['ja']
 #
 ##
 #########################################
@@ -760,6 +784,24 @@
   langs: ['en']
 - url: catgirls.technology
   langs: ['en']
+- url: social.rverse.club
+  langs: ['en']
+- url: social.coolmathgames.tech
+  langs: ['en']
+- url: moe.onl
+  langs: ['en']
+- url: tuta.besserwisser.org
+  langs: ['en']
+- url: fuzzy.zone
+  langs: ['en']
+- url: lounge.dtzbts.xyz
+  langs: ['en']
+- url: fuzzle.me.uk
+  langs: ['en']
+- url: cloudpirat.es
+  langs: ['en']
+- url: misskey.meneer.space
+  langs: ['en']
 #
 ##
 #########################################
@@ -788,6 +830,8 @@
   langs: ['fr']
 - url: s.basspistol.org
   langs: ['en', 'fr']
+- url: social.lacaveatonton.ovh
+  langs: ['fr']
 #
 ##
 #########################################
@@ -893,6 +937,12 @@
   langs: ['zh']
 - url: tw.9tail.net
   langs: ['zh']
+- url: gugu.ge
+  langs: ['zh']
+- url: ojbk.lovenz.top
+  langs: ['zh']
+- url: pianyu.cyou
+  langs: ['zh']
 #
 ##
 #########################################
@@ -917,6 +967,8 @@
 - url: vocalsynthes.is
   langs: ['ko']
 - url: pikokr.dev
+  langs: ['ko']
+- url: i.peacht.art
   langs: ['ko']
 #
 ##
@@ -1008,6 +1060,8 @@
 - url: mk.catala.digital
   langs: ['es']
 - url: social.chocoflan.net
+  langs: ['es']
+- url: social.manalejandro.com
   langs: ['es']
 #
 ##
