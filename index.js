@@ -61,7 +61,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		new Promise(resolve => setTimeout(() => resolve(false), 10000))
 	])
 	if (!buffer) {
-		glog.error(url, 'arrayBuffer is null or empty!')
+		glog.error(url, 'arrayBuffer is null or timeout!')
 		return clean()
 	}
 
@@ -75,7 +75,10 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 				30000
 			)
 			return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
-				.then(() => ({ name, status: "renewed" }))
+				.then(() => {
+					clearTimeout(timeout)
+					return { name, status: "renewed" }
+				})
 				.catch(() => false)
 		}
 		if (alwaysReturn) return { name, status: "unchanged" }
@@ -87,7 +90,10 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		30000
 	)
 	return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
-		.then(() => ({ name, status: "created" }))
+		.then(() => {
+			clearTimeout(timeout)
+			return { name, status: "created" }
+		})
 		.catch(() => false)
 }
 
