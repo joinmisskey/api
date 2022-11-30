@@ -69,15 +69,28 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		const local = await fsp.readFile(`${tempDir}${name}`).catch(() => false)
 		if (!local) return false
 		if (getHash(buffer, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			await fsp.writeFile(`${tempDir}${name}`, buffer)
-			return { name, status: "renewed" }
+			console.log('wf')
+			const controller = new AbortController()
+			const timeout = setTimeout(
+				() => { controller.abort() },
+				10000
+			)
+			return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
+				.then(() => ({ name, status: "renewed" }))
+				.catch(() => false)
 		}
 		if (alwaysReturn) return { name, status: "unchanged" }
 		return false
 	}
-
-	await fsp.writeFile(`${tempDir}${name}`, buffer)
-	return { name, status: "created" }
+	console.log('wf')
+	const controller = new AbortController()
+	const timeout = setTimeout(
+		() => { controller.abort() },
+		10000
+	)
+	return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
+		.then(() => ({ name, status: "created" }))
+		.catch(() => false)
 }
 
 getInstancesInfos()
