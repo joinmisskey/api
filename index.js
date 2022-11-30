@@ -1,5 +1,6 @@
 const { promisify } = require("util")
 const fs = require("fs")
+const fsp = require("fs/promises")
 const fetch = require("node-fetch-with-proxy")
 const glob = require("glob")
 const glog = require("fancy-log")
@@ -11,9 +12,6 @@ const AbortController = require("abort-controller").default
 
 const { getInstancesInfos, ghRepos } = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
-
-const readFile = promisify(fs.readFile)
-const writeFile = promisify(fs.writeFile)
 
 function getHash(data, a, b, c) {
 	const hashv = createHash(a)
@@ -51,32 +49,34 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		})
 	})();
 
+	console.log('downloadTemp', name, url, request && request.status);
+
 	if (!request) {
-		console.error(url, 'request fail!')
+		glog.error(url, 'request fail!')
 		return clean()
 	}
 	if (!request.ok) {
-		console.error(url, 'request ng!')
+		glog.error(url, 'request ng!')
 		return clean()
 	}
 	const buffer = await request.buffer()
 	if (!buffer) {
-		console.error(url, 'buffer is null or empty!')
+		glog.error(url, 'buffer is null or empty!')
 		return clean()
 	}
 
 	if (files.length > 0) {
-		const local = await readFile(`${tempDir}${name}`).catch(() => false)
+		const local = await fsp.readFile(`${tempDir}${name}`).catch(() => false)
 		if (!local) return false
 		if (getHash(buffer, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			await writeFile(`${tempDir}${name}`, buffer)
+			await fsp.writeFile(`${tempDir}${name}`, buffer)
 			return { name, status: "renewed" }
 		}
 		if (alwaysReturn) return { name, status: "unchanged" }
 		return false
 	}
 
-	await writeFile(`${tempDir}${name}`, buffer)
+	await fsp.writeFile(`${tempDir}${name}`, buffer)
 	return { name, status: "created" }
 }
 
