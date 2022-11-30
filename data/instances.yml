@@ -355,6 +355,30 @@
   langs: ['ja']
 - url: liyuu.icu
   langs: ['ja']
+- url: mi.yude.moe
+  langs: ['ja']
+- url: mi.sunset0916.net
+  langs: ['ja']
+- url: mk.dekobokojin.com
+  langs: ['ja']
+- url: mk.kochudaho.me
+  langs: ['ja']
+- url: misskey.oita.jp
+  langs: ['ja']
+- url: misskey.takehi.to
+  langs: ['ja']
+- url: misskey.to-son.net
+  langs: ['ja']
+- url: misskey.azumabashi.dev
+  langs: ['ja']
+- url: sns.bangdream.moe
+  langs: ['ja', 'zh']
+- url: misskey.takingalook.dev
+  langs: ['ja']
+- url: misskey.ycrack.net
+  langs: ['ja']
+- url: social.mfjt.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -600,6 +624,12 @@
   langs: ['en']
 - url: misskey.meneer.space
   langs: ['en']
+- url: alula.gay
+  langs: ['en']
+- url: misskey.anemoneya.me
+  langs: ['en']
+- url: social.owo.monster
+  langs: ['en']
 #
 ##
 #########################################
@@ -711,6 +741,8 @@
   langs: ['zh']
 - url: pianyu.cyou
   langs: ['zh']
+- url: i.azbycx.xyz
+  langs: ['zh']
 #
 ##
 #########################################
@@ -735,6 +767,8 @@
 - url: pikokr.dev
   langs: ['ko']
 - url: i.peacht.art
+  langs: ['ko']
+- url: stella.place
   langs: ['ko']
 #
 ##
@@ -779,6 +813,8 @@
 - url: misskey.xy-space.de
   langs: ['ja', 'de']
 - url: mk.21x9.org
+  langs: ['de']
+- url: msk.hw2k.com
   langs: ['de']
 #
 ##

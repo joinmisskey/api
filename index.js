@@ -56,45 +56,43 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		glog.error(url, 'request ng!')
 		return clean()
 	}
-	const buffer = await Promise.race([
+	const data = await Promise.race([
 		request.arrayBuffer(),
 		new Promise(resolve => setTimeout(() => resolve(false), 10000))
 	])
-	if (!buffer) {
+	if (!data) {
 		glog.error(url, 'arrayBuffer is null or timeout!')
 		return clean()
+	}
+
+	function safeWriteFile(name, ab, status) {
+		const controller = new AbortController()
+		const timeout = setTimeout(
+			() => { controller.abort() },
+			30000
+		)
+		return fsp.writeFile(`${tempDir}${name}`, Buffer.from(ab), { signal: controller.signal })
+			.then(() => {
+				clearTimeout(timeout)
+				return { name, status }
+			})
+			.catch(e => {
+				glog.error('writeFile error', name, e)
+				return false
+			})
 	}
 
 	if (files.length > 0) {
 		const local = await fsp.readFile(`${tempDir}${name}`).catch(() => false)
 		if (!local) return false
-		if (getHash(buffer, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			const controller = new AbortController()
-			const timeout = setTimeout(
-				() => { controller.abort() },
-				30000
-			)
-			return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
-				.then(() => {
-					clearTimeout(timeout)
-					return { name, status: "renewed" }
-				})
-				.catch(() => false)
+		if (getHash(data, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
+			return safeWriteFile(name, data, "renewed")
 		}
 		if (alwaysReturn) return { name, status: "unchanged" }
 		return false
 	}
-	const controller = new AbortController()
-	const timeout = setTimeout(
-		() => { controller.abort() },
-		30000
-	)
-	return fsp.writeFile(`${tempDir}${name}`, buffer, { signal: controller.signal })
-		.then(() => {
-			clearTimeout(timeout)
-			return { name, status: "created" }
-		})
-		.catch(() => false)
+	
+	return safeWriteFile(name, data, "created")
 }
 
 getInstancesInfos()
