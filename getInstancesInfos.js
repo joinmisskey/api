@@ -6,16 +6,17 @@ const AbortController = require("abort-controller").default
 const extend = require("extend")
 const loadyaml = require("./loadyaml")
 const Queue = require('promise-queue');
+const { queue } = require("sharp")
 
 const instances = loadyaml("./data/instances.yml")
 
 const pqueue = new Queue(32)
 
-function safePost(url, options) {
+function safePost(url, options)/*: Promise<Response | null | false | undefined>*/ {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
-		60000
+		5000
 	)
 	// glog("POST start", url)
 	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
@@ -54,21 +55,19 @@ async function postJson(url, json) {
 
 	while (retryCount < 3) {
 		if (retryCount > 0) glog('retry', url, retryCount);
-		const sleep = new Promise(resolve => retryCount > 0 ? setTimeout(resolve, 60000) : resolve());
-		const res = await pqueue.add(async () => {
-			await sleep;
-			return safePost(url, option)
-				.then(res => {
-					if (res === null) return null;
-					if (!res) return false;
-					return res.json();
-				})
-				.catch(e => {
-					glog.error(url, e)
-					return false
-				})
-		})
+		await new Promise(resolve => retryCount > 0 ? setTimeout(resolve, 60000) : resolve());
+		const res = await safePost(url, option)
+			.then(res => {
+				if (res === null) return null;
+				if (!res) return false;
+				return res.json();
+			})
+			.catch(e => {
+				glog.error(url, e)
+				return false
+			});
 
+		if (res === false) return false;
 		if (res !== null) return res;
 		retryCount += 1;
 	}
@@ -172,91 +171,78 @@ async function getVersions() {
 module.exports.getInstancesInfos = async function() {
 	glog("Getting Instances' Infos")
 
-	const metasPromises = []
-	const statsPromises = []
-	const NoteChartsPromises = []
-	const alives = [], deads = []
+	const promises = [];
+	const alives = [], deads = [];
 
 	const { versions, versionOutput } = await getVersions()
 
 	// eslint-disable-next-line no-restricted-syntax
 	for (let t = 0; t < instances.length; t += 1) {
 		const instance = instances[t]
-		metasPromises.push(postJson(`https://${instance.url}/api/meta`))
-		statsPromises.push(postJson(`https://${instance.url}/api/stats`))
-		NoteChartsPromises.push(postJson(`https://${instance.url}/api/charts/notes`, { span: "day" }))
+		promises.push(pqueue.add(async () => {
+			const meta = (await postJson(`https://${instance.url}/api/meta`)) || false;
+			const stat = (await postJson(`https://${instance.url}/api/stats`)) || false;
+			const NoteChart = (await postJson(`https://${instance.url}/api/charts/notes`, { span: "day" })) || false;
+
+			if (meta && stat && NoteChart) {
+				delete meta.emojis;
+				delete meta.announcements;
+	
+				const versionInfo = (() => {
+					const sem1 = semver.clean(meta.version, { loose: true })
+					if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
+					const sem2 = semver.valid(semver.coerce(meta.version))
+					let current = { repo: 'misskey-dev/misskey', count: 1500 };
+					for (const [key, value] of versions.entries()) {
+						if (sem1 && sem1.startsWith(key)) {
+							if (value.count === 0) return { just: false, ...value };
+							else if (current.count >= value.count) current = { just: false, ...value };
+						} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
+							if (value.count === 0) return { just: false, ...value };
+							else if (current.count >= value.count) current = { just: false, ...value };
+						}
+					}
+					return current
+				})()
+	
+				if (versionInfo.just && versionInfo.hasVulnerability) return;
+	
+				/*   インスタンスバリューの算出   */
+				let value = 0
+				// 1. バージョンのリリース順をもとに並び替え
+				value += 100000 - versionInfo.count * 7200
+	
+				// (基準値に影響があるかないか程度に色々な値を考慮する)
+				if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
+					// 2.
+					const arr = NoteChart.local?.inc.filter(e => e !== 0).slice(-3)
+					// eslint-disable-next-line no-mixed-operators
+					if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 100
+				}
+	
+				alives.push(extend(true, instance, {
+					value,
+					meta,
+					stats: stat,
+					description: meta.description || (instance.description || null),
+					langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
+					isAlive: true,
+					repo: versionInfo?.repo
+				}))
+			} else {
+				deads.push(extend(true, { isAlive: false, value: 0 }, instance))
+			}
+		}));
 	}
 
 	const interval = setInterval(() => {
 		glog(`${pqueue.getQueueLength()} requests remain and ${pqueue.getPendingLength()} requests processing.`)
 	}, 1000)
 
-	const [
-		metas,
-		stats,
-		NoteCharts,
-	] = await Promise.all([
-		Promise.all(metasPromises),
-		Promise.all(statsPromises),
-		Promise.all(NoteChartsPromises)
-	])
+	await Promise.all(promises);
 
 	clearInterval(interval)
 
-	for (let i = 0; i < instances.length; i += 1) {
-		const instance = instances[i]
-		const meta = metas[i] || false
-		const stat = stats[i] || false
-		const NoteChart = NoteCharts[i] || false
-		if (meta && stat && NoteChart) {
-			delete meta.emojis;
-			delete meta.announcements;
-
-			const versionInfo = (() => {
-				const sem1 = semver.clean(meta.version, { loose: true })
-				if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
-				const sem2 = semver.valid(semver.coerce(meta.version))
-				let current = { repo: 'misskey-dev/misskey', count: 1500 };
-				for (const [key, value] of versions.entries()) {
-					if (sem1 && sem1.startsWith(key)) {
-						if (value.count === 0) return { just: false, ...value };
-						else if (current.count >= value.count) current = { just: false, ...value };
-					} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
-						if (value.count === 0) return { just: false, ...value };
-						else if (current.count >= value.count) current = { just: false, ...value };
-					}
-				}
-				return current
-			})()
-
-			if (versionInfo.just && versionInfo.hasVulnerability) continue;
-
-			/*   インスタンスバリューの算出   */
-			let value = 0
-			// 1. バージョンのリリース順をもとに並び替え
-			value += 100000 - versionInfo.count * 7200
-
-			// (基準値に影響があるかないか程度に色々な値を考慮する)
-			if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
-				// 2.
-				const arr = NoteChart.local?.inc.filter(e => e !== 0).slice(-3)
-				// eslint-disable-next-line no-mixed-operators
-				if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 100
-			}
-
-			alives.push(extend(true, instance, {
-				value,
-				meta,
-				stats: stat,
-				description: meta.description || (instance.description || null),
-				langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
-				isAlive: true,
-				repo: versionInfo?.repo
-			}))
-		} else {
-			deads.push(extend(true, { isAlive: false, value: 0 }, instance))
-		}
-	}
 	glog("Got Instances' Infos")
 
 	return {
