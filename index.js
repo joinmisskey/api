@@ -9,7 +9,7 @@ const mkdirp = require('mkdirp')
 const Queue = require('promise-queue');
 const AbortController = require("abort-controller").default
 
-const { getInstancesInfos, ghRepos } = require('./getInstancesInfos')
+const { getInstancesInfos } = require('./getInstancesInfos')
 const instanceq = require('./instanceq')
 
 function getHash(data, a, b, c) {

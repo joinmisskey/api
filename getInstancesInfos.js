@@ -95,27 +95,30 @@ const gtRepos = [
 ]
 
 module.exports.ghRepos = ghRepos;
+module.exports.gtRepos = gtRepos;
 
 function hasVulnerability(repo, version) {
 	switch(repo) {
 		case 'misskey-dev/misskey':
 			return (
-				semver.satisfies(version, '< 12.90.0') ||
-				semver.satisfies(version, '< 12.51.0') ||
+				semver.satisfies(version, '< 12.119.1') ||
+				//semver.satisfies(version, '< 12.90.0') ||
+				//semver.satisfies(version, '< 12.51.0') ||
 				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
 			);
 		case 'mei23/misskey':
 			return (
+				semver.satisfies(version, '< 10.102.606-m544') ||
 				semver.satisfies(version, '< 10.102.338-m544')
 			);
 		case 'mei23/misskey-v11':
 			return (
+				semver.satisfies(version, '< 11.37.1-20221202185541') ||
 				semver.satisfies(version, '< 11.37.1-20210825162615')
 			);
-		case 'TeamBlackCrystal/misskey':
+		case 'FoundKeyGang/FoundKey':
 			return (
-				semver.satisfies(version, '< 11.37.1-rei0784-5.15.1') ||
-				semver.satisfies(version, '< 11.37.1-rei0784-5.16.0')
+				semver.satisfies(version, '< v13.0.0-preview3')
 			);
 		default:
 			return false;
