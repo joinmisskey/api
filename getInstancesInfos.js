@@ -101,14 +101,14 @@ function hasVulnerability(repo, version) {
 	switch(repo) {
 		case 'misskey-dev/misskey':
 			return (
-				semver.satisfies(version, '< 12.119.1') ||
+				semver.satisfies(version, '< 12.119.2') ||
 				//semver.satisfies(version, '< 12.90.0') ||
 				//semver.satisfies(version, '< 12.51.0') ||
 				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
 			);
 		case 'mei23/misskey':
 			return (
-				semver.satisfies(version, '< 10.102.606-m544') ||
+				semver.satisfies(version, '< 10.102.608-m544') ||
 				semver.satisfies(version, '< 10.102.338-m544')
 			);
 		case 'mei23/misskey-v11':
