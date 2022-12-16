@@ -383,6 +383,32 @@
   langs: ['ja']
 - url: msky.aozora.uk
   langs: ['ja']
+- url: adzu.nullc.at
+  langs: ['ja']
+- url: misskey.argxentaka.to
+  langs: ['ja']
+- url: mi.nekozuki.me
+  langs: ['ja']
+- url: msky.es4.co
+  langs: ['ja']
+- url: misskey.soa3.net
+  langs: ['ja']
+- url: mi.hibi-tsumo.com
+  langs: ['ja']
+- url: misskey.oga.ninja
+  langs: ['ja']
+- url: misskey.life
+  langs: ['ja']
+- url: beta.romneko.net
+  langs: ['ja']
+- url: kawane.misskey.online
+  langs: ['ja']
+- url: msky.crawling-with-love.com
+  langs: ['ja']
+- url: misskey.enepippi.com
+  langs: ['ja']
+- url: mi.204.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -634,6 +660,26 @@
   langs: ['en']
 - url: social.owo.monster
   langs: ['en']
+- url: maid.army
+  langs: ['en']
+- url: ymkml.online
+  langs: ['en']
+- url: genealogy.social
+  langs: ['en']
+- url: the.talesofmy.life
+  langs: ['en']
+- url: windycity.style
+  langs: ['en']
+- url: social.zecircle.xyz
+  langs: ['en']
+- url: misskey.3644859.xyz
+  langs: ['en']
+- url: pub.kaenb.in
+  langs: ['en']
+- url: thecle.land
+  langs: ['en']
+- url: mk.arks.cafe
+  langs: ['en']
 #
 ##
 #########################################
@@ -655,6 +701,8 @@
 - url: s.basspistol.org
   langs: ['en', 'fr']
 - url: social.lacaveatonton.ovh
+  langs: ['fr']
+- url: bbs.fedibox.com
   langs: ['fr']
 #
 ##
@@ -747,6 +795,14 @@
   langs: ['zh']
 - url: i.azbycx.xyz
   langs: ['zh']
+- url: weibo.wyy.gg:10000
+  langs: ['zh']
+- url: fedi.canglang.me
+  langs: ['zh']
+- url: rainyme.ca
+  langs: ['zh']
+- url: misaka.social
+  langs: ['zh']
 #
 ##
 #########################################
@@ -774,11 +830,13 @@
   langs: ['ko']
 - url: stella.place
   langs: ['ko']
+- url: daepi.so
+  langs: ['ko']
 #
 ##
 #########################################
 ##
-#
+# ru
 - url: misskey.cats-home.net
   langs: ['ru']
 - url: misskey.weebcouncil.online
@@ -791,6 +849,15 @@
   langs: ['ru']
 - url: mk.phreedom.club
   langs: ['ru']
+- url: debilosempire.org
+  langs: ['ru']
+#
+##
+#########################################
+##
+# uk
+- url: mk.fediland.in.ua
+  langs: ['uk']
 #
 ##
 #########################################
@@ -820,6 +887,8 @@
   langs: ['de']
 - url: msk.hw2k.com
   langs: ['de']
+- url: lmaa.pm
+  langs: ['de']
 #
 ##
 #########################################
@@ -830,7 +899,7 @@
 ##
 #########################################
 ##
-#
+# es
 - url: mk.roobre.es
   langs: ['es']
 - url: novoa.nagoya
@@ -845,6 +914,13 @@
   langs: ['es']
 - url: social.manalejandro.com
   langs: ['es']
+#
+##
+#########################################
+##
+# es
+- url: social.onlyferas.dev
+  langs: ['pt']
 #
 ##
 #########################################
