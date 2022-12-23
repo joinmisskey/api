@@ -943,3 +943,11 @@
 # id
 - url: bots.reinhart1010.id
   langs: ['id']
+#
+##
+#########################################
+##
+#
+# id
+- url: misskey.social
+  langs: ['it']
