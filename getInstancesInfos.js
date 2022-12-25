@@ -308,7 +308,12 @@ module.exports.getInstancesInfos = async function() {
 		promises.push(pqueue.add(async () => {
 			const nodeinfo = (await safeGetNodeInfo(instance.url)) || null;
 
-			if (nodeinfo && nodeinfo.software.name !== "misskey") {
+			if (!nodeinfo) {
+				deads.push(extend(true, { isAlive: false, value: 0 }, instance));
+				return;
+			}
+
+			if (nodeinfo.software.name !== "misskey") {
 				notMisskey.push({
 					nodeinfo,
 					...instance
