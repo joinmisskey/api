@@ -316,6 +316,31 @@ module.exports.getInstancesInfos = async function() {
 				return;
 			}
 
+			const versionInfo = (() => {
+				const sem1 = semver.clean(nodeinfo.software.version, { loose: true })
+				if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
+				const sem2 = semver.valid(semver.coerce(nodeinfo.software.version))
+				let current = { repo: 'misskey-dev/misskey', count: 1500 };
+				for (const [key, value] of versions.entries()) {
+					if (sem1 && sem1.startsWith(key)) {
+						if (value.count === 0) return { just: false, ...value };
+						else if (current.count >= value.count) current = { just: false, ...value };
+					} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
+						if (value.count === 0) return { just: false, ...value };
+						else if (current.count >= value.count) current = { just: false, ...value };
+					}
+				}
+				return current
+			})()
+
+			if (versionInfo.just && versionInfo.hasVulnerability) {
+				outdated.push({
+					nodeinfo,
+					...instance,
+				});
+				return;
+			};
+
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
 			const stat = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
 			const NoteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day" })) || null;
@@ -325,31 +350,6 @@ module.exports.getInstancesInfos = async function() {
 					delete meta.emojis;
 					delete meta.announcements;
 				}
-	
-				const versionInfo = (() => {
-					const sem1 = semver.clean(nodeinfo.software.version, { loose: true })
-					if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
-					const sem2 = semver.valid(semver.coerce(nodeinfo.software.version))
-					let current = { repo: 'misskey-dev/misskey', count: 1500 };
-					for (const [key, value] of versions.entries()) {
-						if (sem1 && sem1.startsWith(key)) {
-							if (value.count === 0) return { just: false, ...value };
-							else if (current.count >= value.count) current = { just: false, ...value };
-						} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
-							if (value.count === 0) return { just: false, ...value };
-							else if (current.count >= value.count) current = { just: false, ...value };
-						}
-					}
-					return current
-				})()
-	
-				if (versionInfo.just && versionInfo.hasVulnerability) {
-					outdated.push({
-						nodeinfo,
-						...instance,
-					});
-					return;
-				};
 	
 				/*   インスタンスバリューの算出   */
 				let value = 0
