@@ -439,6 +439,8 @@
   langs: ['ja']
 - url: mi.gbudou.ml
   langs: ['ja']
+- url: t.aozaki.cc
+  langs: ['ja']
 #
 ##
 #########################################
@@ -723,6 +725,10 @@
   langs: ['it']
 - url: miss.octt.eu.org
   langs: ['it']
+- url: misskey.social
+  langs: ['it']
+- url: miao.gatti.ninja
+  langs: ['it']
 #
 ##
 #########################################
@@ -838,6 +844,8 @@
 - url: misaka.social
   langs: ['zh']
 - url: t.nyk.app
+  langs: ['zh']
+- url: rimonce.one
   langs: ['zh']
 #
 ##
@@ -989,11 +997,3 @@
 # id
 - url: bots.reinhart1010.id
   langs: ['id']
-#
-##
-#########################################
-##
-#
-# it
-- url: misskey.social
-  langs: ['it']
