@@ -258,8 +258,8 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 		const getInstancesList = instances => instances.map(
 			(instance, i) =>
 				`${i + 1}. ?[${
-					(specifiedName || instance.meta.name !== instance.url) ?
-						`${instance.meta.name} (${instance.url})` :
+					(instance.name || instance.name !== instance.url) ?
+						`${instance.name} (${instance.url})` :
 						instance.url
 				}](https://${instance.url})`
 		).join('\n')
