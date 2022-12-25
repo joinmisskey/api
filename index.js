@@ -99,12 +99,12 @@ getInstancesInfos()
 	.then(async ({alives, deads, notMisskey, outdated, versions, versionOutput}) => {
 		fs.writeFile('./dist/versions.json', JSON.stringify(versionOutput), () => { })
 
-		const stats = alives.reduce((prev, v) => v.nodeinfo.usage && v.nodeinfo.usage.users ? ({
-			  notesCount: v.nodeinfo.usage.localPosts || 0 + prev.notesCount,
-			  usersCount: v.nodeinfo.usage.users.total || 0 + prev.usersCount,
-			  mau: v.nodeinfo.usage.users.activeMonth || 0 + prev.mau,
+		const stats = alives.reduce((prev, v) => (v.nodeinfo.usage && v.nodeinfo.usage.users) ? {
+			  notesCount: (v.nodeinfo.usage.localPosts || 0) + prev.notesCount,
+			  usersCount: (v.nodeinfo.usage.users.total || 0) + prev.usersCount,
+			  mau: (v.nodeinfo.usage.users.activeMonth || 0) + prev.mau,
 			  instancesCount: 1 + prev.instancesCount
-		  }) : prev, { notesCount: 0, usersCount: 0, mau: 0, instancesCount: 0 })
+		  } : { ...prev }, { notesCount: 0, usersCount: 0, mau: 0, instancesCount: 0 })
 
 		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
