@@ -96,17 +96,20 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 }
 
 getInstancesInfos()
-	.then(async ({alives, deads, versions, versionOutput}) => {
+	.then(async ({alives, deads, notMisskey, outdated, versions, versionOutput}) => {
 		fs.writeFile('./dist/versions.json', JSON.stringify(versionOutput), () => { })
 
 		const stats = alives.reduce((prev, v) => ({
-			  notesCount: v.stats.originalNotesCount + prev.notesCount,
-			  usersCount: v.stats.originalUsersCount + prev.usersCount,
+			  notesCount: v.nodeinfo.usage.localPosts + prev.notesCount,
+			  usersCount: v.nodeinfo.usage.users.total + prev.usersCount,
+			  mau: v.nodeinfo.usage.users.activeMonth + prev.mau,
 			  instancesCount: 1 + prev.instancesCount
-		  }), { notesCount: 0, usersCount: 0, instancesCount: 0 })
+		  }), { notesCount: 0, usersCount: 0, mau: 0, instancesCount: 0 })
 
 		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
+		fs.writeFile('./dist/not-misskey.txt', notMisskey.map(v => v.url).join('\n'), () => { })
+		fs.writeFile('./dist/outdated.txt', outdated.map(v => v.url).join('\n'), () => { })
 
 		await mkdirp('./dist/instance-banners')
 		await mkdirp('./dist/instance-backgrounds')
@@ -239,6 +242,7 @@ getInstancesInfos()
 
 Total Notes: ${INSTANCES_JSON.stats.notesCount}
 Total Users: ${INSTANCES_JSON.stats.usersCount}
+Total MAU: ${INSTANCES_JSON.stats.mau}
 Total Instances: ${INSTANCES_JSON.stats.instancesCount}
 
 https://join.misskey.page/\n#bot #joinmisskeyupdate`,
@@ -254,7 +258,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 		const getInstancesList = instances => instances.map(
 			(instance, i) =>
 				`${i + 1}. ?[${
-					(!instance.meta.name || instance.meta.name !== instance.url) ?
+					(specifiedName || instance.meta.name !== instance.url) ?
 						`${instance.meta.name} (${instance.url})` :
 						instance.url
 				}](https://${instance.url})`

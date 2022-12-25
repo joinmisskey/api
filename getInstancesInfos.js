@@ -12,7 +12,9 @@ const instances = loadyaml("./data/instances.yml")
 
 const pqueue = new Queue(32)
 
-function safePost(url, options)/*: Promise<Response | null | false | undefined>*/ {
+const ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0";
+
+function safeFetch(method, url, options)/*: Promise<Response | null | false | undefined>*/ {
 	const controller = new AbortController()
 	const timeout = setTimeout(
 		() => { controller.abort() },
@@ -20,7 +22,7 @@ function safePost(url, options)/*: Promise<Response | null | false | undefined>*
 	)
 	const start = performance.now();
 	// glog("POST start", url)
-	return fetch(url, extend(true, options, { method: "POST", signal: controller.signal })).then(
+	return fetch(url, extend(true, options, { method, signal: controller.signal })).then(
 		res => {
 			if (res && res.ok) {
 				const end = performance.now();
@@ -42,7 +44,7 @@ function safePost(url, options)/*: Promise<Response | null | false | undefined>*
 	})
 }
 
-async function postJson(url, json) {
+async function fetchJson(method, url, json) {
 	const option = {
 		body: JSON.stringify(json ? json : {}),
 		headers: {
@@ -54,10 +56,10 @@ async function postJson(url, json) {
 
 	let retryCount = 0;
 
-	while (retryCount < 3) {
+	while (retryCount < 2) {
 		if (retryCount > 0) glog('retry', url, retryCount);
-		await new Promise(resolve => retryCount > 0 ? setTimeout(resolve, 60000) : resolve());
-		const res = await safePost(url, option)
+		await new Promise(resolve => retryCount > 0 ? setTimeout(resolve, 20000) : resolve());
+		const res = await safeFetch(method, url, option)
 			.then(res => {
 				if (res === null) return null;
 				if (!res) return false;
@@ -75,17 +77,105 @@ async function postJson(url, json) {
 	return false;
 }
 
+async function getNodeinfo(base)/*: Promise<Response | null | false | undefined>*/ {
+	const controller = new AbortController()
+	const timeout = setTimeout(
+		() => { controller.abort() },
+		30000
+	)
+
+	const wellnownUrl = `https://${base}/.well-known/nodeinfo`;
+
+	const wellknown = await fetch(wellnownUrl, {
+		method: "GET",
+		headers: {
+			"User-Agent": ua,
+		},
+		redirect: "error",
+		signal: controller.signal
+	}).then(res => {
+		if (res && res.ok) {
+			glog("Get WellKnown Nodeinfo finish", wellnownUrl, res.status, res.ok)
+			return res.json();
+		}
+		return;
+	}).catch(async e => {
+		glog("Get WellKnown Nodeinfo failed...", wellnownUrl, e.errno, e.type)
+		return;
+	}).finally(() => {
+		clearTimeout(timeout);
+	});
+
+	if (wellknown.links == null || !Array.isArray(wellknown.links)) {
+		glog("WellKnown Nodeinfo was Not Array", wellnownUrl, wellknown);
+		return null;
+	}
+
+	const links = wellknown.links;
+
+	const lnik1_0 = links.find(link => link.rel === 'http://nodeinfo.diaspora.software/ns/schema/1.0');
+	const lnik2_0 = links.find(link => link.rel === 'http://nodeinfo.diaspora.software/ns/schema/2.0');
+	const lnik2_1 = links.find(link => link.rel === 'http://nodeinfo.diaspora.software/ns/schema/2.1');
+	const link = lnik2_1 ?? lnik2_0 ?? lnik1_0;
+
+	if (link == null || typeof link !== 'object') {
+		glog("Nodeinfo Link was Null", wellnownUrl);
+		return null;
+	}
+
+	const controller2 = new AbortController()
+	const timeout2 = setTimeout(
+		() => { controller2.abort() },
+		30000
+	)
+
+	const info = await fetch(link.href, {
+		method: "GET",
+		headers: {
+			"User-Agent": ua,
+		},
+		redirect: "error",
+		signal: controller2.signal
+	}).then(res => {
+		if (res && res.ok) {
+			glog("Get Nodeinfo finish", link.href, res.status, res.ok)
+			return res.json();
+		}
+		return;
+	}).catch(async e => {
+		glog("Get Nodeinfo failed...", link.href, e.errno, e.type)
+		if (e.errno?.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
+		return;
+	}).finally(() => {
+		clearTimeout(timeout2);
+	})
+
+	return info;
+}
+
+async function safeGetNodeInfo(base) {
+	const retry = (timeout) => new Promise((res, rej) => {
+		setTimeout(() => {
+			getNodeinfo(base).then(res, rej)
+		}, timeout)
+	});
+	return getNodeinfo(base)
+		.then(res => res === undefined ? retry(10000) : res)
+		.catch(e => retry(10000))
+		.catch(() => null);
+}
+
 // misskey-dev/misskeyを最後に持っていくべし
 const ghRepos = [
-	"mei23/misskey",
-	"mei23/misskey-v11",
+	//"mei23/misskey",
+	//"mei23/misskey-v11",
 	//"kokonect-link/cherrypick",
 	"misskey-dev/misskey"
 ];
 
 const gtRepos = [
-	"codeberg.org/thatonecalculator/calckey",
-	"akkoma.dev/FoundKeyGang/FoundKey",
+	//"codeberg.org/thatonecalculator/calckey",
+	//"akkoma.dev/FoundKeyGang/FoundKey",
 ]
 
 module.exports.ghRepos = ghRepos;
@@ -100,6 +190,7 @@ function hasVulnerability(repo, version) {
 				//semver.satisfies(version, '< 12.51.0') ||
 				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
 			);
+		/*
 		case 'mei23/misskey':
 			return (
 				semver.satisfies(version, '< 10.102.608-m544') ||
@@ -114,6 +205,7 @@ function hasVulnerability(repo, version) {
 			return (
 				semver.satisfies(version, '< v13.0.0-preview3')
 			);
+		*/
 		default:
 			return false;
 	}
@@ -124,7 +216,6 @@ async function getVersions() {
 	const maxRegExp = /<https:\/\/.*?>; rel="next", <https:\/\/.*?\?page=(\d+)>; rel="last"/;
 	const versions = new Map();
 	const versionOutput = {};
-	const ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0";
 
 	const vqueue = new Queue(3)
 
@@ -207,7 +298,7 @@ module.exports.getInstancesInfos = async function() {
 	glog("Getting Instances' Infos")
 
 	const promises = [];
-	const alives = [], deads = [];
+	const alives = [], deads = [], notMisskey = [], outdated = [];
 
 	const { versions, versionOutput } = await getVersions()
 
@@ -215,18 +306,30 @@ module.exports.getInstancesInfos = async function() {
 	for (let t = 0; t < instances.length; t += 1) {
 		const instance = instances[t]
 		promises.push(pqueue.add(async () => {
-			const meta = (await postJson(`https://${instance.url}/api/meta`)) || false;
-			const stat = (await postJson(`https://${instance.url}/api/stats`)) || false;
-			const NoteChart = (await postJson(`https://${instance.url}/api/charts/notes`, { span: "day" })) || false;
+			const nodeinfo = (await safeGetNodeInfo(instance.url)) || null;
 
-			if (meta && stat && NoteChart) {
-				delete meta.emojis;
-				delete meta.announcements;
+			if (nodeinfo && nodeinfo.software.name !== "misskey") {
+				notMisskey.push({
+					nodeinfo,
+					...instance
+				});
+				return;
+			}
+
+			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
+			const stat = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
+			const NoteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day" })) || null;
+
+			if (nodeinfo && meta && stat && NoteChart) {
+				if (meta) {
+					delete meta.emojis;
+					delete meta.announcements;
+				}
 	
 				const versionInfo = (() => {
-					const sem1 = semver.clean(meta.version, { loose: true })
+					const sem1 = semver.clean(nodeinfo.software.version, { loose: true })
 					if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
-					const sem2 = semver.valid(semver.coerce(meta.version))
+					const sem2 = semver.valid(semver.coerce(nodeinfo.software.version))
 					let current = { repo: 'misskey-dev/misskey', count: 1500 };
 					for (const [key, value] of versions.entries()) {
 						if (sem1 && sem1.startsWith(key)) {
@@ -240,7 +343,13 @@ module.exports.getInstancesInfos = async function() {
 					return current
 				})()
 	
-				if (versionInfo.just && versionInfo.hasVulnerability) return;
+				if (versionInfo.just && versionInfo.hasVulnerability) {
+					outdated.push({
+						nodeinfo,
+						...instance,
+					});
+					return;
+				};
 	
 				/*   インスタンスバリューの算出   */
 				let value = 0
@@ -258,8 +367,10 @@ module.exports.getInstancesInfos = async function() {
 				alives.push(extend(true, instance, {
 					value,
 					meta,
+					nodeinfo,
 					stats: stat,
-					description: meta.description || (instance.description || null),
+					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
+					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
 					langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
 					isAlive: true,
 					repo: versionInfo?.repo
@@ -283,6 +394,8 @@ module.exports.getInstancesInfos = async function() {
 	return {
 		alives: alives.sort((a, b) => (b.value || 0) - (a.value || 0)),
 		deads,
+		notMisskey,
+		outdated,
 		versions,
 		versionOutput,
 	}

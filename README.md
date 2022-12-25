@@ -3,40 +3,45 @@ joinmisskey instances' information api
 
 https://instanceapp.misskey.page/instances.json
 
-## Build Environment
-2つの環境変数を設定してください。
+**This API doesn't follow forks that say `nodeinfo.software.name !== 'misskey'`.**
 
-- `LB_TOKEN`: GitHubのトークン（GitHub情報取得用）
-- `MK_TOKEN`: Misskeyのトークン（Misskey投稿用）
+## Build Environment
+You must set following two envs.
+
+- `LB_TOKEN`= GitHub Token (to get versions)
+- `MK_TOKEN`= Misskey Token（to post to misskey）
 
 ## Endpoints
-nginxおよびCloudflareで静的ファイルを配信しているだけですので、アクセス制限は設けていません。
+We are only serving static files via nginx and Cloudflare, so we have no access restrictions.
 
-https://instanceapp.misskey.page 下で以下の情報を取得できます。
+You can get the following information under https://instanceapp.misskey.page
 
 ### /instances.json
-インスタンス情報一覧のjsonです。
 
 ```
 {
-    date: Date // instances.json発行日時
-    stats: {                      // 統計
-        notesCount: Number,       //  総ノート数
-        usersCount: Number,       //  総ユーザー数
-        instancesCount: Number,   //  稼働インスタンス数
+    date: Date // The date instances.json was published at.
+    stats: {                      //  statistics
+        notesCount: Number,       //  Total notes
+        usersCount: Number,       //  Total Users
+        mau: Number,              //  Total MAUs
+        instancesCount: Number,   //  Instances counter
     },
-    instancesInfos: [        // インスタンス一覧（※稼働中のみ）
+    instancesInfos: [        // Instances Infos (only alives)
         {
-            url: String,     //  ホスト名 e.g. misskey.io
-            langs: String[], //  インスタンスリストでaqzが登録した言語 e.g. ["ja"], ["zh"]
-            "description": String | Null,  // meta.description、なければaqzが設定した説明が入るかもしれない
-            "isAlive": true, //  稼働中のみ掲載なので、つねにtrue
-            value: Number,   //  バージョン等から算定したインスタンスバリュー
-            meta: Object,    //  api/metaの結果 ※announcementsは削除されています
-            stats: Object,   //  api/statsの結果
-            banner: Bool,    //  バナーが存在するかどうか
-            background: Bool,//  バックグラウンドイメージがあるかどうか
-            icon: Bool,      //  アイコンがあるかどうか
+            url: String,     //  Hostname e.g. misskey.io
+            name: String,    //  Name e.g. すしすきー
+            langs: String[], //  Language the API author aqz set manually e.g. ["ja"], ["zh"]
+            description: String | Null,  // meta.description or the the API author aqz set manually
+            isAlive: true,   //  must true
+            value: Number,   //  The Instance Value calculated from the version, etc.
+            banner: Bool,    //  Banner existance
+            background: Bool,//  Background Image existance
+            icon: Bool,      //  Icon Image existance
+            nodeinfo: Object | null,  //  nodeinfo
+            meta: Object | null,      //  result of api/meta
+
+            stats: Object,   //  deprecated (result of api/stats)
         }, ...
     ]
 
@@ -44,22 +49,19 @@ https://instanceapp.misskey.page 下で以下の情報を取得できます。
 ```
 
 ### /instance-banners/instance.host.{jpeg|webp}
-軽量化されたインスタンスのバナーが格納されています。  
-存在するかどうかはinstancesInfosのbannerで確認できます。
+Banner of each instances (lightweighted)
 
 ### /instance-backgrounds/instance.host.{jpeg|webp}
-軽量化されたインスタンスのバックグラウンドイメージ（ウェルカムページに表示される画像）が格納されています。  
-存在するかどうかはinstancesInfosのbackgroundで確認できます。
+Background image (displayed behind the welcome page) (lightweighted)
 
 ### /instance-icons/instance.host.{png|webp}
-軽量化されたインスタンスのアイコン（faviconではありません）が格納されています。  
-存在するかどうかはinstancesInfosのiconで確認できます。
+Icon (not favicon) (lightweighted)
 
 ### /alives.txt
-疎通できたインスタンスのホストのリスト（\n区切り）
+List of hosts (separated by `\n`) for instances that were able to communicate
 
 ### /deads.txt
-疎通不能だったインスタンスのホストのリスト（\n区切り）
+List of hosts (separated by `\n`) for instances that were unable to communicate
 
 ### versions.json
-GitHubから取得した各リポジトリのバージョンリスト
+Version list obtained from GitHub
