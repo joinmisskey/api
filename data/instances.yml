@@ -16,6 +16,8 @@
   langs: ['en', 'zh']
 - url: msk.ilnk.info
   langs: ['ja', 'kr', 'de', 'en']
+- url: social.graves.cl
+  langs: ['en', 'es', 'ja']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -405,6 +407,38 @@
   langs: ['ja']
 - url: mi.204.jp
   langs: ['ja']
+- url: mi.eox2.com
+  langs: ['ja']
+- url: mi-wo.site
+  langs: ['ja']
+- url: warpday.net
+  langs: ['ja']
+- url: mattyaski.co
+  langs: ['ja']
+- url: misskey.nekokawa.net
+  langs: ['ja']
+- url: ktnfm.com
+  langs: ['ja']
+- url: misskey.accordi.online
+  langs: ['ja']
+- url: misskey.cat-craft.f5.si
+  langs: ['ja']
+- url: mk.tenpest-moon.uk
+  langs: ['ja']
+- url: monologue.kazatsuyu.com
+  langs: ['ja']
+- url: misskey.objektiv2.net
+  langs: ['ja']
+- url: msky.redpeacock78.com
+  langs: ['ja']
+- url: misskey.usbharu.dev
+  langs: ['ja']
+- url: jbgs.jp
+  langs: ['ja']
+- url: chiakey.io
+  langs: ['ja']
+- url: mi.gbudou.ml
+  langs: ['ja']
 #
 ##
 #########################################
@@ -676,6 +710,10 @@
   langs: ['en']
 - url: mk.arks.cafe
   langs: ['en']
+- url: clanwood.com
+  langs: ['en']
+- url: social.korhonen.cc
+  langs: ['en']
 #
 ##
 #########################################
@@ -799,6 +837,8 @@
   langs: ['zh']
 - url: misaka.social
   langs: ['zh']
+- url: t.nyk.app
+  langs: ['zh']
 #
 ##
 #########################################
@@ -828,6 +868,8 @@
   langs: ['ko']
 - url: daepi.so
   langs: ['ko']
+- url: misskey.catswords.net
+  langs: ['ko']
 #
 ##
 #########################################
@@ -846,6 +888,8 @@
 - url: mk.phreedom.club
   langs: ['ru']
 - url: debilosempire.org
+  langs: ['ru']
+- url: bar.arumoon.ru
   langs: ['ru']
 #
 ##
@@ -884,6 +928,8 @@
 - url: msk.hw2k.com
   langs: ['de']
 - url: lmaa.pm
+  langs: ['de']
+- url: mk.nils.moe
   langs: ['de']
 #
 ##
