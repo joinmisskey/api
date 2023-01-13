@@ -441,6 +441,38 @@
   langs: ['ja']
 - url: t.aozaki.cc
   langs: ['ja']
+- url: k.0n.ee
+  langs: ['ja', 'ko']
+- url: ohtrmi.cbrx.io
+  langs: ['ja']
+- url: beta.kemomi.me
+  langs: ['ja']
+- url: misskey.cover.pm
+  langs: ['ja']
+- url: misskey.riinswork.space
+  langs: ['ja']
+- url: beta.misskey.sda1.net
+  langs: ['ja']
+- url: kitsui.life
+  langs: ['ja']
+- url: mi.hk-shuttle.net
+  langs: ['ja']
+- url: v13.hisubway.me
+  langs: ['ja']
+- url: mi.ascii.tk
+  langs: ['ja']
+- url: hiddenski.hide.li
+  langs: ['ja']
+- url: mi.kuropen.org
+  langs: ['ja']
+- url: mk-v13.xiupos.net
+  langs: ['ja']
+- url: misskey.kindworld.one
+  langs: ['ja']
+- url: misskey.randir.link
+  langs: ['ja']
+- url: misskey.uryokurin.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -716,6 +748,18 @@
   langs: ['en']
 - url: social.korhonen.cc
   langs: ['en']
+- url: cafemilk.moe
+  langs: ['en']
+- url: 00.nyan.systems
+  langs: ['en']
+- url: momoirodouhu.mydns.jp
+  langs: ['en']
+- url: fed.bajsicki.com
+  langs: ['en']
+- url: misskey.heonian.org
+  langs: ['en']
+- url: reaired.com
+  langs: ['en']
 #
 ##
 #########################################
@@ -728,6 +772,8 @@
 - url: misskey.social
   langs: ['it']
 - url: miao.gatti.ninja
+  langs: ['it']
+- url: beta.misskey.social
   langs: ['it']
 #
 ##
@@ -847,6 +893,8 @@
   langs: ['zh']
 - url: rimonce.one
   langs: ['zh']
+- url: starry.ml
+  langs: ['zh']
 #
 ##
 #########################################
@@ -878,6 +926,8 @@
   langs: ['ko']
 - url: misskey.catswords.net
   langs: ['ko']
+- url: buttersc.one
+  langs: ['ko']
 #
 ##
 #########################################
@@ -898,6 +948,8 @@
 - url: debilosempire.org
   langs: ['ru']
 - url: bar.arumoon.ru
+  langs: ['ru']
+- url: fotoclub.lono.space
   langs: ['ru']
 #
 ##
@@ -997,3 +1049,19 @@
 # id
 - url: bots.reinhart1010.id
   langs: ['id']
+#
+##
+#########################################
+##
+#
+# eo
+- url: kajereto.com
+  langs: ['eo']
+#
+##
+#########################################
+##
+#
+# nl
+- url: mi.porlam.nl
+  langs: ['nl']
