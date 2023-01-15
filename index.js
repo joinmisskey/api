@@ -259,7 +259,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			(instance, i) =>
 				`${i + 1}. ?[${
 					(instance.name || instance.name !== instance.url) ?
-						`${instance.name} (${instance.url})` :
+						`<plain>${instance.name}</plain> (${instance.url})` :
 						instance.url
 				}](https://${instance.url})`
 		).join('\n')
