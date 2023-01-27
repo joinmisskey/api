@@ -18,6 +18,8 @@
   langs: ['ja', 'kr', 'de', 'en']
 - url: social.graves.cl
   langs: ['en', 'es', 'ja']
+- url: soshar.dess.ga
+  langs: ['ja', 'en', 'fr']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -473,6 +475,34 @@
   langs: ['ja']
 - url: misskey.uryokurin.net
   langs: ['ja']
+- url: sudo.mkdir.uk
+  langs: ['ja']
+- url: mi.syobon.net
+  langs: ['ja']
+- url: mi.harumakizaemon.net
+  langs: ['ja']
+- url: rafale.misskey.online
+  langs: ['ja']
+- url: nekomiya.net
+  langs: ['ja']
+- url: misskey.neos.love
+  langs: ['ja']
+- url: mof.rorea.moe
+  langs: ['ja']
+- url: pon.icu
+  langs: ['ja']
+- url: baldr-geek.net
+  langs: ['ja']
+- url: sk.204.jp
+  langs: ['ja']
+- url: retrogame.fan
+  langs: ['ja']
+- url: mi.tebukuro.xyz
+  langs: ['ja']
+- url: enu8d.com
+  langs: ['ja']
+- url: mukasi.ha.potp.me
+  langs: ['ja']
 #
 ##
 #########################################
@@ -760,6 +790,10 @@
   langs: ['en']
 - url: reaired.com
   langs: ['en']
+- url: social.lomz.me
+  langs: ['en']
+- url: is.livingunder.rocks
+  langs: ['en']
 #
 ##
 #########################################
@@ -895,6 +929,12 @@
   langs: ['zh']
 - url: starry.ml
   langs: ['zh']
+- url: g0v.moe
+  langs: ['zh']
+- url: meows.lol
+  langs: ['zh']
+- url: tonikawa.social
+  langs: ['zh']
 #
 ##
 #########################################
@@ -927,6 +967,10 @@
 - url: misskey.catswords.net
   langs: ['ko']
 - url: buttersc.one
+  langs: ['ko']
+- url: 0n.ee
+  langs: ['ko', 'ja']
+- url: hawol.xyz
   langs: ['ko']
 #
 ##
