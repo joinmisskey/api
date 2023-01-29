@@ -501,6 +501,18 @@
   langs: ['ja']
 - url: mukasi.ha.potp.me
   langs: ['ja']
+- url: balloon.potp.me
+  langs: ['ja']
+- url: nekonet.cyou
+  langs: ['ja']
+- url: porubuskey.cc
+  langs: ['ja']
+- url: pillbug.audio.amanogawa.work
+  langs: ['ja']
+- url: mk.u0conveni.club
+  langs: ['ja']
+- url: mk.kawayo.moe
+  langs: ['ja']
 #
 ##
 #########################################
@@ -792,6 +804,18 @@
   langs: ['en']
 - url: is.livingunder.rocks
   langs: ['en']
+- url: darnell.moe
+  langs: ['en']
+- url: misskey.vpx.moe
+  langs: ['en']
+- url: tranny.town
+  langs: ['en']
+- url: oasys.earth
+  langs: ['en']
+- url: misskey.lina.inverse.moe
+  langs: ['en']
+- url: misskey.fal.moe
+  langs: ['en']
 #
 ##
 #########################################
@@ -969,6 +993,8 @@
 - url: 0n.ee
   langs: ['ko', 'ja']
 - url: hawol.xyz
+  langs: ['ko']
+- url: munochi.moe
   langs: ['ko']
 #
 ##
