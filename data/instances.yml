@@ -513,6 +513,18 @@
   langs: ['ja']
 - url: mk.kawayo.moe
   langs: ['ja']
+- url: nurash.kemomi.me
+  langs: ['ja']
+- url: yoroshiku.net
+  langs: ['ja']
+- url: maniakey.com
+  langs: ['ja']
+- url: msk.s1204.net
+  langs: ['ja']
+- url: mol.sodacube.dev
+  langs: ['ja']
+- url: msnis.msnic.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -957,6 +969,10 @@
   langs: ['zh']
 - url: tonikawa.social
   langs: ['zh']
+- url: liuli.lol
+  langs: ['zh']
+- url: bluewhite.pink
+  langs: ['zh']
 #
 ##
 #########################################
@@ -995,6 +1011,8 @@
 - url: hawol.xyz
   langs: ['ko']
 - url: munochi.moe
+  langs: ['ko']
+- url: msk.sorasaki-ct.uk
   langs: ['ko']
 #
 ##
