@@ -366,9 +366,9 @@ module.exports.getInstancesInfos = async function() {
 					// 2.
 					const arr = NoteChart.local?.inc.filter(e => e !== 0)
 
-					// ノート増加数の15日間の平均 / 10
+					// ノート増加数の15日間の平均 * 1
 					// eslint-disable-next-line no-mixed-operators
-					if (arr.length > 0) value += (arr.reduce((prev, current) => prev + current) / arr.length) / 10;
+					if (arr.length > 0) value += (arr.reduce((prev, current) => prev + current) / arr.length);
 
 					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
 					value += (15 - NoteChart.local?.inc.length) * 300
