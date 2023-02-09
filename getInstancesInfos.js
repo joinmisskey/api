@@ -371,7 +371,7 @@ module.exports.getInstancesInfos = async function() {
 					if (arr.length > 0) value += (arr.reduce((prev, current) => prev + current) / arr.length);
 
 					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
-					value += (15 - NoteChart.local?.inc.length) * 360
+					value += (15 - arr.length) * 360
 				}
 	
 				alives.push(extend(true, instance, {
