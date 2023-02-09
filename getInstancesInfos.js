@@ -348,7 +348,7 @@ module.exports.getInstancesInfos = async function() {
 
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
 			const stat = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
-			const NoteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day" })) || null;
+			const NoteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
 
 			if (nodeinfo && meta && stat && NoteChart) {
 				if (meta) {
@@ -364,9 +364,14 @@ module.exports.getInstancesInfos = async function() {
 				// (基準値に影響があるかないか程度に色々な値を考慮する)
 				if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
 					// 2.
-					const arr = NoteChart.local?.inc.filter(e => e !== 0).slice(-3)
+					const arr = NoteChart.local?.inc.filter(e => e !== 0)
+
+					// ノート増加数の15日間の平均 * 10
 					// eslint-disable-next-line no-mixed-operators
-					if (arr.length > 0) value += arr.reduce((prev, current) => prev + current) / arr.length * 100
+					if (arr.length > 0) value += (arr.reduce((prev, current) => prev + current) / arr.length) * 10;
+
+					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
+					value += (15 - arr.length) * 300
 				}
 	
 				alives.push(extend(true, instance, {
