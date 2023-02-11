@@ -880,6 +880,9 @@
   langs: ['en']
 - url: moar.cachapa.xyz
   langs: ['en']
+- url: kitsunes.club
+  langs: ['en']
+  description: "A laid back instance dedicated to the fluffier tails and bigger ears."
 #
 ##
 #########################################
