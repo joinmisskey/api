@@ -569,6 +569,82 @@
   langs: ['ja']
 - url: mi.skota11.com
   langs: ['ja']
+- url: mk.ab2m.cf
+  langs: ['ja']
+- url: misskey.akagii.dev
+  langs: ['ja']
+- url: kids.0px.io
+  langs: ['ja']
+- url: misskey.shunrin.com
+  langs: ['ja']
+- url: stkr.dev
+  langs: ['ja']
+- url: sakana-no-bone.net
+  langs: ['ja']
+- url: nicomedkey.cc
+  langs: ['ja']
+- url: misskey.bootjp.me
+  langs: ['ja']
+- url: misskey.luke256.dev
+  langs: ['ja']
+- url: msky.haruyjsn.net
+  langs: ['ja']
+- url: misskey.syuuta.net
+  langs: ['ja']
+- url: misskey.uk
+  langs: ['ja']
+- url: social.tuki.dev
+  langs: ['ja']
+- url: sns.copi.pe
+  langs: ['ja']
+- url: kawaiivrc.site
+  langs: ['ja']
+- url: mi.7mi.site
+  langs: ['ja']
+- url: misskey.rs64.net
+  langs: ['ja']
+- url: misskey.tsukiyo.dev
+  langs: ['ja']
+- url: mk.shumihub.net
+  langs: ['ja']
+- url: itsukey.net
+  langs: ['ja']
+- url: key.luhrck.com
+  langs: ['ja']
+- url: fed.alpha-omega.space
+  langs: ['ja']
+- url: misskey.vip
+  langs: ['ja']
+- url: misskey.ciffelia.com
+  langs: ['ja']
+- url: trackball.love
+  langs: ['ja']
+- url: t1.ztrehagem.dev
+  langs: ['ja']
+- url: misskey.notr.app
+  langs: ['ja']
+- url: etoile.59ry.jp
+  langs: ['ja']
+- url: misskey.damnx.net
+  langs: ['ja']
+- url: u.misskey.studio
+  langs: ['ja']
+- url: husigi.no.kuni.potp.me
+  langs: ['ja']
+- url: misskey.vocalodon.net
+  langs: ['ja']
+- url: misskey.nanodawa.net 
+  langs: ['ja']
+- url: nekodai.ski
+  langs: ['ja']
+- url: mk.alicey.dev
+  langs: ['ja']
+- url: m.yuru.site
+  langs: ['ja']
+- url: vcasskey.net
+  langs: ['ja']
+- url: mi.iamtakagi.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -880,6 +956,10 @@
   langs: ['en']
 - url: moar.cachapa.xyz
   langs: ['en']
+- url: social.livepods.eu
+  langs: ['en']
+- url: social.interordi.com
+  langs: ['en']
 #
 ##
 #########################################
@@ -1027,6 +1107,14 @@
   langs: ['zh']
 - url: zmi.im
   langs: ['zh']
+- url: misskey.ohsb.net
+  langs: ['zh']
+- url: skress.eu.org
+  langs: ['zh']
+- url: pastwind.top
+  langs: ['zh']
+- url: misskey.launchpencil.f5.si
+  langs: ['zh']
 #
 ##
 #########################################
@@ -1068,6 +1156,8 @@
   langs: ['ko']
 - url: msk.sorasaki-ct.uk
   langs: ['ko']
+- url: mi.rerac.dev
+  langs: ['ko', 'ja']
 #
 ##
 #########################################
@@ -1090,6 +1180,8 @@
 - url: bar.arumoon.ru
   langs: ['ru']
 - url: fotoclub.lono.space
+  langs: ['ru']
+- url: social.debilosempire.org
   langs: ['ru']
 #
 ##
