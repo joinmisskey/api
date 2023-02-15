@@ -541,8 +541,8 @@
   langs: ['ja']
 - url: misskey.mfyo.jp
   langs: ['ja']
-#- url: buicha.social
-#  langs: ['ja']
+- url: buicha.social
+  langs: ['ja']
 - url: misskey.ajinori.f5.si
   langs: ['ja']
 - url: misskey.invr.chat
