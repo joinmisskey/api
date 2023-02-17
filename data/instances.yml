@@ -645,6 +645,52 @@
   langs: ['ja']
 - url: mi.iamtakagi.net
   langs: ['ja']
+- url: misskey.kemuniku.com
+  langs: ['ja']
+- url: mis.shiokazehs.jp
+  langs: ['ja']
+- url: misskey.erenoa.com
+  langs: ['ja']
+- url: misskey.yurina256.net
+  langs: ['ja']
+- url: misskey.fusenstage.com
+  langs: ['ja']
+- url: mi.nyaa.app
+  langs: ['ja']
+- url: mi.mashiro.site
+  langs: ['ja']
+- url: misskey.mugiko.moe
+  langs: ['ja']
+- url: misskey.mfmfuyu.net
+  langs: ['ja']
+- url: misskey.ksrgte.ch
+  langs: ['ja']
+- url: misskey.narazaka.net
+  langs: ['ja']
+- url: misskey.midorichan.net
+  langs: ['ja']
+- url: misskey.hotman78.com
+  langs: ['ja']
+- url: misskey.0sakana.xyz
+  langs: ['ja']
+- url: nidone.club
+  langs: ['ja']
+- url: misskey.club
+  langs: ['ja']
+- url: misskey.misw.jp
+  langs: ['ja']
+- url: misskey.dummy.red
+  langs: ['ja']
+- url: key.cashless.gr.jp
+  langs: ['ja']
+- url: misskey.kamikaze.moe
+  langs: ['ja']
+- url: msky.kentarodev.duckdns.org
+  langs: ['ja']
+- url: sns.vvil.jp
+  langs: ['ja']
+- url: estrella.misskey.masato.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -960,6 +1006,14 @@
   langs: ['en']
 - url: social.interordi.com
   langs: ['en']
+- url: eeeee.eeeeeeeeeeeeeee.ee
+  langs: ['en']
+- url: msky.igw.ovh
+  langs: ['en']
+- url: misskey.xtrap.app
+  langs: ['en']
+- url: invicious.net
+  langs: ['en']
 #
 ##
 #########################################
@@ -974,6 +1028,8 @@
 - url: miao.gatti.ninja
   langs: ['it']
 - url: beta.misskey.social
+  langs: ['it']
+- url: rancati.com
   langs: ['it']
 #
 ##
@@ -1115,6 +1171,12 @@
   langs: ['zh']
 - url: misskey.launchpencil.f5.si
   langs: ['zh']
+- url: m.moe.lol
+  langs: ['zh']
+- url: existentialis.me
+  langs: ['zh']
+- url: pari.cafe
+  langs: ['zh']
 #
 ##
 #########################################
@@ -1158,6 +1220,8 @@
   langs: ['ko']
 - url: mi.rerac.dev
   langs: ['ko', 'ja']
+- url: iqhina.org
+  langs: ['ko']
 #
 ##
 #########################################
