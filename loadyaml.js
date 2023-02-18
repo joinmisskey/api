@@ -1,4 +1,4 @@
-const readyaml = require("js-yaml").load
-const fs = require("fs")
+import { load } from "js-yaml"
+import * as fs from "node:fs"
 
-module.exports = filepath => readyaml(fs.readFileSync(filepath))
+export default filepath => load(fs.readFileSync(filepath))

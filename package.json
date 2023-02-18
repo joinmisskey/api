@@ -5,6 +5,7 @@
   "repository": "https://github.com/joinmisskey/api.git",
   "author": "tamaina <tamaina@hotmail.co.jp>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "abort-controller": "^3.0.0",
     "extend": "^3.0.2",
@@ -12,6 +13,7 @@
     "glob": "^8.1.0",
     "js-yaml": "^4.1.0",
     "mkdirp": "^2.1.3",
+    "node-fetch": "^3.3.0",
     "node-fetch-with-proxy": "^0.1.6",
     "promise-queue": "^2.2.5",
     "semver": "^7.3.8",

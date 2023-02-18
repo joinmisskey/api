@@ -1,12 +1,11 @@
-const fs = require("fs")
-const glog = require("fancy-log")
-const semver = require("semver")
-const AbortController = require("abort-controller").default
-const extend = require("extend")
-const loadyaml = require("./loadyaml")
-const Queue = require('promise-queue');
-const { queue } = require("sharp")
-const { performance } = require('perf_hooks');
+import glog from 'fancy-log'
+import semver from 'semver'
+import AbortController from 'abort-controller'
+import extend from 'extend'
+import loadyaml from './loadyaml.js'
+import Queue from 'promise-queue';
+import { performance } from 'perf_hooks';
+import fetch from 'node-fetch';
 
 const instances = loadyaml("./data/instances.yml")
 
@@ -166,23 +165,20 @@ async function safeGetNodeInfo(base) {
 }
 
 // misskey-dev/misskeyを最後に持っていくべし
-const ghRepos = [
+export const ghRepos = [
 	//"mei23/misskey",
 	//"mei23/misskey-v11",
 	//"kokonect-link/cherrypick",
 	"misskey-dev/misskey"
 ];
 
-const gtRepos = [
+export const gtRepos = [
 	//"codeberg.org/thatonecalculator/calckey",
 	//"akkoma.dev/FoundKeyGang/FoundKey",
 ]
 
-module.exports.ghRepos = ghRepos;
-module.exports.gtRepos = gtRepos;
-
 function hasVulnerability(repo, version) {
-	switch(repo) {
+	switch (repo) {
 		case 'misskey-dev/misskey':
 			return (
 				semver.satisfies(version, '< 12.119.2') ||
@@ -283,7 +279,7 @@ async function getVersions() {
 					return Promise.resolve([])
 				}
 			).catch(e => { throw Error(e) })
-			
+
 			))).flat(1)
 
 		versionOutput[repo] = resp;
@@ -294,7 +290,7 @@ async function getVersions() {
 	return { versions, versionOutput }
 }
 
-module.exports.getInstancesInfos = async function() {
+export const getInstancesInfos = async function () {
 	glog("Getting Instances' Infos")
 
 	const promises = [];
@@ -355,12 +351,12 @@ module.exports.getInstancesInfos = async function() {
 					delete meta.emojis;
 					delete meta.announcements;
 				}
-	
+
 				/*   インスタンスバリューの算出   */
 				let value = 0
 				// 1. バージョンのリリース順をもとに並び替え
 				value += 100000 - (versionInfo.count - 30) * 7200
-	
+
 				// (基準値に影響があるかないか程度に色々な値を考慮する)
 				if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
 					// 2.
@@ -373,7 +369,7 @@ module.exports.getInstancesInfos = async function() {
 					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
 					// value += (15 - arr.length) * 360
 				}
-	
+
 				alives.push(extend(true, instance, {
 					value,
 					meta,

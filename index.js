@@ -1,16 +1,16 @@
-const { promisify } = require("util")
-const fs = require("fs")
-const fsp = require("fs/promises")
-const glob = require("glob")
-const glog = require("fancy-log")
-const sharp = require("sharp")
-const { createHash } = require("crypto")
-const mkdirp = require('mkdirp')
-const Queue = require('promise-queue');
-const AbortController = require("abort-controller").default
+import * as fs from 'node:fs'
+import * as fsp from 'node:fs/promises'
+import glob from 'glob'
+import glog from 'fancy-log'
+import sharp from 'sharp'
+import { createHash } from 'node:crypto'
+import mkdirp from 'mkdirp'
+import Queue from 'promise-queue'
+import AbortController from 'abort-controller'
+import fetch from 'node-fetch';
 
-const { getInstancesInfos } = require('./getInstancesInfos')
-const instanceq = require('./instanceq')
+import { getInstancesInfos } from './getInstancesInfos.js'
+import instanceq from './instanceq.js'
 
 function getHash(data, a, b, c) {
 	const hashv = createHash(a)

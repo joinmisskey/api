@@ -1,6 +1,5 @@
-const fetch = require("node-fetch-with-proxy")
-
-const loadyaml = require("./loadyaml")
+import fetch from "node-fetch"
+import loadyaml from "./loadyaml.js"
 
 const mylist = loadyaml("./data/instances.yml")
 const ignorehosts = loadyaml("./data/ignorehosts.yml")
@@ -11,7 +10,7 @@ const duplicated = mylist.filter((e, i, arr) => arr.findIndex(x => x.url === e.u
 if (duplicated.length > 0) console.log(`Duplicated:\n  ${duplicated.join(",\n  ")}\n`);
 else console.log("Duplicated:\n  There is no duplicated instance!\n");
 
-module.exports = async () => {
+export default async () => {
 	console.log(`Get Instances from misskey.io`);
 
 	const notIncluded = new Set();
