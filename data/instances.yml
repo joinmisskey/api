@@ -691,6 +691,48 @@
   langs: ['ja']
 - url: estrella.misskey.masato.jp
   langs: ['ja']
+- url: misskey.systems
+  langs: ['ja']
+- url: misskey.halby24.com
+  langs: ['ja']
+- url: m.ytpmv.info
+  langs: ['ja']
+- url: kamisato.xyz
+  langs: ['ja']
+- url: m.4869.homes
+  langs: {'ja'}
+- url: mi.c-at.jp
+  langs: ['ja']
+- url: misskey.youdofoo.com
+  langs: ['ja']
+- url: misskey.beer
+  langs: ['ja']
+- url: misskey.someden.net
+  langs: ['ja']
+- url: m.u16.io
+  langs: ['ja']
+- url: chunchun.world
+  langs: ['ja']
+- url: misskey.haru3.me
+  langs: ['ja']
+- url: key.dokodare.ovh
+  langs: ['ja']
+- url: strawberry-pudding.net
+  langs: ['ja']
+- url: geoplanetary.net
+  langs: ['ja']
+- url: misskey.gochiuma.net
+  langs: ['ja']
+- url: meron.cloud
+  langs: ['ja']
+- url: msky.pioka.xyz
+  langs: ['ja']
+- url: misskey.in
+  langs: ['ja']
+- url: thxdaddy.xyz
+  langs: ['ja']
+- url: microblog.nalzus.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1014,6 +1056,8 @@
   langs: ['en']
 - url: invicious.net
   langs: ['en']
+- url: misskey.codingneko.com
+  langs: ['en']
 #
 ##
 #########################################
@@ -1177,6 +1221,8 @@
   langs: ['zh']
 - url: pari.cafe
   langs: ['zh']
+- url: m.zimiao.moe
+  langs: ['zh']
 #
 ##
 #########################################
@@ -1221,6 +1267,8 @@
 - url: mi.rerac.dev
   langs: ['ko', 'ja']
 - url: iqhina.org
+  langs: ['ko']
+- url: sns.setsuna.kr
   langs: ['ko']
 #
 ##
