@@ -733,6 +733,14 @@
   langs: ['ja']
 - url: microblog.nalzus.com
   langs: ['ja']
+- url: misskey.ekurea.net
+  langs: ['ja']
+- url: mk.loupe.page
+  langs: ['ja']
+- url: misskey.komekome09.jp
+  langs: ['ja']
+- url: koboksdon.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1223,6 +1231,8 @@
   langs: ['zh']
 - url: m.zimiao.moe
   langs: ['zh']
+- url: m1.1z28.com
+  langs: ['zh', 'en']
 #
 ##
 #########################################
@@ -1294,6 +1304,8 @@
 - url: fotoclub.lono.space
   langs: ['ru']
 - url: social.debilosempire.org
+  langs: ['ru']
+- url: fedi.debilosempire.org
   langs: ['ru']
 #
 ##
