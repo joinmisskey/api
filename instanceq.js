@@ -10,6 +10,11 @@ const duplicated = mylist.filter((e, i, arr) => arr.findIndex(x => x.url === e.u
 if (duplicated.length > 0) console.log(`Duplicated:\n  ${duplicated.join(",\n  ")}\n`);
 else console.log("Duplicated:\n  There is no duplicated instance!\n");
 
+const invalid = mylist.filter(e => e.langs !== undefined && !Array.isArray(e.langs))
+	.map(e => e.url)
+
+if (invalid.length > 0) console.log(`Invalid:\n  ${invalid.join(",\n  ")}\n`);
+
 export default async () => {
 	console.log(`Get Instances from misskey.io`);
 

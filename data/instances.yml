@@ -700,7 +700,7 @@
 - url: kamisato.xyz
   langs: ['ja']
 - url: m.4869.homes
-  langs: {'ja'}
+  langs: ['ja']
 - url: mi.c-at.jp
   langs: ['ja']
 - url: misskey.youdofoo.com
