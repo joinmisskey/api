@@ -799,6 +799,8 @@
   langs: ['ja']
 - url: nyanta.me
   langs: ['ja']
+- url: misskey.art
+  langs: ['ja']
 #
 ##
 #########################################
