@@ -741,6 +741,64 @@
   langs: ['ja']
 - url: koboksdon.net
   langs: ['ja']
+- url: fle.st
+  langs: ['ja']
+- url: tokyoto.cyou
+  langs: ['ja']
+- url: itoji0419.jp
+  langs: ['ja']
+- url: misskey.ayutsuki.net
+  langs: ['ja']
+- url: misskey.haun.jp
+  langs: ['ja']
+- url: misskey.yukkukomei.com
+  langs: ['ja']
+- url: misskey.fullstuck.net
+  langs: ['ja']
+- url: fix.misskey.life
+  langs: ['ja']
+- url: tenpoku.com
+  langs: ['ja']
+- url: sacasa.casa
+  langs: ['ja']
+- url: misskey.pm
+  langs: ['ja']
+- url: m.t327.net
+  langs: ['ja']
+- url: misskey.ie.u-ryukyu.ac.jp
+  langs: ['ja']
+- url: misskey.delmulin.com
+  langs: ['ja']
+- url: mi.kanachu-homes.com
+  langs: ['ja']
+- url: misskey.okitsu.net
+  langs: ['ja']
+- url: misskey.daizin.net
+  langs: ['ja']
+- url: misskey.strix.pm
+  langs: ['ja']
+- url: girak.moe
+  langs: ['ja']
+- url: mk.precure.fun
+  langs: ['ja']
+- url: misskey.jpnatu.net
+  langs: ['ja']
+- url: key.tpc3.org
+  langs: ['ja']
+- url: ap.yamakusa.net
+  langs: ['ja']
+- url: mk.hw2k.com
+  langs: ['ja']
+- url: misskey.salmonella.club
+  langs: ['ja']
+- url: mk.crissdepauvre.shop
+  langs: ['ja']
+- url: miss.jo3qma.com
+  langs: ['ja']
+- url: mi.booyah.dev
+  langs: ['ja']
+- url: nyanta.me
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1066,6 +1124,8 @@
   langs: ['en']
 - url: misskey.codingneko.com
   langs: ['en']
+- url: freaksonly.space
+  langs: ['en']
 #
 ##
 #########################################
@@ -1233,7 +1293,16 @@
   langs: ['zh']
 - url: m1.1z28.com
   langs: ['zh', 'en']
-#
+- url: ppplot.top
+  langs: ['zh']
+- url: forwriter.homes
+  langs: ['zh']
+- url: misskey.zhoushen929.com
+  langs: ['zh']
+- url: gpg.ink
+  langs: ['zh']
+- url: m.theresa.network
+  langs: ['zh']
 ##
 #########################################
 ##
