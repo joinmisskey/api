@@ -238,12 +238,12 @@ getInstancesInfos()
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `JoinMisskey instance api is updated at ${INSTANCES_JSON.date.toISOString()}.
+				text: `JoinMisskey servers api is updated at ${INSTANCES_JSON.date.toISOString()}.
 
 Total Notes: ${INSTANCES_JSON.stats.notesCount}
 Total Users: ${INSTANCES_JSON.stats.usersCount}
 Total MAU: ${INSTANCES_JSON.stats.mau}
-Total Instances: ${INSTANCES_JSON.stats.instancesCount}
+Total Servers: ${INSTANCES_JSON.stats.instancesCount}
 
 https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			}),
@@ -278,7 +278,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `日本語インスタンス (トップ30)\n\n${getInstancesList(japaneseInstances)}`,
+				text: `日本語サーバー (トップ30)\n\n${getInstancesList(japaneseInstances)}`,
 				replyId: tree.createdNote.id,
 			}),
 			headers: {
@@ -317,7 +317,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `JoinMisskey instance api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.join('\n')}\n#bot`
+				text: `JoinMisskey servers api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.join('\n')}\n#bot`
 			}),
 			headers: {
 				"Content-Type": "application/json"

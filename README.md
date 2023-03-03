@@ -1,5 +1,5 @@
 # api
-joinmisskey instances' information api
+joinmisskey servers' information api
 
 https://instanceapp.misskey.page/instances.json
 
@@ -25,16 +25,16 @@ You can get the following information under https://instanceapp.misskey.page
         notesCount: Number,       //  Total notes
         usersCount: Number,       //  Total Users
         mau: Number,              //  Total MAUs
-        instancesCount: Number,   //  Instances counter
+        instancesCount: Number,   //  Servers counter
     },
-    instancesInfos: [        // Instances Infos (only alives)
+    instancesInfos: [        // Servers Infos (only alives)
         {
             url: String,     //  Hostname e.g. misskey.io
             name: String,    //  Name e.g. すしすきー
             langs: String[], //  Language the API author aqz set manually e.g. ["ja"], ["zh"]
             description: String | Null,  // meta.description or the the API author aqz set manually
             isAlive: true,   //  must true
-            value: Number,   //  The Instance Value calculated from the version, etc.
+            value: Number,   //  The server Value calculated from the version, etc.
             banner: Bool,    //  Banner existance
             background: Bool,//  Background Image existance
             icon: Bool,      //  Icon Image existance
@@ -49,7 +49,7 @@ You can get the following information under https://instanceapp.misskey.page
 ```
 
 ### /instance-banners/instance.host.{jpeg|webp}
-Banner of each instances (lightweighted)
+Banner of each servers (lightweighted)
 
 ### /instance-backgrounds/instance.host.{jpeg|webp}
 Background image (displayed behind the welcome page) (lightweighted)
@@ -58,10 +58,10 @@ Background image (displayed behind the welcome page) (lightweighted)
 Icon (not favicon) (lightweighted)
 
 ### /alives.txt
-List of hosts (separated by `\n`) for instances that were able to communicate
+List of hosts (separated by `\n`) for servers that were able to communicate
 
 ### /deads.txt
-List of hosts (separated by `\n`) for instances that were unable to communicate
+List of hosts (separated by `\n`) for servers that were unable to communicate
 
 ### versions.json
 Version list obtained from GitHub

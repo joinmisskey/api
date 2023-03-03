@@ -1,14 +1,14 @@
 ########################################
-###### インスタンスリスト        #######
-###### The List of Instances     #######
+###### サーバーリスト        #######
+###### The List of Servers     #######
 ########################################
-# joinmisskeyのインスタンスリストは現状手動更新です。
+# joinmisskeyのサーバーリストは現状手動更新です。
 #
-# url: インスタンスのドメインを指定します。
-# langs: インスタンスの言語を文字列の配列で指定します。
-# suspended: bool. インスタンスの存在自体を隠蔽します。
+# url: サーバーのドメインを指定します。
+# langs: サーバーの言語を文字列の配列で指定します。
+# suspended: bool. サーバーの存在自体を隠蔽します。
 # description: 説明を上書きします。通常は指定しません。
-# name: インスタンス名を上書きします。通常は指定しません。
+# name: サーバー名を上書きします。通常は指定しません。
 #
 - url: misskey.io
 - url: misskey.dev
@@ -25,7 +25,7 @@
   langs: ['ja']
 - name: 'Misskey(Tor)'
   url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
-  description: xps2氏が運営するTor上のインスタンス
+  description: xps2氏が運営するTor上のサーバー
   langs: ['ja']
 - url: misskey.nokotaro.com
   langs: ['ja']
