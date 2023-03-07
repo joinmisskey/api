@@ -903,6 +903,14 @@
   langs: ['ja']
 - url: misskey00.moirai.dev
   langs: ['ja']
+- url: mi.reseleste.net
+  langs: ['ja']
+- url: misskey.kartolitan.com
+  langs: ['ja']
+- url: misskey.sup39.dev
+  langs: ['ja']
+- url: misskey.chatagiriii.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1235,6 +1243,8 @@
 - url: misskey.parpok.lomza.pl
   langs: ['en']
 - url: horny.house
+  langs: ['en']
+- url: misskey.byter.io
   langs: ['en']
 #
 ##
