@@ -801,6 +801,108 @@
   langs: ['ja']
 - url: misskey.art
   langs: ['ja']
+- url: trpger.us
+  langs: ['ja']
+- url: yagamin.com
+  langs: ['ja']
+- url: misskey.todanano-fune.moe
+  langs: ['ja']
+- url: mi.shellgei.org
+  langs: ['ja']
+- url: fluffy.social
+  langs: ['ja']
+- url: stellanaut.net
+  langs: ['ja']
+- url: moratoriamu.net
+  langs: ['ja']
+- url: misskey.yancya.club
+  langs: ['ja']
+- url: rhythmisskey.games
+  langs: ['ja']
+- url: novelskey.tarbin.net
+  langs: ['ja']
+- url: ojousama-tea.party
+  langs: ['ja']
+- url: misskey.snowdrop.cloud
+  langs: ['ja']
+- url: doriskey.net
+  langs: ['ja']
+- url: pasokey.net
+  langs: ['ja']
+- url: misskey.irucabot.com
+  langs: ['ja']
+- url: misskey.kimama-lab.net
+  langs: ['ja']
+- url: mi.barine.co
+  langs: ['ja']
+- url: misskey.betaful.life
+  langs: ['ja']
+- url: sui-mag.com
+  langs: ['ja']
+- url: fw3rd-bc.jp
+  langs: ['ja']
+- url: misskey.yuu0918.net
+  langs: ['ja']
+- url: misskey.kilinbox.net
+  langs: ['ja']
+- url: mk.humblemagica.org
+  langs: ['ja']
+- url: redfuku.com
+  langs: ['ja']
+- url: social.onlinesession.app
+  langs: ['ja']
+- url: misskey.mikuta0407.net
+  langs: ['ja']
+- url: misskey.aplulu.me
+  langs: ['ja']
+- url: potato.ski
+  langs: ['ja']
+- url: misskey.yuanzu.ml
+  langs: ['ja']
+- url: n7.social
+  langs: ['ja']
+- url: munskey.net
+  langs: ['ja']
+- url: misskey.room4.dev
+  langs: ['ja']
+- url: misskey.chilitreat.dev
+  langs: ['ja']
+- url: mk.noko1024.net
+  langs: ['ja']
+- url: misskey.takanotume24.com
+  langs: ['ja']
+- url: misskey.sksat.run
+  langs: ['ja']
+- url: seikora.one
+  langs: ['ja']
+- url: susiedev.wakuwakuanimals.com
+  langs: ['ja']
+- url: misskey.ssskkk.top
+  langs: ['ja']
+- url: f1uz.pm
+  langs: ['ja']
+- url: bikesskey.net
+  langs: ['ja']
+- url: mi.cron.jp
+  langs: ['ja']
+- url: mastodon.c-pool.jp
+  langs: ['ja']
+- url: opantu.c-pool.jp
+  langs: ['ja']
+- url: opantu.net
+  langs: ['ja']
+- url: misskey.refinyaa.net
+  langs: ['ja']
+- url: dpr.kim
+  langs: ['ja']
+- url: toromaguro.xyz
+  langs: ['ja']
+- url: misskey.en0taka.com
+  langs: ['ja']
+- url: misskey.joji-ani.me
+  langs: ['ja']
+- url: misskey00.moirai.dev
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1128,6 +1230,12 @@
   langs: ['en']
 - url: freaksonly.space
   langs: ['en']
+- url: rkgk.moe
+  langs: ['en']
+- url: misskey.parpok.lomza.pl
+  langs: ['en']
+- url: horny.house
+  langs: ['en']
 #
 ##
 #########################################
@@ -1304,6 +1412,12 @@
 - url: gpg.ink
   langs: ['zh']
 - url: m.theresa.network
+  langs: ['zh']
+- url: m.chariri.moe
+  langs: ['zh']
+- url: t.rdpstudio.top
+  langs: ['zh']
+- url: cafe.otter.homes
   langs: ['zh']
 ##
 #########################################
