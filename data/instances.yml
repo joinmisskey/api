@@ -911,6 +911,102 @@
   langs: ['ja']
 - url: misskey.chatagiriii.com
   langs: ['ja']
+- url: mi.9lab.jp
+  langs: ['ja']
+- url: skaya.ligun.net
+  langs: ['ja']
+- url: misstter.com
+  langs: ['ja']
+- url: ridesskey.net
+  langs: ['ja']
+- url: flaska.plainbox.net
+  langs: ['ja']
+- url: mk1.torrca.com
+  langs: ['ja']
+- url: msky.kasa12.dev
+  langs: ['ja']
+- url: inokashiraskey.jp
+  langs: ['ja']
+- url: s.ktsn.dev
+  langs: ['ja']
+- url: umisskey.com
+  langs: ['ja']
+- url: mi.ginnannman.com
+  langs: ['ja']
+- url: misskey.kiryuanzu.dev
+  langs: ['ja']
+- url: misskey.until.tsukuba.one
+  langs: ['ja']
+- url: misspi.net
+  langs: ['ja']
+- url: misskey.akyoz.net
+  langs: ['ja']
+- url: finalmisskey-xiv.com
+  langs: ['ja']
+- url: misskey.afy.jp
+  langs: ['ja']
+- url: misskey.shima-pan.com
+  langs: ['ja']
+- url: pigners.club
+  langs: ['ja']
+- url: hi-na.org
+  langs: ['ja']
+- url: mitsuwo.dayaman.work
+  langs: ['ja']
+- url: miship.space
+  langs: ['ja']
+- url: eostagram.com
+  langs: ['ja']
+- url: misskey.makihiro.info
+  langs: ['ja']
+- url: misskey.kanarikanaru.com
+  langs: ['ja']
+- url: mk.commojun.com
+  langs: ['ja']
+- url: msky.ntr.homes
+  langs: ['ja']
+- url: k7d.me
+  langs: ['ja']
+- url: misskey.yoruneyo.net
+  langs: ['ja']
+- url: misskey.otofu.xyz
+  langs: ['ja']
+- url: n-kaiwai.work
+  langs: ['ja']
+- url: misskey.arumino-om.net
+  langs: ['ja']
+- url: harima.f5.si
+  langs: ['ja']
+- url: m.ryugu.link
+  langs: ['ja']
+- url: misskey.bktsk.com
+  langs: ['ja']
+- url: misskey.gekka.sexy
+  langs: ['ja']
+- url: misskey.fanet.work
+  langs: ['ja']
+- url: misskey.sleepdrag.mydns.jp
+  langs: ['ja']
+- url: misskey.le0kyun.net
+  langs: ['ja']
+- url: tsukubaskey.com
+  langs: ['ja']
+- url: kousaka.space
+  langs: ['ja']
+- url: tokimiss.club
+  langs: ['ja']
+- url: misskey.walnuts.dev
+  langs: ['ja']
+- url: misskey.kanpanipage.com
+  langs: ['ja']
+- url: mede.family
+  langs: ['ja']
+- url: premis.one
+  langs: ['ja']
+- url: misskey.sizedon.com
+  langs: ['ja']
+- url: msk.kitazawa.me
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1246,6 +1342,8 @@
   langs: ['en']
 - url: misskey.byter.io
   langs: ['en']
+- url: fedi.theonetrueginger.ninja
+  langs: ['en']
 #
 ##
 #########################################
@@ -1428,6 +1526,10 @@
 - url: t.rdpstudio.top
   langs: ['zh']
 - url: cafe.otter.homes
+  langs: ['zh']
+- url: electro.moe
+  langs: ['zh']
+- url: m.yka.moe
   langs: ['zh']
 ##
 #########################################
