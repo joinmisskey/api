@@ -22,6 +22,8 @@
   langs: ['ja', 'en', 'fr']
 - url: cafe.otter.homes
   langs: ['en', 'zh']
+- url: misskey.seediqbale.xyz
+  langs: ['en', 'zh']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -1009,6 +1011,86 @@
   langs: ['ja']
 - url: msk.kitazawa.me
   langs: ['ja']
+- url: otofu.uk
+  langs: ['ja']
+- url: sdbx.reins-no-misskey.com
+  langs: ['ja']
+- url: voskey.icalo.net
+  langs: ['ja']
+- url: ph1.ains-no-misskey.com
+  langs: ['ja']
+- url: m.c30.life
+  langs: ['ja']
+- url: misskey.ayatovr.dev
+  langs: ['ja']
+- url: p1.ains-no-misskey.com
+  langs: ['ja']
+- url: mi.etwarl.net
+  langs: ['ja']
+- url: hirasakain.ninja
+  langs: ['ja']
+- url: sns.marosuke2600.work
+  langs: ['ja']
+- url: mi.sucinum.com
+  langs: ['ja']
+- url: kokuzei.cyou
+  langs: ['ja']
+- url: tamausa.trigonoretrism.com
+  langs: ['ja']
+- url: misskey.flat.place
+  langs: ['ja']
+- url: social.nohto.net
+  langs: ['ja']
+- url: mk.double-oxygen.net
+  langs: ['ja']
+- url: dicekey.jp
+  langs: ['ja']
+- url: staff.msnic.jp
+  langs: ['ja']
+- url: misskey.ariela.jp
+  langs: ['ja']
+- url: msky.mfz.jp
+  langs: ['ja']
+- url: anymanystreams.cc
+  langs: ['ja']
+- url: mi.nu1.dev
+  langs: ['ja']
+- url: misskey.walnuts.ml
+  langs: ['ja']
+- url: misskey.okaits7534.mydns.jp
+  langs: ['ja']
+- url: misskey.jpn.xyz
+  langs: ['ja']
+- url: msk.ap-srv-gw.net
+  langs: ['ja']
+- url: misskey.ganyariya.net
+  langs: ['ja']
+- url: misskey.town
+  langs: ['ja']
+- url: misskey.miro-sv.net
+  langs: ['ja']
+- url: social.camph.net
+  langs: ['ja']
+- url: mk.ekke.jp
+  langs: ['ja']
+- url: me2.spectrum.im
+  langs: ['ja']
+- url: friends-g2.reins-no-misskey.com
+  langs: ['ja']
+- url: misskey.today
+  langs: ['ja']
+- url: misskey.flowertea.uk
+  langs: ['ja']
+- url: mi.nukumori-gay.space
+  langs: ['ja']
+- url: misskey.crashrt.work
+  langs: ['ja']
+- url: usasaki.net
+  langs: ['ja']
+- url: msky.works
+  langs: ['ja']
+- url: misskey.design
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1346,6 +1428,12 @@
   langs: ['en']
 - url: fedi.theonetrueginger.ninja
   langs: ['en']
+- url: hey.ditatompel.com
+  langs: ['en']
+- url: mk.dev-c.at
+  langs: ['en']
+- url: nanako-fed.mooo.com
+  langs: ['en']
 #
 ##
 #########################################
@@ -1377,6 +1465,8 @@
 - url: social.lacaveatonton.ovh
   langs: ['fr']
 - url: bbs.fedibox.com
+  langs: ['fr']
+- url: fedi.mezzart.fr
   langs: ['fr']
 #
 ##
@@ -1530,6 +1620,10 @@
 - url: electro.moe
   langs: ['zh']
 - url: m.yka.moe
+  langs: ['zh']
+- url: ai.mkwgame.com
+  langs: ['zh']
+- url: a.sukazyo.cc
   langs: ['zh']
 ##
 #########################################
