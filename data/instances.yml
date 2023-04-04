@@ -20,6 +20,8 @@
   langs: ['en', 'es', 'ja']
 - url: soshar.dess.ga
   langs: ['ja', 'en', 'fr']
+- url: cafe.otter.homes
+  langs: ['en', 'zh']
 #
 - url: misskey.m544.net
   langs: ['ja']
@@ -1524,8 +1526,6 @@
 - url: m.chariri.moe
   langs: ['zh']
 - url: t.rdpstudio.top
-  langs: ['zh']
-- url: cafe.otter.homes
   langs: ['zh']
 - url: electro.moe
   langs: ['zh']
