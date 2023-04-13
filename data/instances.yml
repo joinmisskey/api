@@ -857,6 +857,32 @@
   langs: ['ja']
 - url: misskey.design
   langs: ['ja']
+- url: invillage-outvillage.com
+  langs: ['ja']
+- url: misskey.haku-kazamaru.club
+  langs: ['ja']
+- url: vartist.fans
+  langs: ['ja']
+- url: misskey.edel-ornstein.pro
+  langs: ['ja']
+- url: msky.kentaro1043.com
+  langs: ['ja']
+- url: iris-no-misskey.wkspcloud.com
+  langs: ['ja']
+- url: mk.sauhor.jp
+  langs: ['ja']
+- url: himriu.com
+  langs: ['ja']
+- url: misskey.z0xp.dev
+  langs: ['ja']
+- url: basskey.net
+  langs: ['ja']
+- url: misskey.yoxoy.server-on.net
+  langs: ['ja']
+- url: mk.w0rkupa.me
+  langs: ['ja']
+- url: misskey.lovelive.net
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1131,6 +1157,10 @@
 - url: mk.dev-c.at
   langs: ['en']
 - url: nanako-fed.mooo.com
+  langs: ['en']
+- url: mk.undfnd.dev
+  langs: ['en']
+- url: mk.phal.io
   langs: ['en']
 #
 ##
