@@ -883,6 +883,100 @@
   langs: ['ja']
 - url: misskey.lovelive.net
   langs: ['ja']
+- url: rsp2-iris-no-misskey.wkspcloud.com
+  langs: ['ja']
+- url: rsp1-iris-no-misskey.wkspcloud.com
+  langs: ['ja']
+- url: wtjelly.net
+  langs: ['ja']
+- url: pmk.noflm.cc
+  langs: ['ja']
+- url: mojiskey.tarbin.net
+  langs: ['ja']
+- url: mfmf.club
+  langs: ['ja']
+- url: misskey.kanade.app
+  langs: ['ja']
+- url: mi_xfee.i-0.io
+  langs: ['ja']
+- url: misskey.faidra.net
+  langs: ['ja']
+- url: pub.lunakit.org
+  langs: ['ja']
+- url: misskey.nrps.xyz
+  langs: ['ja']
+- url: ikaskey.bktsk.com
+  langs: ['ja']
+- url: otoskey.tarbin.net
+  langs: ['ja']
+- url: osage.moe
+  langs: ['ja']
+- url: mi.takaion.net
+  langs: ['ja']
+- url: misskey.otsumami.bar
+  langs: ['ja']
+- url: mi.t0.si
+  langs: ['ja']
+- url: hvac-tf.0g0.jp
+  langs: ['ja']
+- url: bgempire.net
+  langs: ['ja']
+- url: misskey.nandythm.com
+  langs: ['ja']
+- url: misskey.ikalga.net
+  langs: ['ja']
+- url: misskey.usuwolabo.page
+  langs: ['ja']
+- url: mi.farland.world
+  langs: ['ja']
+- url: misskey.inaba.dev
+  langs: ['ja']
+- url: misskey.tsub.me
+  langs: ['ja']
+- url: mi.astralsystem.com
+  langs: ['ja']
+- url: misskey.kome-lab.net
+  langs: ['ja']
+- url: mi.soli0222.com
+  langs: ['ja']
+- url: mi.nodoame.me
+  langs: ['ja']
+- url: m.doany.io
+  langs: ['ja']
+- url: misskey.orapp.net
+  langs: ['ja']
+- url: mineskey.xyz
+  langs: ['ja']
+- url: yurisskey.yubarira.net
+  langs: ['ja']
+- url: misskey.chihayainfotech.com
+  langs: ['ja']
+- url: misskey.yukoduka.com
+  langs: ['ja']
+- url: misskey.eulious.com
+  langs: ['ja']
+- url: misskey-dabansky.com
+  langs: ['ja']
+- url: filmisnotdead.net
+  langs: ['ja']
+- url: torpedo.contact
+  langs: ['ja']
+- url: mk.ena-vocalp.com
+  langs: ['ja']
+- url: misskey.46ki75.com
+  langs: ['ja']
+- url: zeroyuki.cn
+  langs: ['ja']
+- url: misskey.tailc0bbe.ts.net
+  langs: ['ja']
+- url: mi.seritude.com
+  langs: ['ja']
+- url: semi.gamelinks007.net
+  langs: ['ja']
+- url: msky.work
+  langs: ['ja']
+- url: nand.moe
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1304,6 +1398,10 @@
 - url: ai.mkwgame.com
   langs: ['zh']
 - url: a.sukazyo.cc
+  langs: ['zh']
+- url: mi.nycu.moe
+  langs: ['zh']
+- url: misskey.kurenai.life
   langs: ['zh']
 ##
 #########################################
