@@ -977,6 +977,70 @@
   langs: ['ja']
 - url: nand.moe
   langs: ['ja']
+- url: cld1.ains-no-misskey.com
+  langs: ['ja']
+- url: cld2.ains-no-misskey.com
+  langs: ['ja']
+- url: mi.miyaco.moe
+  langs: ['ja']
+- url: reax.work
+  langs: ['ja']
+- url: nemudaru.uk
+  langs: ['ja']
+- url: side.misskey.productions
+  langs: ['ja']
+- url: tiri.ninja
+  langs: ['ja']
+- url: my-sky.blue
+  langs: ['ja']
+- url: mk.kakun.jp
+  langs: ['ja']
+- url: misskey.ogs.social
+  langs: ['ja']
+- url: negi.fjordur.net
+  langs: ['ja']
+- url: milaine.net
+  langs: ['ja']
+- url: kasakoso.lol
+  langs: ['ja']
+- url: empire.miyaco.moe
+  langs: ['ja']
+- url: live-theater.net
+  langs: ['ja']
+- url: aillust.fun
+  langs: ['ja']
+- url: team.matechan.com
+  langs: ['ja']
+- url: mk.msjp.pro
+  langs: ['ja']
+- url: mk.umearbo.net
+  langs: ['ja']
+- url: nullskey.com
+  langs: ['ja']
+- url: mk.fjordur.net
+  langs: ['ja']
+- url: tanukey.chat
+  langs: ['ja']
+- url: misskey.kilinbox.cc
+  langs: ['ja']
+- url: misskey.sk85.org
+  langs: ['ja']
+- url: misskey.cosocaf.com
+  langs: ['ja']
+- url: isosceles.monster
+  langs: ['ja']
+- url: misskey.ancientumamisuki.link
+  langs: ['ja']
+- url: mi.683-n03.uk
+  langs: ['ja']
+- url: a1.miclear.casa
+  langs: ['ja']
+- url: misskey.intinfinity.com
+  langs: ['ja']
+- url: az.calmo.blue
+  langs: ['ja']
+- url: misskey.mataoma.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1256,6 +1320,14 @@
   langs: ['en']
 - url: mk.phal.io
   langs: ['en']
+- url: sas.monster
+  langs: ['en']
+- url: wakuwaku.boo
+  langs: ['en']
+- url: misskey.injabie3.moe
+  langs: ['en']
+- url: misskey.foss.gay
+  langs: ['en']
 #
 ##
 #########################################
@@ -1403,6 +1475,14 @@
   langs: ['zh']
 - url: misskey.kurenai.life
   langs: ['zh']
+- url: m.chino.tw
+  langs: ['zh']
+- url: misskey.ee
+  langs: ['zh']
+- url: showcase.meows.lol
+  langs: ['zh']
+- url: catcore.life
+  langs: ['zh']
 ##
 #########################################
 ##
@@ -1439,6 +1519,8 @@
   langs: ['ko']
 - url: mi.rerac.dev
   langs: ['ko', 'ja']
+- url: misskey.memo.systems
+  langs: ['ko']
 #
 ##
 #########################################
@@ -1485,6 +1567,8 @@
 - url: lmaa.pm
   langs: ['de']
 - url: kitsune.moe
+  langs: ['de']
+- url: misskey.towa.li
   langs: ['de']
 #
 ##
