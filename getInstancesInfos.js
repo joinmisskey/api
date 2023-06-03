@@ -11,7 +11,7 @@ const instances = loadyaml("./data/instances.yml")
 
 const pqueue = new Queue(32)
 
-const ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0";
+const ua = "JoinMisskey/0.1.0; +https://join.misskey.page/instances";
 
 function safeFetch(method, url, options)/*: Promise<Response | null | false | undefined>*/ {
 	const controller = new AbortController()
