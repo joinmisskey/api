@@ -22,6 +22,8 @@
   langs: ['ja', 'en', 'fr']
 - url: cafe.otter.homes
   langs: ['en', 'zh']
+- url: miruku.cafe
+  langs: ['ja', 'en', 'fr', 'de']
 - url: misskey.seediqbale.xyz
   langs: ['en', 'zh']
 #
