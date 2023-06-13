@@ -1043,6 +1043,54 @@
   langs: ['ja']
 - url: misskey.mataoma.com
   langs: ['ja']
+- url: hvac-tf.net
+  langs: ['ja']
+- url: mi.nxsux.xyz
+  langs: ['ja']
+- url: hemokey.hemomo.com
+  langs: ['ja']
+- url: mi.kabo.cab
+  langs: ['ja']
+- url: m.mfyo.jp
+  langs: ['ja']
+- url: paseo.casacamelia.xyz
+  langs: ['ja']
+- url: uhouho.life
+  langs: ['ja']
+- url: misskey.misaki-chan.world
+  langs: ['ja']
+- url: rn.mozumi0w0.com
+  langs: ['ja']
+- url: 45sukey.net
+  langs: ['ja']
+- url: uchinoko.club
+  langs: ['ja']
+- url: m.kisame.jp
+  langs: ['ja']
+- url: nekomimisskey.com
+  langs: ['ja']
+- url: mi.ekke.jp
+  langs: ['ja']
+- url: misskey.rabbit-paradise.com
+  langs: ['ja']
+- url: kinyu.cyou
+  langs: ['ja']
+- url: mihari.splatnet3.com
+  langs: ['ja']
+- url: misscraft.jp
+  langs: ['ja']
+- url: photo.misskey.city
+  langs: ['ja']
+- url: iwasea.blue
+  langs: ['ja']
+- url: misskey.kzkr.xyz
+  langs: ['ja']
+- url: misskey.day
+  langs: ['ja']
+- url: msk.nenohi.net
+  langs: ['ja']
+- url: 3ch0.mydns.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1119,8 +1167,6 @@
 - url: snug.moe
   langs: ['en']
 - url: evil.social
-  langs: ['en']
-- url: miruku.cafe
   langs: ['en']
 - url: chars.moe
   langs: ['en']
@@ -1330,6 +1376,12 @@
   langs: ['en']
 - url: misskey.foss.gay
   langs: ['en']
+- url: misskey.yandere.love
+  langs: ['en']
+- url: bodybag.zip
+  langs: ['en']
+- url: mk.amanita.zone
+  langs: ['en']
 #
 ##
 #########################################
@@ -1523,6 +1575,12 @@
   langs: ['ko', 'ja']
 - url: misskey.memo.systems
   langs: ['ko']
+- url: misskey.kr
+  langs: ['ko']
+- url: serve.moe
+  langs: ['ko']
+- url: masost.one
+  langs: ['ko']
 #
 ##
 #########################################
@@ -1571,6 +1629,8 @@
 - url: kitsune.moe
   langs: ['de']
 - url: misskey.towa.li
+  langs: ['de']
+- url: social.mv2k.com
   langs: ['de']
 #
 ##
