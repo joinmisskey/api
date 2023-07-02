@@ -1089,6 +1089,48 @@
   langs: ['ja']
 - url: 3ch0.mydns.jp
   langs: ['ja']
+- url: misskey.secinet.jp
+  langs: ['ja']
+- url: misskey.tihatan.me
+  langs: ['ja']
+- url: m.tkngh.jp
+  langs: ['ja']
+- url: misskey.moe
+  langs: ['ja']
+- url: mk.nitadori.jp
+  langs: ['ja']
+- url: misskey.t1nyb0x.cloud
+  langs: ['ja']
+- url: misskey.dog
+  langs: ['ja']
+- url: misskey-square.net
+  langs: ['ja']
+- url: tukika.com
+  langs: ['ja']
+- url: mycircle.events
+  langs: ['ja']
+- url: missty.world
+  langs: ['ja']
+- url: neody.social
+  langs: ['ja']
+- url: madamisskey.net
+  langs: ['ja']
+- url: misskey.raraearth.online
+  langs: ['ja']
+- url: mk.zyoh.net
+  langs: ['ja']
+- url: misskey.yeonji.net
+  langs: ['ja']
+- url: yaltaca.xyz
+  langs: ['ja']
+- url: misskey.4nm1tsu.com
+  langs: ['ja']
+- url: misskey.backspace.fm
+  langs: ['ja']
+- url: misskey.suikoden.info
+  langs: ['ja']
+- url: lake.biwako.online
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1380,6 +1422,20 @@
   langs: ['en']
 - url: mk.amanita.zone
   langs: ['en']
+- url: fullof.buzz
+  langs: ['en']
+- url: social.squiddev.cc
+  langs: ['en']
+- url: den.raccoon.quest
+  langs: ['en']
+- url: owo.community
+  langs: ['en']
+- url: social.radon.rocks
+  langs: ['en']
+- url: caat.dev
+  langs: ['en']
+- url: misskey.silkroad.net
+  langs: ['en']
 #
 ##
 #########################################
@@ -1399,6 +1455,8 @@
 - url: bbs.fedibox.com
   langs: ['fr']
 - url: fedi.mezzart.fr
+  langs: ['fr']
+- url: valentinekindahot.fr
   langs: ['fr']
 #
 ##
@@ -1581,6 +1639,8 @@
   langs: ['ko']
 - url: iqhina.org
   langs: ['ko']
+- url: ent.r-e.kr
+  langs: ['ko']
 #
 ##
 #########################################
@@ -1648,6 +1708,8 @@
 - url: mk.mistli.net
   langs: ['es']
 - url: m.veenk.org
+  langs: ['es']
+- url: esavara.social
   langs: ['es']
 #
 ##
