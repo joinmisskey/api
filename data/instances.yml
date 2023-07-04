@@ -27,6 +27,8 @@
 - url: misskey.seediqbale.xyz
   langs: ['en', 'zh']
 #
+- url: genkaishahu.com
+  langs: ['ja']
 - url: misskey.nokotaro.com
   langs: ['ja']
 - url: mewl.me
