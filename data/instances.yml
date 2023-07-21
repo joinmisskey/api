@@ -27,6 +27,8 @@
 - url: misskey.seediqbale.xyz
   langs: ['en', 'zh']
 #
+- url: genkaishahu.com
+  langs: ['ja']
 - url: misskey.nokotaro.com
   langs: ['ja']
 - url: mewl.me
@@ -1137,6 +1139,8 @@
   langs: ['ja']
 - url: sakuraskey.net
   langs: ['ja']
+- url: kasei.ski
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1598,6 +1602,8 @@
 - url: showcase.meows.lol
   langs: ['zh']
 - url: catcore.life
+  langs: ['zh']
+- url: fbk.moe
   langs: ['zh']
 ##
 #########################################
