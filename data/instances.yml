@@ -1446,6 +1446,8 @@
   langs: ['en']
 - url: misskey.silkroad.net
   langs: ['en']
+- url: jistflow.com
+  langs: ['en']
 #
 ##
 #########################################
