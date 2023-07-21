@@ -231,6 +231,7 @@ async function getVersions() {
 		const gtVersions = json.slice(0, 40);
 		for (let i = 0; i < gtVersions.length; i++) {
 			const version = semver.clean(gtVersions[i].name, { loose: true });
+			if (version.indexOf('-') >= 0) continue; // pre-releaseは除外
 			versions.set(version, {
 				repo: `${repoSplit[1]}/${repoSplit[2]}`,
 				count: i,
