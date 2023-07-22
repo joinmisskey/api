@@ -1141,6 +1141,10 @@
   langs: ['ja']
 - url: kasei.ski
   langs: ['ja']
+- url: misskey.emesan.click
+  langs: ['ja']
+- url: misskey.amau.jp
+  langs: ['ja']
 #
 ##
 #########################################
