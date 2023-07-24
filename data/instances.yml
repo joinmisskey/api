@@ -1141,6 +1141,12 @@
   langs: ['ja']
 - url: misskey.gg
   langs: ['ja']
+- url: misskey.srgr0.com
+  langs: ['ja']
+- url: misskey.emesan.click
+  langs: ['ja']
+- url: misskey.amau.jp
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1770,3 +1776,13 @@
 ##
 #
 # nl
+
+#
+##
+#########################################
+##
+#
+# uz
+- url: misskey.uz
+  langs: ['uz']
+
