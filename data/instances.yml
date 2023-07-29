@@ -139,8 +139,6 @@
   langs: ['ja']
 - url: misskey.shinaaamo.com
   langs: ['ja']
-- url: misskey.cf
-  langs: ['ja']
 - url: z.kvche.ch
   langs: ['ja']
 - url: mk.xiupos.net
@@ -1141,6 +1139,10 @@
   langs: ['ja']
 - url: kasei.ski
   langs: ['ja']
+- url: misskey.gg
+  langs: ['ja']
+- url: misskey.srgr0.com
+  langs: ['ja']
 - url: misskey.emesan.click
   langs: ['ja']
 - url: misskey.amau.jp
@@ -1796,3 +1798,13 @@
 ##
 #
 # nl
+
+#
+##
+#########################################
+##
+#
+# uz
+- url: misskey.uz
+  langs: ['uz']
+

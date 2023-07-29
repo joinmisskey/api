@@ -312,7 +312,7 @@ https://join.misskey.page/\n#bot #joinmisskeyupdate`,
 	.then(async () => {
 		const notIncluded = await instanceq()
 		if (notIncluded.length === 0) return;
-
+		fs.writeFile('./dist/notincluded.txt', notIncluded.join('\n'), () => { })
 		return fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
