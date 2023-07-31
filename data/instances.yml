@@ -1147,6 +1147,26 @@
   langs: ['ja']
 - url: misskey.amau.jp
   langs: ['ja']
+- url: 9ineverse.com
+  langs: ['ja']
+- url: mk.skima.jp
+  langs: ['ja']
+- url: simkey.net
+  langs: ['ja']
+- url: honi.club
+  langs: ['ja']
+- url: gachi-sskey.love
+  langs: ['ja']
+- url: koliosky.com
+  langs: ['ja']
+- url: misskey.waya0125.com
+  langs: ['ja']
+- url: miniskey.com
+  langs: ['ja']
+- url: houshindai.net
+  langs: ['ja']
+- url: cosmisskey.cc
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1211,7 +1231,7 @@
 - url: mk.xn--ponek-1sa8t.eu
   langs: ['en']
 - url: niscii.xyz
-  langs: ['en']
+  langs: ['en', 'ja']
 - url: pixelart.moe
   langs: ['en']
 - url: m.chars.jp
@@ -1453,6 +1473,8 @@
 - url: misskey.silkroad.net
   langs: ['en']
 - url: jistflow.com
+  langs: ['en']
+- url: skippers-bin.com
   langs: ['en']
 #
 ##
