@@ -1482,7 +1482,7 @@
 ##
 #
 - url: misskey.social
-  langs: ['it', 'en', 'ja']
+  langs: ['it', 'en']
   name: Misskey Social
 #
 ##
