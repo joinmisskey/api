@@ -1482,7 +1482,8 @@
 ##
 #
 - url: misskey.social
-  langs: ['it']
+  langs: ['it', 'en', 'ja']
+  name: Misskey Social
 #
 ##
 #########################################
