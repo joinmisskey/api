@@ -365,8 +365,6 @@
   langs: ['ja']
 - url: mi.tebukuro.xyz
   langs: ['ja']
-- url: balloon.potp.me
-  langs: ['ja']
 - url: porubuskey.cc
   langs: ['ja']
 - url: pillbug.audio.amanogawa.work
@@ -672,8 +670,6 @@
 - url: misskey.takanotume24.com
   langs: ['ja']
 - url: misskey.sksat.run
-  langs: ['ja']
-- url: seikora.one
   langs: ['ja']
 - url: susiedev.wakuwakuanimals.com
   langs: ['ja']
@@ -1169,6 +1165,10 @@
   langs: ['ja']
 - url: misskey.3dcg.love
   langs: ['ja']
+- url: mi.taichan.site
+  langs: ['ja']
+- url: ebi.bal.ovh
+  langs: ['ja']
 #
 ##
 #########################################
@@ -1484,7 +1484,7 @@
 ##
 #
 - url: misskey.social
-  langs: ['it', 'en', 'ja']
+  langs: ['it', 'en']
   name: Misskey Social
 #
 ##
