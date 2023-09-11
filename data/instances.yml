@@ -365,8 +365,6 @@
   langs: ['ja']
 - url: mi.tebukuro.xyz
   langs: ['ja']
-- url: balloon.potp.me
-  langs: ['ja']
 - url: porubuskey.cc
   langs: ['ja']
 - url: pillbug.audio.amanogawa.work
@@ -1164,6 +1162,8 @@
 - url: houshindai.net
   langs: ['ja']
 - url: cosmisskey.cc
+  langs: ['ja']
+- url: ebi.bal.ovh
   langs: ['ja']
 #
 ##
