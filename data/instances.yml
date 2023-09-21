@@ -2388,6 +2388,8 @@
   langs: ['ko']
 - url: hallen.kr
   langs: ['ko']
+- url: nrma.cc
+  langs: ['ko', 'en']
 #
 ##
 #########################################
