@@ -1053,8 +1053,6 @@
   langs: ['ja']
 - url: misskey.misaki-chan.world
   langs: ['ja']
-- url: rn.mozumi0w0.com
-  langs: ['ja']
 - url: 45sukey.net
   langs: ['ja']
 - url: uchinoko.club
@@ -1735,6 +1733,8 @@
   langs: ['ja']
 - url: ne.bal.ovh
   langs: ['ja']
+- url: prismisskey.space
+  langs: ['ja']
 #
 ##
 #########################################
@@ -2392,6 +2392,8 @@
   langs: ['ko']
 - url: hallen.kr
   langs: ['ko']
+- url: nrma.cc
+  langs: ['ko', 'en']
 #
 ##
 #########################################
