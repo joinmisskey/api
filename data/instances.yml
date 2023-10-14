@@ -1735,6 +1735,134 @@
   langs: ['ja']
 - url: prismisskey.space
   langs: ['ja']
+- url: misskey.resonite.love
+  langs: ['ja']
+- url: mi.hoshisaki-h.com
+  langs: ['ja']
+- url: rinpuhome.monster
+  langs: ['ja']
+- url: misskey.hikalium.dev
+  langs: ['ja']
+- url: todo.shiokazehs.jp
+  langs: ['ja']
+- url: misskey.amfedisr.net
+  langs: ['ja']
+- url: pub.odekake.love
+  langs: ['ja']
+- url: mi.kitsunebi-ya.com
+  langs: ['ja']
+- url: mi.kochudaho.me
+  langs: ['ja']
+- url: mi.pal-mate.jp
+  langs: ['ja']
+- url: www.kagura.ch
+  langs: ['ja']
+- url: misskey.anizumin.com
+  langs: ['ja']
+- url: misk.pmhonpo.net
+  langs: ['ja']
+- url: msk.takasitaku.com
+  langs: ['ja']
+- url: weirds.org
+  langs: ['ja']
+- url: mi.orito-itsuki.net
+  langs: ['ja']
+- url: mi.see2et.dev
+  langs: ['ja']
+- url: misskey.lazywildcat.net
+  langs: ['ja']
+- url: indiegameskey.net
+  langs: ['ja']
+- url: la-luna-rossa.page
+  langs: ['ja']
+- url: msky.41kg.com
+  langs: ['ja']
+- url: misskey.grawlily.com
+  langs: ['ja']
+- url: mi.nakn.jp
+  langs: ['ja']
+- url: yojohan.cc
+  langs: ['ja']
+- url: mi.seanut.app
+  langs: ['ja']
+- url: misskey.eolh.jp
+  langs: ['ja']
+- url: gespenst-jaeger.net
+  langs: ['ja']
+- url: highlightmilk.net
+  langs: ['ja']
+- url: misskey.network
+  langs: ['ja']
+- url: misskey.seitendan.com
+  langs: ['ja']
+- url: tadosskey.com
+  langs: ['ja']
+- url: minsterhorn.com
+  langs: ['ja']
+- url: mi.oya0831.net
+  langs: ['ja']
+- url: misskey.mirenk.net
+  langs: ['ja']
+- url: misskey.araisan.club
+  langs: ['ja']
+- url: mi.chikage.net
+  langs: ['ja']
+- url: mi0.uleh.net
+  langs: ['ja']
+- url: yagimofu.moe
+  langs: ['ja']
+- url: mi.4587-aya-0p.work
+  langs: ['ja']
+- url: msky.nenohi.net
+  langs: ['ja']
+- url: edgetips.tech
+  langs: ['ja']
+- url: misskey.niseyama.com
+  langs: ['ja']
+- url: mu.mu7ou.com
+  langs: ['ja']
+- url: misskey.dobu.page
+  langs: ['ja']
+- url: ohashi.nohost.me
+  langs: ['ja']
+- url: mi.starlamp.su
+  langs: ['ja']
+- url: ap.redzoo.net
+  langs: ['ja']
+- url: misskey.sakanana.me
+  langs: ['ja']
+- url: giglio.blue
+  langs: ['ja']
+- url: www.highwizard.biz
+  langs: ['ja']
+- url: kemonosky.net
+  langs: ['ja']
+- url: misskey.tunetalk.jp
+  langs: ['ja']
+- url: fe.ecarlate.app
+  langs: ['ja']
+- url: misskey.liberuntime.com
+  langs: ['ja']
+- url: kokagenotes.net
+  langs: ['ja']
+- url: maziskaa.runaway-melancholy.com
+  langs: ['ja']
+- url: mech-misskey.com
+  langs: ['ja']
+- url: russiachan.fun
+  langs: ['ja']
+- url: misskey.hoshihara.co.jp
+  langs: ['ja']
+- url: shahu.ski
+  langs: ['ja']
+- url: nonos-kitchen.net
+  langs: ['ja']
+- url: gomachan.web-kotobuki.net
+  langs: ['ja']
+- url: miski.st
+  langs: ['ja']
+- url: misskey.yuetsubu.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -2104,6 +2232,30 @@
   langs: ['en']
 - url: mk.wytch.space
   langs: ['en']
+- url: loli.church
+  langs: ['en']
+- url: lolita.technology
+  langs: ['en']
+- url: nep.one
+  langs: ['en']
+- url: key.zct-mrl.com
+  langs: ['en']
+- url: wanderers.quest
+  langs: ['en']
+- url: mocha.hoto.rocks
+  langs: ['en']
+- url: matrix.rocks
+  langs: ['en']
+- url: mk.spook.social
+  langs: ['en']
+- url: mk.woem.space
+  langs: ['en']
+- url: misskey.tanu.lol
+  langs: ['en']
+- url: makai.chaotic.ninja
+  langs: ['en']
+- url: mk.headpats.org
+  langs: ['en']
 #
 ##
 #########################################
@@ -2290,6 +2442,18 @@
   langs: ['zh']
 - url: nyaw.xyz
   langs: ['zh']
+- url: kira.zone
+  langs: ['zh']
+- url: udon.icu
+  langs: ['zh']
+- url: dev.nya.one
+  langs: ['zh']
+- url: hi.hashi.icu
+  langs: ['zh']
+- url: decent.moe
+  langs: ['zh']
+- url: abs.17oc.com
+  langs: ['zh']
 ##
 #########################################
 ##
@@ -2394,6 +2558,26 @@
   langs: ['ko']
 - url: nrma.cc
   langs: ['ko', 'en']
+- url: nekoplanet.xyz
+  langs: ['ko']
+- url: kitsunesoba.com
+  langs: ['ko']
+- url: kazuha.kr
+  langs: ['ko']
+- url: crecom.moe
+  langs: ['ko']
+- url: sekai.social
+  langs: ['ko']
+- url: qrtz.rainy.kr
+  langs: ['ko']
+- url: lemonbite.cc
+  langs: ['ko']
+- url: riafox.space
+  langs: ['ko']
+- url: private.qwreey.moe
+  langs: ['ko']
+- url: bungwangsi.xyz
+  langs: ['ko']
 #
 ##
 #########################################
