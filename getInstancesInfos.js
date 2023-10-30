@@ -270,6 +270,10 @@ async function getVersions() {
 					for (const release of json) {
 						// glog("Misskey Version", release.tag_name)
 						const version = semver.clean(release.tag_name, { loose: true });
+						if (!version) {
+							glog.error("Invalid version", release.tag_name)
+							continue;
+						}
 						versions.set(version, {
 							repo,
 							count: vcnt,
