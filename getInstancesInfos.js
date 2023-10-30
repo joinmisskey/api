@@ -231,7 +231,6 @@ async function getVersions() {
 		const gtVersions = json.slice(0, 40);
 		for (let i = 0; i < gtVersions.length; i++) {
 			const version = semver.clean(gtVersions[i].name, { loose: true });
-			if (version.indexOf('-') >= 0) continue; // pre-releaseは除外
 			versions.set(version, {
 				repo: `${repoSplit[1]}/${repoSplit[2]}`,
 				count: i,
@@ -253,6 +252,8 @@ async function getVersions() {
 		const link = res1.headers.get("link")
 		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "misskey-dev/misskey" ? 99999 : 4)
 
+		let vcnt = 0;
+
 		const resp = (await Promise.all([Promise.resolve(res1), ...(!link ? []
 			: Array(max - 1).fill()
 				.map((v, i) => `https://api.github.com/repos/${repo}/releases?page=${i + 2}`)
@@ -265,16 +266,25 @@ async function getVersions() {
 					return Promise.resolve([])
 				}
 			).then(
-				json => json.map((release, j) => {
-					// glog("Misskey Version", release.tag_name)
-					const version = semver.clean(release.tag_name, { loose: true });
-					versions.set(version, {
-						repo,
-						count: i * 30 + j,
-						hasVulnerability: hasVulnerability(repo, version),
-					})
-					return release.tag_name
-				}),
+				json => {
+					for (const release of json) {
+						// glog("Misskey Version", release.tag_name)
+						const version = semver.clean(release.tag_name, { loose: true });
+						versions.set(version, {
+							repo,
+							count: vcnt,
+							hasVulnerability: hasVulnerability(repo, version),
+						});
+
+						// バージョンカウントアップ
+						// これを上げるとインスタンスバリューは下がる
+						if (repo === 'misskey-dev/misskey' && version.indexOf('-') >= 0) {
+							// misskey-dev/misskeyかつプレリリースっぽければカウントアップしない
+						} else {
+							vcnt++;
+						}
+					}
+				},
 				e => {
 					glog(repo, "Error(json)", e)
 					return Promise.resolve([])
