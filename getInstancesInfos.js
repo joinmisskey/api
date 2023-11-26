@@ -181,10 +181,11 @@ function hasVulnerability(repo, version) {
 	switch (repo) {
 		case 'misskey-dev/misskey':
 			return (
-				semver.satisfies(version, '< 12.119.2') ||
+				//semver.satisfies(version, '< 12.119.2') ||
 				//semver.satisfies(version, '< 12.90.0') ||
 				//semver.satisfies(version, '< 12.51.0') ||
-				semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2')
+				//semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2') ||
+				semver.satisfies(version, '<= 2023.11.0') // https://github.com/misskey-dev/misskey/security/advisories/GHSA-3f39-6537-3cgc
 			);
 		/*
 		case 'mei23/misskey':
