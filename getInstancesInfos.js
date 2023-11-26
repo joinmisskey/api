@@ -253,7 +253,16 @@ async function getVersions() {
 		const link = res1.headers.get("link")
 		const max = link && Math.min(Number(maxRegExp.exec(link)[1]), repo === "misskey-dev/misskey" ? 99999 : 4)
 
-		let vcnt = 0;
+		/**
+		 * バージョンカウント
+		 */
+		let versionCount = 0;
+		
+		/**
+		 * バリュー算出用のバージョンカウント
+		 * これを上げるとインスタンスバリューは下がる
+		 */
+		let valueCount = 0;
 
 		const resp = (await Promise.all([Promise.resolve(res1), ...(!link ? []
 			: Array(max - 1).fill()
@@ -277,18 +286,23 @@ async function getVersions() {
 						}
 						versions.set(version, {
 							repo,
-							count: vcnt,
+							count: versionCount,
+							valueCount,
 							hasVulnerability: hasVulnerability(repo, version),
 						});
 
 						// バージョンカウントアップ
-						// これを上げるとインスタンスバリューは下がる
+						versionCount++;
+
 						if (repo === 'misskey-dev/misskey' && version.indexOf('-') >= 0) {
 							// misskey-dev/misskeyかつプレリリースっぽければカウントアップしない
 						} else {
-							vcnt++;
+							valueCount++;
 						}
 					}
+
+					// used for versionOutput
+					return json.map(release => release.tag_name);
 				},
 				e => {
 					glog(repo, "Error(json)", e)
@@ -337,14 +351,14 @@ export const getInstancesInfos = async function () {
 				const sem1 = semver.clean(nodeinfo.software.version, { loose: true })
 				if (versions.has(sem1)) return { just: true, ...versions.get(sem1) };
 				const sem2 = semver.valid(semver.coerce(nodeinfo.software.version))
-				let current = { repo: 'misskey-dev/misskey', count: 1500 };
+				let current = { repo: 'misskey-dev/misskey', count: 999999, valueCount: 999999 };
 				for (const [key, value] of versions.entries()) {
 					if (sem1 && sem1.startsWith(key)) {
-						if (value.count === 0) return { just: false, ...value };
-						else if (current.count >= value.count) current = { just: false, ...value };
+						if (value.valueCount === 0) return { just: false, ...value };
+						else if (current.valueCount >= value.valueCount) current = { just: false, ...value };
 					} else if (sem2 && value.repo == 'misskey-dev/misskey' && sem2.startsWith(key)) {
-						if (value.count === 0) return { just: false, ...value };
-						else if (current.count >= value.count) current = { just: false, ...value };
+						if (value.valueCount === 0) return { just: false, ...value };
+						else if (current.valueCount >= value.valueCount) current = { just: false, ...value };
 					}
 				}
 				return current
@@ -359,28 +373,35 @@ export const getInstancesInfos = async function () {
 			};
 
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
-			const stat = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
-			const NoteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
+			const stats = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
+			const noteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
 
-			if (nodeinfo && meta && stat && NoteChart) {
+			if (nodeinfo && meta && stats && noteChart) {
 				if (meta) {
 					delete meta.emojis;
 					delete meta.announcements;
 				}
 
-				/*   インスタンスバリューの算出   */
+				/* インスタンスバリューの算出 */
 				let value = 0
+
+				/* ノート増加数の15日間の平均 */
+				let npd15 = 0
+
 				// 1. バージョンのリリース順をもとに並び替え
-				value += 100000 - (versionInfo.count - 30) * 7200
+				value += 100000 - (versionInfo.valueCount - 30) * 7200
 
 				// (基準値に影響があるかないか程度に色々な値を考慮する)
-				if (NoteChart && Array.isArray(NoteChart.local?.inc)) {
+				if (noteChart && Array.isArray(noteChart.local?.inc)) {
 					// 2.
-					const arr = NoteChart.local?.inc.filter(e => e !== 0)
+					const nli15 = noteChart.local?.inc.filter(e => e !== 0)
 
-					// ノート増加数の15日間の平均 * 1
-					// eslint-disable-next-line no-mixed-operators
-					if (arr.length > 0) value += (arr.reduce((prev, current) => prev + current) / arr.length);
+					if (nli15.length > 0) {
+						npd15 = nli15.reduce((prev, current) => prev + current) / nli15.length;
+						// 2. ノート増加数の15日間の平均 * 1
+						// eslint-disable-next-line no-mixed-operators
+						value += npd15 * 1;
+					}
 
 					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
 					// value += (15 - arr.length) * 360
@@ -390,7 +411,8 @@ export const getInstancesInfos = async function () {
 					value,
 					meta,
 					nodeinfo,
-					stats: stat,
+					stats,
+					npd15,
 					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
 					langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],

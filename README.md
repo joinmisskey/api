@@ -40,6 +40,7 @@ You can get the following information under https://instanceapp.misskey.page
             icon: Bool,      //  Icon Image existance
             nodeinfo: Object | null,  //  nodeinfo
             meta: Object | null,      //  result of api/meta
+            npd15: Number    //  Number of Notes per Day (15-day average)
 
             stats: Object,   //  deprecated (result of api/stats)
         }, ...
