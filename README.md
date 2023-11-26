@@ -66,3 +66,8 @@ List of hosts (separated by `\n`) for servers that were unable to communicate
 
 ### versions.json
 Version list obtained from GitHub
+
+## Vulnerable servers
+Vulnerable servers are not listed in instances.json and are excluded from the server count.
+
+Vulnerability is determined by version; however, if the version has its own pre-release version, there is no vulnerability determination.
