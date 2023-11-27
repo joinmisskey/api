@@ -1861,6 +1861,32 @@
   langs: ['ja']
 - url: misskey.yuetsubu.com
   langs: ['ja']
+- url: misskey.doujin.games
+  langs: ['ja']
+- url: next.sizedon.com
+  langs: ['ja']
+- url: ms.nagisite.xyz
+  langs: ['ja']
+- url: mi.caind.live
+  langs: ['ja']
+- url: pink-hair.studio
+  langs: ['ja']
+- url: m.duuuck.com
+  langs: ['ja']
+- url: mskontor.nannika.work
+  langs: ['ja']
+- url: cx.redfuku.net
+  langs: ['ja']
+- url: fubuki.one
+  langs: ['ja']
+- url: moonsky.decl.jp
+  langs: ['ja']
+- url: hiroikey-dev.stesan.dev
+  langs: ['ja']
+- url: misskey.tunamaguro.dev
+  langs: ['ja']
+- url: garuru.f5.si
+  langs: ['ja']
 #
 ##
 #########################################
@@ -2254,6 +2280,14 @@
   langs: ['en']
 - url: mk.headpats.org
   langs: ['en']
+- url: tru.neets.work
+  langs: ['en']
+- url: lavacat.dns.army
+  langs: ['en']
+- url: lantana.moe
+  langs: ['en']
+- url: koharu.app
+  langs: ['en']
 #
 ##
 #########################################
@@ -2452,6 +2486,13 @@
   langs: ['zh']
 - url: abs.17oc.com
   langs: ['zh']
+- url: t.ancientmaple.com
+  langs: ['zh']
+- url: owovo.cc
+  langs: ['zh']
+- url: pwp.space
+  langs: ['zh']
+#
 ##
 #########################################
 ##
@@ -2576,6 +2617,14 @@
   langs: ['ko']
 - url: bungwangsi.xyz
   langs: ['ko']
+- url: social.benki.net
+  langs: ['ko']
+- url: misskey-test-1.yunochi.com
+  langs: ['ko']
+- url: v11-k.yumeka.xyz
+  langs: ['ko']
+- url: social.daol.cc
+  langs: ['ko']
 #
 ##
 #########################################
@@ -2650,12 +2699,16 @@
   langs: ['es']
 - url: misskey.adolfritos.es
   langs: ['es']
+- uel: poi.cl
+  langs: ['es']
 #
 ##
 #########################################
 ##
-# es
+# pt
 - url: social.onlyferas.dev
+  langs: ['pt']
+- url: marte.city
   langs: ['pt']
 #
 ##
