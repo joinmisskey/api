@@ -245,7 +245,7 @@ Total Users: ${INSTANCES_JSON.stats.usersCount}
 Total MAU: ${INSTANCES_JSON.stats.mau}
 Total Servers: ${INSTANCES_JSON.stats.instancesCount}
 
-https://join.misskey.page/\n#bot #joinmisskeyupdate`,
+https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			}),
 			headers: {
 				"Content-Type": "application/json"
