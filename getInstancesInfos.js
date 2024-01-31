@@ -430,9 +430,11 @@ export const getInstancesInfos = async function () {
 					}
 
 					const langBallots = new Map();
+					const votedNotes = new Set();
 					const name = nodeinfo.metadata.nodeName || meta.name;
 					const desc = nodeinfo.metadata.nodeDescription || meta.description;
 					const featured = await fetchJson('GET', `https://${instance.url}/api/notes/featured`).catch(() => null);
+					const ltl = await fetchJson('POST', `https://${instance.url}/api/notes/local-timeline`, { limit: 20, withRenotes: false, withReplies: true }).catch(() => null);
 
 					if (desc) {
 						const descLang = detect(desc);
@@ -442,21 +444,33 @@ export const getInstancesInfos = async function () {
 						if (nameLang) langBallots.set(nameLang, 1);
 					}
 
-					if (featured && Array.isArray(featured) && featured.length > 0) {
-						for (const note of featured) {
-							let text = '';
-							if (note.user && note.user.name) text += note.user.name + '\n';
-							if (note.cw) text += note.cw + '\n';
-							if (note.text) text += note.text.slice(0, 512) + '\n';
-							if (note.poll && note.poll.choices) text += note.poll.choices.map(choice => choice.text).join('\n') + '\n';
+					function voteByNote(note) {
+						if (votedNotes.has(note.id)) return;
+						votedNotes.add(note.id);
+						let text = '';
+						if (note.user && note.user.name) text += note.user.name + '\n';
+						if (note.cw) text += note.cw + '\n';
+						if (note.text) text += note.text.slice(0, 512) + '\n';
+						if (note.poll && note.poll.choices) text += note.poll.choices.map(choice => choice.text).join('\n') + '\n';
 
-							if (text != '') {
-								const noteLang = detect(text);
-								if (noteLang) {
-									if (langBallots.has(noteLang)) langBallots.set(noteLang, langBallots.get(noteLang) + 1);
-									else langBallots.set(noteLang, 1);
-								}
+						if (text != '') {
+							const noteLang = detect(text);
+							if (noteLang) {
+								if (langBallots.has(noteLang)) langBallots.set(noteLang, langBallots.get(noteLang) + 1);
+								else langBallots.set(noteLang, 1);
 							}
+						}
+					}
+
+					if (featured && Array.isArray(featured)) {
+						for (const note of featured) {
+							voteByNote(note);
+						}
+					}
+
+					if (ltl && Array.isArray(ltl)) {
+						for (const note of ltl) {
+							voteByNote(note);
 						}
 					}
 
@@ -464,7 +478,7 @@ export const getInstancesInfos = async function () {
 					// 最大得票数の50%以上の得票数を得た言語をインスタンスの言語とする
 					if (langBallots.size > 0) {
 						const max = Math.max(...langBallots.values());
-						Array.from(langBallots.entries()).filter(([_, v]) => v >= max / 2).map(([k, _]) => k);
+						return Array.from(langBallots.entries()).filter(([_, v]) => v >= max / 2).map(([k, _]) => k);
 					}
 
 					return null;

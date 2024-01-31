@@ -40,7 +40,7 @@ export default async () => {
 			}
 		}).then(async res => {
 			const hrend = process.hrtime(hrstart)
-			console.log(body, hrend[0], hrend[1] / 1000000)
+			console.log(offset, hrend[0], hrend[1] / 1000000)
 
 			const text = await res.text()
 			if (!text.startsWith("{") && !text.startsWith("[")) {

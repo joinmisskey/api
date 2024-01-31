@@ -3,6 +3,8 @@ import * as fsp from 'node:fs/promises'
 import { glob } from 'glob'
 import glog from 'fancy-log'
 import sharp from 'sharp'
+import { sharpBmp } from '@misskey-dev/sharp-read-bmp'
+import { fileTypeFromFile } from 'file-type'
 import { createHash } from 'node:crypto'
 import { mkdirp } from 'mkdirp'
 import Queue from 'promise-queue'
@@ -191,7 +193,9 @@ getInstancesInfos()
 					if (res) instance.icon = true
 					else instance.icon = false
 					if (res && res.status !== "unchanged") {
-						const base = sharp(`./temp/instance-icons/${res.name}`)
+						const filename = `./temp/instance-icons/${res.name}`
+						const { mime } = await fileTypeFromFile(filename)
+						const base = (await sharpBmp(filename, mime))
 							.resize({
 								height: 200,
 								withoutEnlargement: true,

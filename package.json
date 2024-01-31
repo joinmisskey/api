@@ -7,9 +7,11 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@misskey-dev/sharp-read-bmp": "^1.1.1",
     "abort-controller": "^3.0.0",
     "extend": "^3.0.2",
     "fancy-log": "^2.0.0",
+    "file-type": "^19.0.0",
     "glob": "^10.3.10",
     "js-yaml": "^4.1.0",
     "mkdirp": "^3.0.1",
