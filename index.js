@@ -1,6 +1,6 @@
 import * as fs from 'node:fs'
 import * as fsp from 'node:fs/promises'
-import glob from 'glob'
+import { glob } from 'glob'
 import glog from 'fancy-log'
 import sharp from 'sharp'
 import { createHash } from 'node:crypto'
