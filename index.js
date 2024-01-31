@@ -13,6 +13,7 @@ import fetch from 'node-fetch';
 
 import { getInstancesInfos } from './getInstancesInfos.js'
 import instanceq from './instanceq.js'
+import loadyaml from './loadyaml.js'
 
 function getHash(data, a, b, c) {
 	const hashv = createHash(a)
@@ -21,10 +22,8 @@ function getHash(data, a, b, c) {
 }
 
 async function downloadTemp(name, url, tempDir, alwaysReturn) {
-	const files = glob.sync(`${tempDir}${name}.*`)
-
 	function clean() {
-		files.map(file => fs.unlink(file, () => null))
+		fs.unlink(`${tempDir}${name}`, () => null)
 		return false
 	}
 
@@ -84,17 +83,15 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 			})
 	}
 
-	if (files.length > 0) {
-		const local = await fsp.readFile(`${tempDir}${name}`).catch(() => false)
-		if (!local) return false
-		if (getHash(data, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
-			return safeWriteFile(name, data, "renewed")
-		}
-		if (alwaysReturn) return { name, status: "unchanged" }
-		return false
+	const local = await fsp.readFile(`${tempDir}${name}`).catch(() => null)
+	if (!local) {
+		return safeWriteFile(name, data, "created")
 	}
-	
-	return safeWriteFile(name, data, "created")
+	if (getHash(data, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
+		return safeWriteFile(name, data, "renewed")
+	}
+	if (alwaysReturn) return { name, status: "unchanged" }
+	return false
 }
 
 getInstancesInfos()
@@ -232,6 +229,27 @@ getInstancesInfos()
 		}
 
 		fs.writeFile('./dist/instances.json', JSON.stringify(INSTANCES_JSON), () => { })
+
+		//#region remove dead/ignored servers' assets
+		try {
+			const targets = new Set();
+			deads.forEach(v => targets.add(v.url))
+			notMisskey.forEach(v => targets.add(v.url))
+			loadyaml("./data/ignorehosts.yml").forEach(v => targets.add(v))
+			targets.forEach(v => {
+				glob.sync(`./dist/**/${v}.*`).forEach(file => {
+					glog(`removing ${file}`)
+					fs.unlink(file, () => null)
+				})
+				glob.sync(`./temp/**/${v}`).forEach(file => {
+					glog(`removing ${file}`)
+					fs.unlink(file, () => null)
+				})
+			})
+		} catch (e) {
+			glog.error(e)
+		}
+		//#endregion
 
 		glog('FINISHED!')
 		return INSTANCES_JSON;
