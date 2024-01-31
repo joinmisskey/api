@@ -490,7 +490,8 @@ export const getInstancesInfos = async function () {
 					});
 				}
 
-				alives.add(extend(true, instance, {
+				alives.add({
+					...instance,
 					value,
 					meta,
 					nodeinfo,
@@ -500,10 +501,14 @@ export const getInstancesInfos = async function () {
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
 					langs: instanceLangs || langs,
 					isAlive: true,
-					repo: versionInfo?.repo
-				}));
+					repo: versionInfo?.repo,
+				});
 			} else {
-				deads.add(extend(true, { isAlive: false, value: 0 }, instance));
+				deads.add({
+					...instance,
+					isAlive: false,
+					value: 0,
+				});
 			}
 		}));
 	}
