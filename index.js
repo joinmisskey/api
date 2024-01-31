@@ -4,7 +4,7 @@ import { glob } from 'glob'
 import glog from 'fancy-log'
 import sharp from 'sharp'
 import { createHash } from 'node:crypto'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import Queue from 'promise-queue'
 import AbortController from 'abort-controller'
 import fetch from 'node-fetch';
