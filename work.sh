@@ -1,3 +1,3 @@
-yarn install --immutable
+pnpm install --frozen-lockfile
 mkdir -p dist
 node index
