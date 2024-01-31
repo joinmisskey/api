@@ -6,6 +6,7 @@ import loadyaml from './loadyaml.js'
 import Queue from 'promise-queue';
 import { performance } from 'perf_hooks';
 import fetch from 'node-fetch';
+import { instanceLanguages } from './consts.js'
 
 const instances = loadyaml("./data/instances.yml")
 
@@ -415,7 +416,7 @@ export const getInstancesInfos = async function () {
 					npd15,
 					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
-					langs: instance.langs || ['ja', 'en', 'de', 'fr', 'zh', 'ko', 'ru', 'th', 'es'],
+					langs: instance.langs || instanceLanguages,
 					isAlive: true,
 					repo: versionInfo?.repo
 				}))
