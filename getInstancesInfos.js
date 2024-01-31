@@ -6,7 +6,7 @@ import loadyaml from './loadyaml.js'
 import Queue from 'promise-queue';
 import { performance } from 'perf_hooks';
 import fetch from 'node-fetch';
-import { instanceLanguages } from './consts.js'
+import { detect } from 'tinyld/heavy'
 
 const instances = loadyaml("./data/instances.yml")
 
@@ -21,21 +21,23 @@ function safeFetch(method, url, options)/*: Promise<Response | null | false | un
 		30000
 	)
 	const start = performance.now();
-	// glog("POST start", url)
+	// glog(`${method} start`, url)
 	return fetch(url, extend(true, options, { method, signal: controller.signal })).then(
 		res => {
 			if (res && res.ok) {
 				const end = performance.now();
 				if (end - start > 1000) {
-					glog.warn("POST slow", url, (end - start) / 1000)
+					glog.warn(`${method} slow`, url, (end - start) / 1000)
+				} else {
+					// glog(`${method} ok`, url, res.status, res.ok)
 				}
 				return res;
 			}
-			glog("POST finish", url, res.status, res.ok)
+			glog(`${method} ng`, url, res.status, res.ok)
 			if (res.status >= 500 && res.status < 600) return null;
 		},
 		async e => {
-			glog("POST failed...", url, e.errno, e.type)
+			glog(`${method} failed...`, url, e.errno, e.type)
 			if (e.errno?.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
 			return false;
 		}
@@ -44,15 +46,23 @@ function safeFetch(method, url, options)/*: Promise<Response | null | false | un
 	})
 }
 
-async function fetchJson(method, url, json) {
+async function fetchJson(method, _url, json) {
 	const option = {
-		body: JSON.stringify(json ? json : {}),
+		body: (method !== 'GET') ? JSON.stringify(json ?? {}) : undefined,
 		headers: {
 			"Content-Type": "application/json",
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
 		},
 		redirect: "error"
 	};
+
+	const url = method === 'GET' ? (() => {
+		const url = new URL(_url);
+		for (const key in json) {
+			url.searchParams.set(key, json[key].toString());
+		}
+		return url.href;
+	})() : _url;
 
 	let retryCount = 0;
 
@@ -325,7 +335,8 @@ export const getInstancesInfos = async function () {
 	glog("Getting Instances' Infos")
 
 	const promises = [];
-	const alives = [], deads = [], notMisskey = [], outdated = [];
+	const alives = new Set(), deads = new Set(), notMisskey = new Set(), outdated = new Set();
+	const langs = [];
 
 	const { versions, versionOutput } = await getVersions()
 
@@ -336,12 +347,12 @@ export const getInstancesInfos = async function () {
 			const nodeinfo = (await safeGetNodeInfo(instance.url)) || null;
 
 			if (!nodeinfo) {
-				deads.push(extend(true, { isAlive: false, value: 0 }, instance));
+				deads.add(extend(true, { isAlive: false, value: 0 }, instance));
 				return;
 			}
 
 			if (nodeinfo.software.name !== "misskey") {
-				notMisskey.push({
+				notMisskey.add({
 					nodeinfo,
 					...instance
 				});
@@ -366,7 +377,7 @@ export const getInstancesInfos = async function () {
 			})()
 
 			if (versionInfo.just && versionInfo.hasVulnerability) {
-				outdated.push({
+				outdated.add({
 					nodeinfo,
 					...instance,
 				});
@@ -375,7 +386,7 @@ export const getInstancesInfos = async function () {
 
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
 			const stats = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
-			const noteChart = (await fetchJson('POST', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
+			const noteChart = (await fetchJson('GET', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
 
 			if (nodeinfo && meta && stats && noteChart) {
 				if (meta) {
@@ -408,7 +419,64 @@ export const getInstancesInfos = async function () {
 					// value += (15 - arr.length) * 360
 				}
 
-				alives.push(extend(true, instance, {
+				const instanceLangs = await (async () => {
+					if (instance.langs === '_ANY_') return null;
+
+					if (instance.langs){
+						if (!Array.isArray(instance.langs) || instance.langs.length === 0) {
+							throw Error('instance.langs is not array or is empty');
+						}
+						return instance.langs;
+					}
+
+					const langBallots = new Map();
+					const name = nodeinfo.metadata.nodeName || meta.name;
+					const desc = nodeinfo.metadata.nodeDescription || meta.description;
+					const featured = await fetchJson('GET', `https://${instance.url}/api/notes/featured`).catch(() => null);
+
+					if (desc) {
+						const descLang = detect(desc);
+						if (descLang) langBallots.set(descLang, 3);
+					} else if (name) {
+						const nameLang = detect(name);
+						if (nameLang) langBallots.set(nameLang, 1);
+					}
+
+					if (featured && Array.isArray(featured) && featured.length > 0) {
+						for (const note of featured) {
+							let text = '';
+							if (note.user && note.user.name) text += note.user.name + '\n';
+							if (note.cw) text += note.cw + '\n';
+							if (note.text) text += note.text.slice(0, 512) + '\n';
+							if (note.poll && note.poll.choices) text += note.poll.choices.map(choice => choice.text).join('\n') + '\n';
+
+							if (text != '') {
+								const noteLang = detect(text);
+								if (noteLang) {
+									if (langBallots.has(noteLang)) langBallots.set(noteLang, langBallots.get(noteLang) + 1);
+									else langBallots.set(noteLang, 1);
+								}
+							}
+						}
+					}
+
+					glog('lang detection result', instance.url, langBallots.entries())
+					// 最大得票数の50%以上の得票数を得た言語をインスタンスの言語とする
+					if (langBallots.size > 0) {
+						const max = Math.max(...langBallots.values());
+						Array.from(langBallots.entries()).filter(([_, v]) => v >= max / 2).map(([k, _]) => k);
+					}
+
+					return null;
+				})();
+
+				if (instanceLangs) {
+					instanceLangs.forEach(lang => {
+						if (!langs.includes(lang)) langs.push(lang);
+					});
+				}
+
+				alives.add(extend(true, instance, {
 					value,
 					meta,
 					nodeinfo,
@@ -416,18 +484,18 @@ export const getInstancesInfos = async function () {
 					npd15,
 					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
-					langs: instance.langs || instanceLanguages,
+					langs: instanceLangs || langs,
 					isAlive: true,
 					repo: versionInfo?.repo
-				}))
+				}));
 			} else {
-				deads.push(extend(true, { isAlive: false, value: 0 }, instance))
+				deads.add(extend(true, { isAlive: false, value: 0 }, instance));
 			}
 		}));
 	}
 
 	const interval = setInterval(() => {
-		glog(`${pqueue.getQueueLength()} requests remain and ${pqueue.getPendingLength()} requests processing.`)
+		glog(`${pqueue.getQueueLength()} servers remain and ${pqueue.getPendingLength()} servers processing.`)
 	}, 1000)
 
 	await Promise.all(promises);
@@ -437,11 +505,12 @@ export const getInstancesInfos = async function () {
 	glog("Got Instances' Infos")
 
 	return {
-		alives: alives.sort((a, b) => (b.value || 0) - (a.value || 0)),
-		deads,
-		notMisskey,
-		outdated,
+		alives: [...alives].sort((a, b) => (b.value || 0) - (a.value || 0)),
+		deads: [...deads],
+		notMisskey: [...notMisskey],
+		outdated: [...outdated],
 		versions,
 		versionOutput,
+		langs,
 	}
 }

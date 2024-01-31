@@ -10,10 +10,12 @@ const duplicated = mylist.filter((e, i, arr) => arr.findIndex(x => x.url === e.u
 if (duplicated.length > 0) console.log(`Duplicated:\n  ${duplicated.join(",\n  ")}\n`);
 else console.log("Duplicated:\n  There is no duplicated server!\n");
 
-const invalid = mylist.filter(e => e.langs !== undefined && !Array.isArray(e.langs))
-	.map(e => e.url)
+const invalid = mylist.reduce((acc, cur, i) => {
+	if (!cur.url) acc.push(`No url: #${i + 1} (langs: ${cur.langs})`);
+	return acc;
+}, [])
 
-if (invalid.length > 0) console.log(`Invalid:\n  ${invalid.join(",\n  ")}\n`);
+if (invalid.length > 0) console.log(`Invalid:\n  ${invalid.join("\n  ")}\n`);
 
 export default async () => {
 	console.log(`Get servers from misskey.io`);
@@ -24,18 +26,15 @@ export default async () => {
 	let offset = 0
 
 	while (next) {
-		const body = {
-			sort: "+pubSub",
-			limit: apinum + 1,
-			// notResponding: false,
-			offset
-		}
+		const url = new URL("https://misskey.io/api/federation/instances")
+		url.searchParams.set("sort", "+firstRetrievedAt")
+		url.searchParams.set("limit", apinum + 1)
+		url.searchParams.set("offset", offset)
 
 		const hrstart = process.hrtime()
 
-		const l = await fetch("https://misskey.io/api/federation/instances", {
-			method: 'POST',
-			body: JSON.stringify(body),
+		const l = await fetch(url, {
+			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'
 			}

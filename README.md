@@ -27,11 +27,12 @@ You can get the following information under https://instanceapp.misskey.page
         mau: Number,              //  Total MAUs
         instancesCount: Number,   //  Servers counter
     },
+    langs: String[], // All detected Languages (ISO Codes)
     instancesInfos: [        // Servers Infos (only alives)
         {
             url: String,     //  Hostname e.g. misskey.io
             name: String,    //  Name e.g. すしすきー
-            langs: String[], //  Language the API author aqz set manually e.g. ["ja"], ["zh"]
+            langs: String[], //  Languages (ISO Codes) set manually or detected automatically e.g. ["ja"], ["zh"]
             description: String | Null,  // meta.description or the the API author aqz set manually
             isAlive: true,   //  must true
             value: Number,   //  The server Value calculated from the version, etc.
