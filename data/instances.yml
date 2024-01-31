@@ -27,6 +27,8 @@
 - url: misskey.seediqbale.xyz
   langs: ['en', 'zh']
 #
+- url: mi.korange.work
+  langs: ['ja']
 - url: genkaishahu.com
   langs: ['ja']
 - url: misskey.nokotaro.com
@@ -1889,6 +1891,10 @@
   langs: ['ja']
 - url: chaskey.net
   langs: ['ja']
+- url: misskey.nukumori-sky.net
+  langs: ['ja']
+- url: misskey.pkkis.com
+  langs: ['ja']
 #
 ##
 #########################################
@@ -2626,6 +2632,8 @@
 - url: v11-k.yumeka.xyz
   langs: ['ko']
 - url: social.daol.cc
+  langs: ['ko']
+- url: queer.ne.kr
   langs: ['ko']
 #
 ##
