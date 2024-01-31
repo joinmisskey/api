@@ -88,6 +88,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 		return safeWriteFile(name, data, "created")
 	}
 	if (getHash(data, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
+		await fsp.unlink(`${tempDir}${name}`).catch(() => null)
 		return safeWriteFile(name, data, "renewed")
 	}
 	if (alwaysReturn) return { name, status: "unchanged" }
