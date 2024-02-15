@@ -389,11 +389,33 @@ export const getInstancesInfos = async function () {
 			const noteChart = (await fetchJson('GET', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
 
 			if (nodeinfo && meta && stats && noteChart) {
-				if (meta) {
-					delete meta.emojis;
-					delete meta.announcements;
-					delete meta.maintainerEmail;
+				delete meta.emojis;
+				delete meta.announcements;
+				delete meta.maintainerEmail;
+
+				if (!meta.disableRegistration) {
+					if (!(
+						meta.emailRequiredForSignup ||
+						meta.enableHcaptcha ||
+						meta.enableRecaptcha ||
+						meta.enableTurnstile ||
+						meta.enableMcaptcha
+					)) {
+						return;
+					}
 				}
+
+				delete meta.enableHcaptcha;
+				delete meta.hcaptchaSiteKey;
+				delete meta.enableRecaptcha;
+				delete meta.recaptchaSiteKey;
+				delete meta.enableTurnstile;
+				delete meta.turnstileSiteKey;
+				delete meta.enableMcaptcha;
+				delete meta.mcaptchaSiteKey;
+				delete meta.mcaptchaSiteKey;
+
+				delete meta.ads;
 
 				/* インスタンスバリューの算出 */
 				let value = 0

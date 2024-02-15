@@ -109,7 +109,7 @@ getInstancesInfos()
 		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/not-misskey.txt', notMisskey.map(v => v.url).join('\n'), () => { })
-		fs.writeFile('./dist/outdated.txt', outdated.map(v => v.url).join('\n'), () => { })
+		//fs.writeFile('./dist/outdated.txt', outdated.map(v => v.url).join('\n'), () => { })
 
 		await mkdirp('./dist/instance-banners')
 		await mkdirp('./dist/instance-backgrounds')
