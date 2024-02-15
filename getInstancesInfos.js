@@ -392,6 +392,7 @@ export const getInstancesInfos = async function () {
 				if (meta) {
 					delete meta.emojis;
 					delete meta.announcements;
+					delete meta.maintainerEmail;
 				}
 
 				/* インスタンスバリューの算出 */
