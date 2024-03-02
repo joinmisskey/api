@@ -1,3 +1,3 @@
 import q from './instanceq.js';
 
-await q();
+console.log(await q());
