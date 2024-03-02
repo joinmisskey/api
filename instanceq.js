@@ -21,7 +21,7 @@ export default async () => {
 	console.log(`Get servers from misskey.io`);
 
 	const notIncluded = new Set();
-	const apinum = 60
+	const apinum = 29
 	let next = true
 	let offset = 0
 
@@ -36,9 +36,14 @@ export default async () => {
 		const l = await fetch(url, {
 			method: 'GET',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'User-agent': "JoinMisskey/0.1.0; +https://join.misskey.page/instances",
 			}
 		}).then(async res => {
+			if (!res.ok) {
+				throw Error(`${res.status} ${res.statusText}\n${await res.text()}`)
+			}
+
 			const hrend = process.hrtime(hrstart)
 			console.log(offset, hrend[0], hrend[1] / 1000000)
 
