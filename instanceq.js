@@ -45,11 +45,16 @@ export default async () => {
 			}
 
 			const hrend = process.hrtime(hrstart)
-			console.log(offset, hrend[0], hrend[1] / 1000000)
-
 			const text = await res.text()
 			if (!text.startsWith("{") && !text.startsWith("[")) {
 				throw Error(text)
+			}
+
+			// 429 Too Many Requestsを避ける
+			const ms = hrend[1] / 1000000
+			console.log(offset, hrend[0], ms)
+			if (hrend[0] === 0 && ms < 100) {
+				await new Promise(resolve => setTimeout(resolve, 100 - ms))
 			}
 
 			return JSON.parse(text)
