@@ -454,8 +454,6 @@
   langs: ['ja']
 - url: rhythmisskey.games
   langs: ['ja']
-- url: novelskey.tarbin.net
-  langs: ['ja']
 - url: ojousama-tea.party
   langs: ['ja']
 - url: misskey.snowdrop.cloud
@@ -633,8 +631,6 @@
 - url: misskey.nrps.xyz
   langs: ['ja']
 - url: ikaskey.bktsk.com
-  langs: ['ja']
-- url: otoskey.tarbin.net
   langs: ['ja']
 - url: osage.moe
   langs: ['ja']
@@ -2184,3 +2180,24 @@
 - url: mk.hilot06.com
 - url: s.rsplwe.com
 - url: poster.place
+- url: msky.lichat.xyz
+- url: misskey.sui-ryu.net
+- url: satellite.nekoplanet.xyz
+- url: socialhub.key4.digital
+- url: m.7shiro.com
+- url: nagisa.town
+- url: mi.ter05.net
+- url: misskey.inux39.me
+- url: sd-69.space
+- url: m.n1l.dev
+- url: misskey.iorar.net
+- url: mi.nekonet.cyou
+- url: iam.charon.monster
+- url: mi.bedohswe.eu.org
+- url: catboykey.xyz
+- url: misskey.shimanami.online
+- url: jumbler.jacab.net
+- url: sanotsuki.me
+- url: mi-balloon.okin-jp.net
+- url: oita.blue
+- url: misskey.karene.net
