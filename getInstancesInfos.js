@@ -196,7 +196,8 @@ function hasVulnerability(repo, version) {
 				//semver.satisfies(version, '< 12.90.0') ||
 				//semver.satisfies(version, '< 12.51.0') ||
 				//semver.satisfies(version, '>= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2') ||
-				semver.satisfies(version, '<= 2023.11.0') // https://github.com/misskey-dev/misskey/security/advisories/GHSA-3f39-6537-3cgc
+				//semver.satisfies(version, '<= 2023.11.0') // https://github.com/misskey-dev/misskey/security/advisories/GHSA-3f39-6537-3cgc
+				semver.satisfies(version, '< 2024.2.0') // https://github.com/misskey-dev/misskey/security/advisories/GHSA-qqrm-9grj-6v32
 			);
 		/*
 		case 'mei23/misskey':
