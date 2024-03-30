@@ -1347,8 +1347,6 @@
   langs: ['en']
 - url: z0ne.social
   langs: ['en']
-- url: misskey.id
-  langs: ['en']
 - url: mk.udongein.reisen
   langs: ['en']
 - url: mk.xn--ponek-1sa8t.eu
@@ -1872,6 +1870,9 @@
 # eo
 - url: kajereto.com
   langs: ['eo']
+# id
+- url: misskey.id
+  langs: ['id', 'en']
 ###             2024/2/1              ###
 - url: focalorus.io
 - url: cocoa.kemomi.me
@@ -2206,3 +2207,30 @@
 - url: mi.maka.nagoya
 - url: 21stcentury.day
 - url: mi.kivotos.io
+- url: kadaiyare.com
+- url: misskey-r1.hopeinthefield.net
+- url: bowbow148park.com
+- url: chanmo.net
+- url: mika.valkyrisskey.uk
+- url: www.calamero.net
+- url: mi.b-guild.net
+- url: misskey.acuah.info
+- url: honeycat.space
+- url: rochka.club
+- url: misskey.linfiel.com
+- url: m.tuna2134.jp
+- url: 9yo.punipoka.pink
+- url: misskey.tamsuki.com
+- url: prism.place
+- url: aoharusky.aoharunext.com
+- url: misskey.natsu.works
+- url: misskey.cc
+- url: misskey.pukkuk.pp.ua
+- url: ac.akirin.xyz
+- url: nook.moe
+- url: msky.misononoa.cc
+- url: misskey.kawaii.blue
+- url: mi.tani-exe.net
+- url: msky.ayatovr.jp
+- url: misskey.amiverse.net
+- url: eulendore.xyz
