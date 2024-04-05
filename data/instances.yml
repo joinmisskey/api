@@ -24,9 +24,8 @@
   langs: ['en', 'zh']
 - url: miruku.cafe
   langs: ['ja', 'en', 'fr', 'de']
+#ja
 - url: mi.korange.work
-  #
-
   langs: ['ja']
 - url: misskey.nokotaro.com
   langs: ['ja']
@@ -1593,6 +1592,8 @@
   langs: ['en']
 - url: koharu.app
   langs: ['en']
+- url: coretalk.space
+  langs: ['en', 'ja', 'sk', 'de']
 #it
 - url: misskey.social
   langs: ['it', 'en']
