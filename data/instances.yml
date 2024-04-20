@@ -1730,6 +1730,8 @@
   langs: ['zh']
 - url: flojoy.fun
   langs: ['zh']
+- url: urweibo.com
+  langs: ['zh']
 #ko
 - url: madost.one
   langs: ['ko']
