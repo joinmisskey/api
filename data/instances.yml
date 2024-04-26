@@ -1732,6 +1732,8 @@
   langs: ['zh']
 - url: urweibo.com
   langs: ['zh']
+- url: chatting-tw.xyz
+  langs: ['zh']
 #ko
 - url: madost.one
   langs: ['ko']
