@@ -1829,6 +1829,8 @@
   langs: ['ko']
 - url: social.daol.cc
   langs: ['ko']
+- url: oscar.surf
+  langs: ['ko', 'en', 'ja']
 # ru
 - url: shitpost.poridge.club
   langs: ['ru']
