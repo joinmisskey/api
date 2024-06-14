@@ -1309,6 +1309,8 @@
   langs: ['ja']
 - url: misskey.pkkis.com
   langs: ['ja']
+- url: aiart.makeup
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
@@ -2353,3 +2355,10 @@
 - url: kyent.net
 - url: ponysocial.ru
 - url: misskey.su443.com
+- url: mkey.ryuka-lucas.net
+- url: mi.tsukuba.dev
+- url: misskey.lavacat.obl.ong
+- url: pentacoxian.net
+- url: fuku.monster
+- url: soloskey.site
+- url: misskey.akatuki-host.com
