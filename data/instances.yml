@@ -1311,6 +1311,8 @@
   langs: ['ja']
 - url: aiart.makeup
   langs: ['ja']
+- url: makibisskey.work
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
@@ -1913,7 +1915,6 @@
 - url: mk.footbath.me
 - url: msky.lord-mayo.uk
 - url: arisskey2.com
-- url: makibisskey.work
 - url: hello-kiwi.com
 - url: misskey.tpt.works
 - url: brigadeofthetwilight.tplinkdns.com
