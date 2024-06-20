@@ -1313,6 +1313,8 @@
   langs: ['ja']
 - url: makibisskey.work
   langs: ['ja']
+- url: nagomisskey.com
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
