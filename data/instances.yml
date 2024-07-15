@@ -1614,6 +1614,8 @@
 - url: misskey.xania.fr
   langs: ['fr']
 #zh
+- url: hi.fumoe.top
+  langs: ['zh', 'en']
 - url: misskey.gothloli.club
   langs: ['zh']
 - url: nya.one
