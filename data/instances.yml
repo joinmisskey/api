@@ -1616,6 +1616,8 @@
 - url: misskey.xania.fr
   langs: ['fr']
 #zh
+- url: homo.1919810.space
+  langs: ['zh', 'ja', 'en']
 - url: misskey.gothloli.club
   langs: ['zh']
 - url: nya.one
