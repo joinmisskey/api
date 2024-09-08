@@ -1313,6 +1313,8 @@
   langs: ['ja']
 - url: makibisskey.work
   langs: ['ja']
+- url: nagomisskey.com
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
@@ -1614,6 +1616,8 @@
 - url: misskey.xania.fr
   langs: ['fr']
 #zh
+- url: homo.1919810.space
+  langs: ['zh', 'ja', 'en']
 - url: misskey.gothloli.club
   langs: ['zh']
 - url: nya.one

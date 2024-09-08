@@ -341,7 +341,7 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `JoinMisskey servers api is now updated.\nUNLISTED INSTANCE(S) FOUND! @aqz\n\n${notIncluded.join('\n')}\n#bot`
+				text: `JoinMisskey servers api is now updated.\nUNLISTED INSTANCE(S) FOUND!\n\n${notIncluded.join('\n')}\n#bot`
 			}),
 			headers: {
 				"Content-Type": "application/json"
