@@ -1600,6 +1600,8 @@
   langs: ['en']
 - url: coretalk.space
   langs: ['en', 'ja', 'sk', 'de']
+- url: byzantinenexus.io
+  langs: ['en']
 #it
 - url: misskey.social
   langs: ['it', 'en']
