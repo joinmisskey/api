@@ -1315,6 +1315,12 @@
   langs: ['ja']
 - url: nagomisskey.com
   langs: ['ja']
+- url: mk.thejustcube.xyz
+  langs: ['ja']
+- url: misskey.wagaya.sbs
+  langs: ['ja']
+- url: szrbiotope.xsns.jp
+  langs: ['ja']
 - url: mk.puzzlesskey.com
   langs: ['ja']
 #en
@@ -1602,6 +1608,8 @@
   langs: ['en']
 - url: coretalk.space
   langs: ['en', 'ja', 'sk', 'de']
+- url: byzantinenexus.io
+  langs: ['en']
 #it
 - url: misskey.social
   langs: ['it', 'en']
@@ -2506,3 +2514,5 @@
 - url: sabanoheya.net
 - url: mkacg.com
 - url: hollow.raccoon.quest
+- url: kudaizuna.top
+  langs: _ANY_
