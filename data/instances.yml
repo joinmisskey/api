@@ -1319,6 +1319,8 @@
   langs: ['ja']
 - url: misskey.wagaya.sbs
   langs: ['ja']
+- url: szrbiotope.xsns.jp
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
