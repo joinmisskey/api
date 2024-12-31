@@ -1315,8 +1315,10 @@
   langs: ['ja']
 - url: nagomisskey.com
   langs: ['ja']
+- url: mk.thejustcube.xyz
+  langs: ['ja']
 - url: misskey.wagaya.sbs
-  langs: ['ja']  
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
