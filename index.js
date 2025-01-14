@@ -328,7 +328,7 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `Top 30 instances (other than Japanese)\n\n${getInstancesList(otherInstances)}`,
+				text: `Top 30 instances (other than Japanese or Korean)\n\n${getInstancesList(otherInstances)}`,
 				replyId: tree.createdNote.id,
 			}),
 			headers: {
