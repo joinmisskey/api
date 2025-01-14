@@ -25,6 +25,8 @@
 - url: miruku.cafe
   langs: ['ja', 'en', 'fr', 'de']
 #ja
+- url: techniclip.com
+  langs: ['ja']
 - url: mi.korange.work
   langs: ['ja']
 - url: misskey.nokotaro.com
