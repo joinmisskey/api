@@ -305,7 +305,7 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 				method: "POST",
 				body: JSON.stringify({
 					i: process.env.MK_TOKEN,
-					text: `${listTitle})\n\n${getInstancesList(specifiedInstances)}`,
+					text: `${listTitle}\n\n${getInstancesList(specifiedInstances)}`,
 					replyId: tree.createdNote.id,
 				}),
 				headers: {
