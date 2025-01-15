@@ -1325,6 +1325,10 @@
   langs: ['ja']
 - url: mk.puzzlesskey.com
   langs: ['ja']
+- url: sp8key.monster
+  langs: ['ja']
+- url: salmonjerky.net
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
@@ -2047,7 +2051,6 @@
 - url: misskey.sigma-project.jp
 - url: mk.nitadori.net
 - url: magiasskey.magialabs.blog
-- url: sp8key.monster
 - url: moriyashrine.net
 - url: misskey.mswitchy.ink
 - url: misskey.moe.ceo
@@ -2630,7 +2633,6 @@
 - url: msk.kitamiss.com
 - url: semisskey.com
 - url: miuchusen.xsns.jp
-- url: salmonjerky.net
 - url: mi.sandyman.dev
 - url: misskey.tako2bo.com
 - url: misskey-this.xsns.jp
