@@ -1329,6 +1329,8 @@
   langs: ['ja']
 - url: salmonjerky.net
   langs: ['ja']
+- url: misskey.tako2bo.com
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
@@ -2634,7 +2636,6 @@
 - url: semisskey.com
 - url: miuchusen.xsns.jp
 - url: mi.sandyman.dev
-- url: misskey.tako2bo.com
 - url: misskey-this.xsns.jp
 - url: kamonan.xsns.jp
 - url: moe.heredos.net
@@ -2733,3 +2734,8 @@
 - url: misskey.eri-sunaga.com
 - url: ty4.makibisky.win
 - url: lab.liteyuki.icu
+- url: mi.porubu.com
+- url: hiyotama.net
+- url: abtorytka.fd-sns.com
+- url: mi.ha5hi8.space
+- url: dudes.keinpfusch.net
