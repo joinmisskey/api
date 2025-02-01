@@ -1331,6 +1331,8 @@
   langs: ['ja']
 - url: misskey.tako2bo.com
   langs: ['ja']
+- url: mi.layp.net
+  langs: ['ja']
 #en
 - url: gensoukyou.jp.net
   langs: ['en']
