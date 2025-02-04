@@ -11,7 +11,7 @@
 # name: サーバー名を上書きします。通常は指定しません。
 #
 - url: misskey.io
-  langs: _ANY_
+  langs: ['ja']
 - url: seediqbale.xyz
   langs: ['en', 'zh']
 - url: msk.ilnk.info
