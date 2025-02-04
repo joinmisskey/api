@@ -286,12 +286,15 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 						`<plain>${instance.name}</plain> (${instance.url})` :
 						instance.url
 				}](https://${instance.url})`
-		).join('\n')
+		).join('\n');
 
-		for (const [lang, listTitle] of [
+		const specifiedListLangs = [
 			["ja", "日本語サーバー (トップ30)"],
 			["ko", "한국어 서버 (상위 30개)"],
-		]) {
+			["zh", "中文服务器 (前30名)"],
+		];
+
+		for (const [lang, listTitle] of specifiedListLangs) {
 			const specifiedInstances = [];
 	
 			for (const instance of sorted) {
@@ -318,8 +321,9 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 		const otherInstances = [];
 
 		for (const instance of sorted) {
-			if (instance.langs.includes("ja")) continue;
-			if (instance.langs.includes("ko")) continue;
+			for (const [lang] of specifiedListLangs) {
+				if (instance.langs.includes(lang)) continue;
+			}
 			otherInstances.push(instance);
 			if (otherInstances.length === 30) break;
 		}
@@ -328,7 +332,7 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			method: "POST",
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
-				text: `Top 30 instances (other than Japanese or Korean)\n\n${getInstancesList(otherInstances)}`,
+				text: `Top 30 instances (other than ja, ko or zh)\n\n${getInstancesList(otherInstances)}`,
 				replyId: tree.createdNote.id,
 			}),
 			headers: {
