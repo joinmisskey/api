@@ -317,16 +317,14 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			}).then(res => res.json());
 		}
 
-		// other than jp, ko
-		const otherInstances = [];
-
-		for (const instance of sorted) {
+		// other than specified langs
+		const otherInstances = sorted.reduce((acc, instance) => {
 			for (const [lang] of specifiedListLangs) {
-				if (instance.langs.includes(lang)) continue;
+				if (instance.langs.includes(lang)) return acc;
 			}
-			otherInstances.push(instance);
-			if (otherInstances.length === 30) break;
-		}
+			acc.push(instance);
+			return acc;
+		}, []);
 
 		tree = await fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
