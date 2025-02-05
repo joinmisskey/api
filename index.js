@@ -319,6 +319,8 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 
 		// other than specified langs
 		const otherInstances = sorted.reduce((acc, instance) => {
+			if (acc.length > 30) return acc;
+
 			for (const [lang] of specifiedListLangs) {
 				if (instance.langs.includes(lang)) return acc;
 			}
