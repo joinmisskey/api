@@ -24,6 +24,8 @@
   langs: ['en', 'zh']
 - url: miruku.cafe
   langs: ['ja', 'en', 'fr', 'de']
+- url: pika.moe
+  langs: ['en', 'zh', 'ja', 'kr']
 #ja
 - url: techniclip.com
   langs: ['ja']
@@ -2316,7 +2318,6 @@
 - url: kapibala.icu
 - url: o.floccus.net
 - url: misskey.archexart.net
-- url: pika.moe
 - url: nimisskey.xyz
 - url: muji.hirasakain.ninja
 - url: enola.space
