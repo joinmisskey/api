@@ -12,6 +12,8 @@
 #
 - url: misskey.io
   langs: ['ja']
+- url: shogi.pkkis.com
+  langs: ['ja']
 - url: seediqbale.xyz
   langs: ['en', 'zh']
 - url: msk.ilnk.info
