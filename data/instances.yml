@@ -1620,6 +1620,8 @@
   langs: ['en', 'ja', 'sk', 'de']
 - url: byzantinenexus.io
   langs: ['en']
+- url: misskey.repn.my.id
+  langs: ['en', 'ja', 'id']
 #it
 - url: misskey.social
   langs: ['it', 'en']
