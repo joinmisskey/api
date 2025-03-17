@@ -1760,6 +1760,8 @@
   langs: ['zh']
 - url: urweibo.com
   langs: ['zh']
+- url: mk.nyamuchi.com
+  langs: ['zh']
 #ko
 - url: madost.one
   langs: ['ko']
