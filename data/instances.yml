@@ -12,6 +12,8 @@
 #
 - url: misskey.io
   langs: ['ja']
+- url: shogi.pkkis.com
+  langs: ['ja']
 - url: seediqbale.xyz
   langs: ['en', 'zh']
 - url: msk.ilnk.info
@@ -24,6 +26,8 @@
   langs: ['en', 'zh']
 - url: miruku.cafe
   langs: ['ja', 'en', 'fr', 'de']
+- url: pika.moe
+  langs: ['en', 'zh', 'ja', 'kr']
 #ja
 - url: techniclip.com
   langs: ['ja']
@@ -1334,6 +1338,10 @@
 - url: mi.layp.net
   langs: ['ja']
 #en
+- url: underground.pm
+  langs: ['en']
+- url: science.social
+  langs: ['en']
 - url: gensoukyou.jp.net
   langs: ['en']
 - url: misskey.kusoneko.moe
@@ -1620,6 +1628,8 @@
   langs: ['en', 'ja', 'sk', 'de']
 - url: byzantinenexus.io
   langs: ['en']
+- url: misskey.repn.my.id
+  langs: ['en', 'ja', 'id']
 #it
 - url: misskey.social
   langs: ['it', 'en']
@@ -1760,6 +1770,8 @@
   langs: ['zh']
 - url: mistyreverie.org
   langs: ['zh']
+- url: mk.nyamuchi.com
+  langs: ['zh']
 #ko
 - url: madost.one
   langs: ['ko']
@@ -1895,6 +1907,9 @@
   langs: ['es']
 - url: poi.cl
   langs: ['es']
+# pt
+- url: somos.dev.br
+  langs: ['pt']
 - url: marte.city
   langs: ['pt']
 # cs
@@ -2316,7 +2331,6 @@
 - url: kapibala.icu
 - url: o.floccus.net
 - url: misskey.archexart.net
-- url: pika.moe
 - url: nimisskey.xyz
 - url: muji.hirasakain.ninja
 - url: enola.space
@@ -2774,3 +2788,4 @@
 - url: v11.moegirl.live
 - url: talk.cocoahippo.net
 - url: shisaku.eu.org
+- url: afhub.top
