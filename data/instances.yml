@@ -1708,8 +1708,6 @@
   langs: ['zh']
 - url: zmi.im
   langs: ['zh']
-- url: pastwind.top
-  langs: ['zh']
 - url: existentialis.me
   langs: ['zh']
 - url: pari.cafe
@@ -1769,6 +1767,8 @@
 - url: flojoy.fun
   langs: ['zh']
 - url: urweibo.com
+  langs: ['zh']
+- url: mistyreverie.org
   langs: ['zh']
 - url: mk.nyamuchi.com
   langs: ['zh']
