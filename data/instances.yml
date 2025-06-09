@@ -1907,6 +1907,9 @@
   langs: ['es']
 - url: poi.cl
   langs: ['es']
+# pt
+- url: somos.dev.br
+  langs: ['pt']
 - url: marte.city
   langs: ['pt']
 # cs
