@@ -386,11 +386,10 @@ export const getInstancesInfos = async function () {
 			};
 
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
-			const stats = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
 			const noteChart = (await fetchJson('GET', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 16 })) || null;
 			const dauChart = (await fetchJson('GET', `https://${instance.url}/api/charts/active-users`, { span: "day", limit: 16 })) || null;
 
-			if (nodeinfo && meta && stats) {
+			if (nodeinfo && meta) {
 				//#region メタデータの整形
 				delete meta.emojis;
 				delete meta.announcements;
@@ -539,7 +538,6 @@ export const getInstancesInfos = async function () {
 					value,
 					meta,
 					nodeinfo,
-					stats,
 					npd15, druYesterday, dru15,
 					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),

@@ -24,7 +24,9 @@ You can get the following information under https://instanceapp.misskey.page
     stats: {                      //  statistics
         notesCount: Number,       //  Total notes
         usersCount: Number,       //  Total Users
-        mau: Number,              //  Total MAUs
+        npd15: Number,            //  Total Number of Notes per Day (15-days average)
+        druYesterday: Number,     //  Daily Read Users (Yesterday)
+        dru15: Number,            //  Daily Read Users (15-days average)
         instancesCount: Number,   //  Servers counter
     },
     langs: String[], // All detected Languages (ISO Codes)
@@ -41,9 +43,9 @@ You can get the following information under https://instanceapp.misskey.page
             icon: Bool,      //  Icon Image existance
             nodeinfo: Object | null,  //  nodeinfo
             meta: Object | null,      //  result of api/meta
-            npd15: Number    //  Number of Notes per Day (15-day average)
-
-            stats: Object,   //  deprecated (result of api/stats)
+            npd15: Number    //  Number of Notes per Day (15-days average)
+            druYesterday: Number, //  Daily Read Users (Yesterday)
+            dru15: Number,   //  Daily Read Users (15-days average)
         }, ...
     ]
 
