@@ -102,9 +102,18 @@ getInstancesInfos()
 		const stats = alives.reduce((prev, v) => (v.nodeinfo.usage && v.nodeinfo.usage.users) ? {
 			  notesCount: (v.nodeinfo.usage.localPosts || 0) + prev.notesCount,
 			  usersCount: (v.nodeinfo.usage.users.total || 0) + prev.usersCount,
-			  mau: (v.nodeinfo.usage.users.activeMonth || 0) + prev.mau,
+			  npd15: (v.npd15 || 0) + prev.npd15,
+			  druYesterday: (v.druYesterday || 0) + prev.druYesterday,
+			  dru15: (v.dru15 || 0) + prev.dru15,
 			  instancesCount: 1 + prev.instancesCount
-		  } : { ...prev }, { notesCount: 0, usersCount: 0, mau: 0, instancesCount: 0 })
+		  } : { ...prev }, {
+			notesCount: 0,
+			usersCount: 0,
+			npd15: 0,
+			druYesterday: 0,
+			dru15: 0,
+			instancesCount: 0
+		})
 
 		fs.writeFile('./dist/alives.txt', alives.map(v => v.url).join('\n'), () => { })
 		fs.writeFile('./dist/deads.txt', deads.map(v => v.url).join('\n'), () => { })
@@ -224,7 +233,7 @@ getInstancesInfos()
 
 		const INSTANCES_JSON = {
 			date: new Date(),
-			stats,
+			stats: stats,
 			langs,
 			instancesInfos: alives
 		}
@@ -263,12 +272,14 @@ getInstancesInfos()
 			body: JSON.stringify({
 				i: process.env.MK_TOKEN,
 				text: `JoinMisskey servers api is updated at ${INSTANCES_JSON.date.toISOString()}.
-
-Total Notes: ${INSTANCES_JSON.stats.notesCount}
-Total Users: ${INSTANCES_JSON.stats.usersCount}
-Total MAU: ${INSTANCES_JSON.stats.mau}
-Total Servers: ${INSTANCES_JSON.stats.instancesCount}
-
+\`\`\`
+Total Notes   : ${INSTANCES_JSON.stats.notesCount}
+Total Users   : ${INSTANCES_JSON.stats.usersCount}
+Total Servers : ${INSTANCES_JSON.stats.instancesCount}
+Notes/day (15 days): ${Math.round(INSTANCES_JSON.stats.npd15)}
+Daily Read Users   : ${INSTANCES_JSON.stats.druYesterday}
+DRU Avg.  (15 days): ${Math.round(INSTANCES_JSON.stats.dru15)}
+\`\`\`
 https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			}),
 			headers: {

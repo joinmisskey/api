@@ -387,9 +387,11 @@ export const getInstancesInfos = async function () {
 
 			const meta = (await fetchJson('POST', `https://${instance.url}/api/meta`)) || null;
 			const stats = (await fetchJson('POST', `https://${instance.url}/api/stats`)) || null;
-			const noteChart = (await fetchJson('GET', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 15 })) || null;
+			const noteChart = (await fetchJson('GET', `https://${instance.url}/api/charts/notes`, { span: "day", limit: 16 })) || null;
+			const dauChart = (await fetchJson('GET', `https://${instance.url}/api/charts/active-users`, { span: "day", limit: 16 })) || null;
 
-			if (nodeinfo && meta && stats && noteChart) {
+			if (nodeinfo && meta && stats) {
+				//#region メタデータの整形
 				delete meta.emojis;
 				delete meta.announcements;
 				delete meta.maintainerEmail;
@@ -417,6 +419,7 @@ export const getInstancesInfos = async function () {
 				delete meta.mcaptchaSiteKey;
 
 				delete meta.ads;
+				//#endregion
 
 				/* インスタンスバリューの算出 */
 				let value = 0
@@ -424,12 +427,19 @@ export const getInstancesInfos = async function () {
 				/* ノート増加数の15日間の平均 */
 				let npd15 = 0
 
+				/* 昨日のDRU */
+				let druYesterday = 0;
+
+				/* DRUの15日間の平均 */
+				let dru15 = 0;
+
 				// 1. バージョンのリリース順をもとに並び替え
 				value += 100000 - (versionInfo.valueCount - 30) * 7200
 
 				// (基準値に影響があるかないか程度に色々な値を考慮する)
 				if (noteChart && Array.isArray(noteChart.local?.inc)) {
 					// 2.
+					noteChart.local?.inc.shift()
 					const nli15 = noteChart.local?.inc.filter(e => e !== 0)
 
 					if (nli15.length > 0) {
@@ -441,6 +451,16 @@ export const getInstancesInfos = async function () {
 
 					// もし統計の数が15日に満たない場合、新規インスタンス特典を付与
 					// value += (15 - arr.length) * 360
+				}
+
+				if (dauChart && Array.isArray(dauChart.read)) {
+					dauChart.read.shift()
+					const drui15 = dauChart.read.filter(e => e !== 0)
+
+					if (drui15.length > 0) {
+						druYesterday = drui15[drui15.length - 1];
+						dru15 = drui15.reduce((prev, current) => prev + current) / drui15.length;
+					}
 				}
 
 				const instanceLangs = await (async () => {
@@ -520,7 +540,7 @@ export const getInstancesInfos = async function () {
 					meta,
 					nodeinfo,
 					stats,
-					npd15,
+					npd15, druYesterday, dru15,
 					name: instance.name || nodeinfo.metadata.nodeName || meta.name || instance.url,
 					description: nodeinfo.metadata.nodeDescription || meta.description || (instance.description || null),
 					langs: instanceLangs || langs,
