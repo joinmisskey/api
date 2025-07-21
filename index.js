@@ -276,9 +276,9 @@ getInstancesInfos()
 Total Notes   : ${INSTANCES_JSON.stats.notesCount}
 Total Users   : ${INSTANCES_JSON.stats.usersCount}
 Total Servers : ${INSTANCES_JSON.stats.instancesCount}
-Notes/day (15 days): ${Math.round(INSTANCES_JSON.stats.npd15)}
 Daily Read Users   : ${INSTANCES_JSON.stats.druYesterday}
 DRU Avg.  (15 days): ${Math.round(INSTANCES_JSON.stats.dru15)}
+Notes/d Avg. (15 days): ${Math.round(INSTANCES_JSON.stats.npd15)}
 \`\`\`
 https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 			}),
