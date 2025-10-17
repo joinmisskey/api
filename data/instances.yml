@@ -1628,8 +1628,6 @@
   langs: ['en', 'ja', 'sk', 'de']
 - url: byzantinenexus.io
   langs: ['en']
-- url: misskey.repn.my.id
-  langs: ['en', 'ja', 'id']
 - url: kawaii.party
   langs: ['en']
 #it
