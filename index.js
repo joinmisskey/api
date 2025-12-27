@@ -356,6 +356,7 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 		const notIncluded = await instanceq()
 		if (notIncluded.length === 0) return;
 		fs.writeFile('./dist/notincluded.txt', notIncluded.join('\n'), () => { })
+		/*
 		return fetch("https://p1.a9z.dev/api/notes/create", {
 			method: "POST",
 			body: JSON.stringify({
@@ -366,4 +367,5 @@ https://misskey-hub.net/servers\n#bot #joinmisskeyupdate`,
 				"Content-Type": "application/json"
 			}
 		})
+		*/
 	})
