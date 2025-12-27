@@ -472,6 +472,12 @@ export const getInstancesInfos = async function () {
 						return instance.langs;
 					}
 
+					// .xsns.jp はjaと推定
+					if (instance.url.endsWith('.xsns.jp')) {
+						return ['ja'];
+					}
+
+					// 言語投票
 					const langBallots = new Map();
 					const votedNotes = new Set();
 					const name = nodeinfo.metadata.nodeName || meta.name;
@@ -496,7 +502,7 @@ export const getInstancesInfos = async function () {
 						if (note.text) text += note.text.slice(0, 512) + '\n';
 						if (note.poll && note.poll.choices) text += note.poll.choices.map(choice => choice.text).join('\n') + '\n';
 
-						if (text != '') {
+						if (text.trim() != '') {
 							const noteLang = detect(text);
 							if (noteLang) {
 								if (langBallots.has(noteLang)) langBallots.set(noteLang, langBallots.get(noteLang) + 1);
@@ -525,7 +531,10 @@ export const getInstancesInfos = async function () {
 					}
 
 					return null;
-				})();
+				})().catch(e => {
+					glog.error('Language detection failed', instance.url, e);
+					return null;
+				});
 
 				if (instanceLangs) {
 					instanceLangs.forEach(lang => {
