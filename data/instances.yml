@@ -1337,6 +1337,12 @@
   langs: ['ja']
 - url: mi.layp.net
   langs: ['ja']
+- url: wl-i0ta.net
+  langs: ['ja']
+- url: n9.wl-i0ta.net
+  langs: ['ja']
+- url: seiro-apartment.com
+  langs: ['ja']
 #en
 - url: underground.pm
   langs: ['en']
@@ -2857,7 +2863,6 @@
 - url: mi.aramugi.com
 - url: stargazer.xsns.jp
 - url: moemoe.dev
-- url: seiro-apartment.com
 - url: misskey.njy17.kr
 - url: hmtkey.lirisia.com
 - url: uvichat.openclipsis.top
@@ -2939,7 +2944,6 @@
 - url: cachapa.cc
 - url: chikaskey.com
 - url: nyan.papercaton.net
-- url: wl-i0ta.net
 - url: abyss.cafe
 - url: misskey.yumetsuki.moe
 - url: satotsuki.design
@@ -3057,7 +3061,6 @@
 - url: rufusky.xyz
 - url: mi.chromoly.work
 - url: mi.aramakey.net
-- url: n9.wl-i0ta.net
 - url: tiwit.tr
 - url: wowcool.moe
 - url: xiaozhu.ningyu.icu
