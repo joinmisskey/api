@@ -1,6 +1,5 @@
 import * as fs from 'node:fs'
 import * as fsp from 'node:fs/promises'
-import { glob } from 'glob'
 import glog from 'fancy-log'
 import sharp from 'sharp'
 import { sharpBmp } from '@misskey-dev/sharp-read-bmp'
@@ -247,11 +246,11 @@ getInstancesInfos()
 			notMisskey.forEach(v => targets.add(v.url))
 			loadyaml("./data/ignorehosts.yml").forEach(v => targets.add(v))
 			targets.forEach(v => {
-				glob.sync(`./dist/**/${v}.*`).forEach(file => {
+				fs.globSync(`./dist/**/${v}.*`).forEach(file => {
 					glog(`removing ${file}`)
 					fs.unlink(file, () => null)
 				})
-				glob.sync(`./temp/**/${v}`).forEach(file => {
+				fs.globSync(`./temp/**/${v}`).forEach(file => {
 					glog(`removing ${file}`)
 					fs.unlink(file, () => null)
 				})
