@@ -1343,6 +1343,8 @@
   langs: ['ja']
 - url: seiro-apartment.com
   langs: ['ja']
+- url: misskey.vip
+  langs: ['ja']
 #en
 - url: underground.pm
   langs: ['en']
