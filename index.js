@@ -95,7 +95,7 @@ async function downloadTemp(name, url, tempDir, alwaysReturn) {
 }
 
 getInstancesInfos()
-	.then(async ({alives, deads, notMisskey, outdated, versions, versionOutput, langs}) => {
+	.then(async ({alives, deads, notMisskey, outdated, versions, versionOutput, langs, latestMisskeyStableVersion, latestMisskeyVersion}) => {
 		fs.writeFile('./dist/versions.json', JSON.stringify(versionOutput), () => { })
 
 		const stats = alives.reduce((prev, v) => (v.nodeinfo.usage && v.nodeinfo.usage.users) ? {
@@ -234,6 +234,8 @@ getInstancesInfos()
 			date: new Date(),
 			stats: stats,
 			langs,
+			latestMisskeyVersion,
+			latestMisskeyStableVersion,
 			instancesInfos: alives
 		}
 

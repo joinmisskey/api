@@ -29,7 +29,10 @@ You can get the following information under https://instanceapp.misskey.page
         dru15: Number,            //  Daily Read Users (15-days average)
         instancesCount: Number,   //  Servers counter
     },
-    langs: String[], // All detected Languages (ISO Codes)
+    langs: String[],                    // All detected Languages (ISO Codes)
+    latestMisskeyStableVersion: String, // Latest Misskey Stable Version
+    latestMisskeyVersion: String,       // Latest Misskey Version (including pre-releases)
+
     instancesInfos: [        // Servers Infos (only alives)
         {
             url: String,     //  Hostname e.g. misskey.io
@@ -46,7 +49,8 @@ You can get the following information under https://instanceapp.misskey.page
             npd15: Number    //  Number of Notes per Day (15-days average)
             druYesterday: Number, //  Daily Read Users (Yesterday)
             dru15: Number,   //  Daily Read Users (15-days average)
-        }, ...
+        },
+        ...
     ]
 
 }

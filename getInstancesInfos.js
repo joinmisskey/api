@@ -13,6 +13,11 @@ const instances = loadyaml("./data/instances.yml")
 const pqueue = new Queue(32)
 
 const ua = "JoinMisskey/0.1.0; +https://join.misskey.page/instances";
+let latestMisskeyStableVersion = "unknown";
+let latestMisskeyVersion = "unknown";
+function getLatestMisskeyUa() {
+	return `Misskey/${latestMisskeyStableVersion} (https://p1.a9z.dev)`;
+}
 
 function safeFetch(method, url, options)/*: Promise<Response | null | false | undefined>*/ {
 	const controller = new AbortController()
@@ -46,12 +51,12 @@ function safeFetch(method, url, options)/*: Promise<Response | null | false | un
 	})
 }
 
-async function fetchJson(method, _url, json) {
+async function fetchJson(method, _url, json, _ua = ua) {
 	const option = {
 		body: (method !== 'GET') ? JSON.stringify(json ?? {}) : undefined,
 		headers: {
 			"Content-Type": "application/json",
-			"User-Agent": "JoinMisskey/0.1.0; +https://join.misskey.page/instances"
+			"User-Agent": _ua
 		},
 		redirect: "error"
 	};
@@ -133,34 +138,48 @@ async function getNodeinfo(base)/*: Promise<Response | null | false | undefined>
 		return null;
 	}
 
-	const controller2 = new AbortController()
-	const timeout2 = setTimeout(
-		() => { controller2.abort() },
-		30000
-	)
+	const getInfo = async (performMisskeyUa = false) => {
+		const controller2 = new AbortController()
+		const timeout2 = setTimeout(
+			() => { controller2.abort() },
+			30000
+		)
 
-	const info = await fetch(link.href, {
-		method: "GET",
-		headers: {
-			"User-Agent": ua,
-		},
-		redirect: "error",
-		signal: controller2.signal
-	}).then(res => {
-		if (res && res.ok) {
-			glog("Get Nodeinfo finish", link.href, res.status, res.ok)
-			return res.json();
-		}
-		return;
-	}).catch(async e => {
-		glog("Get Nodeinfo failed...", link.href, e.errno, e.type)
-		if (e.errno?.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
-		return;
-	}).finally(() => {
-		clearTimeout(timeout2);
-	})
+		return await fetch(link.href, {
+			method: "GET",
+			headers: {
+				"User-Agent": performMisskeyUa ? getLatestMisskeyUa() : ua,
+			},
+			redirect: "error",
+			signal: controller2.signal
+		}).then(res => {
+			if (res && res.ok) {
+				glog("Get Nodeinfo finish", link.href, res.status, res.ok)
+				return res.json();
+			}
+			return;
+		}).catch(async e => {
+			glog("Get Nodeinfo failed...", link.href, e.errno, e.type)
+			if (e.errno?.toLowerCase().includes('timeout') || e.type === 'aborted') return null;
+			return;
+		}).finally(() => {
+			clearTimeout(timeout2);
+		})
+	}
+	const info = await getInfo(false);
+	const infoUaMisskey = await getInfo(true);
 
-	return info;
+	if (JSON.stringify(info) === JSON.stringify(infoUaMisskey)) {
+		return info;
+	}
+
+	if (info?.software?.name) {
+		// notMisskey
+		info.software.name = '__INVALID__';
+		return info;
+	}
+
+	return null;
 }
 
 async function safeGetNodeInfo(base) {
@@ -296,6 +315,11 @@ async function getVersions() {
 							glog.error("Invalid version", release.tag_name)
 							continue;
 						}
+
+						if (repo === 'misskey-dev/misskey' && versionCount === 0) {
+							latestMisskeyVersion = version;
+						}
+
 						versions.set(version, {
 							repo,
 							count: versionCount,
@@ -309,6 +333,9 @@ async function getVersions() {
 						if (repo === 'misskey-dev/misskey' && version.indexOf('-') >= 0) {
 							// misskey-dev/misskeyかつプレリリースっぽければカウントアップしない
 						} else {
+							if (repo === 'misskey-dev/misskey' && valueCount === 0) {
+								latestMisskeyStableVersion = version;
+							}
 							valueCount++;
 						}
 					}
@@ -581,6 +608,8 @@ export const getInstancesInfos = async function () {
 		outdated: [...outdated],
 		versions,
 		versionOutput,
+		latestMisskeyStableVersion,
+		latestMisskeyVersion,
 		langs,
 	}
 }
